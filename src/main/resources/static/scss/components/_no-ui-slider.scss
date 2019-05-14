@@ -1,0 +1,58 @@
+.noUi-target{
+  border: none;
+  box-shadow: none;
+  @include border-radius(0px);
+  height: 3px;
+
+  .noUi-base{
+    background: color(gray-lightest);
+    box-shadow: none;
+    border: none;
+    .noUi-connect{
+      background: theme-color(primary);
+      box-shadow: none;
+    }
+    .noUi-origin{
+      background: theme-color(success);
+      .noUi-handle{
+        background: theme-color(primary);
+        @include border-radius(100%);
+        border:none;
+        box-shadow: none;
+        width: 19px;
+        height: 19px;
+        left: -17px;
+        top: -7px;
+        outline: none;
+        @include transition-duration(0.4s);
+        &:before,&:after{
+          display: none;
+        }
+        &.noUi-active{
+          position: relative;
+          box-shadow: 0 0 0 13px rgba(0,0,0,.1);
+        }
+      }
+    }
+  }
+}
+
+.slider-primary {
+  @include no-ui-slider(theme-color(primary));
+}
+
+.slider-success {
+  @include no-ui-slider(theme-color(success));
+}
+
+.slider-danger {
+  @include no-ui-slider(theme-color(danger));
+}
+
+.slider-info {
+  @include no-ui-slider(theme-color(info));
+}
+
+.slider-warning {
+  @include no-ui-slider(theme-color(warning));
+}

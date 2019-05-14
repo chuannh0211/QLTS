@@ -1,0 +1,8 @@
+.progress {
+  height: .8125rem;
+  .progress-bar {
+    &.progress-slim {
+      height: .375rem;
+    }
+  }
+}

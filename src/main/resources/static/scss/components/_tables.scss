@@ -1,0 +1,33 @@
+.table {
+  margin-bottom: 0;
+  border-color: $border-color;
+  th,
+  td {
+    border-left: 0;
+    border-right: 0;
+    @extend .px-3;
+  }
+  thead {
+    th {
+      border-bottom-width: 1px;
+    }
+  }
+  td {
+    color: $td-color;
+  }
+  &.table-bordered {
+    thead {
+      th {
+        border-bottom-width: 0;
+      }
+    }
+  }
+  tr {
+    &.bg-dark {
+      th,
+      td {
+        color: $white;
+      }
+    }
+  }
+}

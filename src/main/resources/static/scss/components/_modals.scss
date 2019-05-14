@@ -1,0 +1,14 @@
+.modal-content {
+  border: 0;
+}
+
+.modal-header,
+.modal-footer {
+  border-color: $border-color;
+}
+
+.modal-backdrop {
+  &.show {
+    opacity: .3;
+  }
+}

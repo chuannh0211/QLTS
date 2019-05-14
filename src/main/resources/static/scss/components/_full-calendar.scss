@@ -1,0 +1,34 @@
+.fc-button {
+  background-image: none;
+  border-color: inherit;
+  text-shadow: none;
+  &.fc-state-default {
+    background: theme-color(primary);
+    color: color(white);
+  }
+}
+.fc-event,
+.fc-event-dot {
+  background: theme-color(primary);
+  .fc-title,
+  .fc-time {
+    color: color(white);
+    font-weight: inherit;
+  }
+}
+
+.fc-event {
+  border-radius: 50px;
+  text-transform: uppercase;
+  padding: 5px 15px;
+}
+
+.fc-ltr .fc-h-event.fc-not-start,
+.fc-rtl .fc-h-event.fc-not-end {
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+}
+
+.fc-widget-header {
+  font-weight: inherit;
+}

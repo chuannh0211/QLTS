@@ -1,0 +1,55 @@
+.numbered-bordered-list {
+  list-style-type: none;
+  padding: 1rem 0 1rem 1.875rem;
+  margin-bottom: 0;
+  li {
+    border-bottom: 1px solid $border-color;
+    counter-increment: step-counter;
+    padding: 1rem 0;
+    position: relative;
+    &:before {
+      content: counter(step-counter);
+      margin-right: 10px;
+      position: absolute;
+      background-color: theme-color(danger);
+      color: color(white);
+      border-radius: 100%;
+      right: 100%;
+      width: 20px;
+      height: 20px;
+      font-size: .75rem;
+      font-family: 'source-sans-pro-bold', sans-serif;
+      text-align: center;
+      line-height: 20px;
+    }
+  }
+}
+
+.bullet-line-list {
+  padding-left: 30px;
+  position: relative;
+  li {
+    position: relative;
+    &:before {
+      content: "";
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      right: 100%;
+      top: 15px;
+      border: 2px solid theme-color(danger);
+      border-radius: 100%;
+      margin-right: 15px;
+      z-index: 1;
+      background: color(white);
+    }
+  }
+  &:after {
+    content: "";
+    border: 1px solid $border-color;
+    position: absolute;
+    top: 30px;
+    bottom: 30px;
+    left: 7px;
+  }
+}

@@ -1,0 +1,50 @@
+.portfolio-grid{
+  margin-left: 0;
+  margin-right: 0;
+  .portfolio-tile{
+    position: relative;
+    padding-left: 0;
+    padding-right: 0;
+    overflow: hidden;
+    img{
+      max-width: 100%;
+      width: 100%;
+      @include transition-duration(0.4s);
+    }
+    .tile-details{
+      @include display-flex;
+      @include align-items(center);
+      @include justify-content(center);
+      @include flex-direction(column);
+      position: absolute;
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+      top: 0;
+      bottom: 0;
+      left: 0px;
+      right:0px;
+      opacity: 0;
+      @include transition-duration(0.4s);
+      .project-name{
+        text-align: center;
+        display: block;
+        color: #fff;
+      }
+      .btn{
+        @extend .btn-outline-success;
+      }
+    }
+    &:hover{
+      img{
+        filter: blur(3px) grayscale(50%);
+        -webkit-filter: blur(3px) grayscale(50%);
+        -moz-filter: blur(3px) grayscale(50%);
+        -ms-filter: blur(3px) grayscale(50%);
+      }
+      .tile-details{
+        opacity: 1;
+      }
+    }
+  }
+}

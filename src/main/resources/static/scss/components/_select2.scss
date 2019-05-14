@@ -1,0 +1,13 @@
+.select2-container--default {
+  .select2-results__option--highlighted[aria-selected] {
+    background: theme-color(primary);
+  }
+  .select2-selection--single,
+  .select2-dropdown,
+  .select2-selection--multiple {
+    border-color: $border-color;
+    .select2-search__field {
+      border-color: $border-color;
+    }
+  }
+}

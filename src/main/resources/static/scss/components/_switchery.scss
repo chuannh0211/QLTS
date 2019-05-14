@@ -1,0 +1,28 @@
+.switchery {
+  width: 44px;
+  height: 23px;
+  border-radius: 11px;
+  >small {
+    width: 23px;
+    height: 23px;
+  }
+}
+
+.switchery-small {
+  width: 25px;
+  height: 13px;
+  >small {
+    width: 13px;
+    height: 13px;
+  }
+}
+
+.switchery-large {
+  width: 54px;
+  height: 33px;
+  border-radius: 17px;
+  >small {
+    width: 33px;
+    height: 33px;
+  }
+}

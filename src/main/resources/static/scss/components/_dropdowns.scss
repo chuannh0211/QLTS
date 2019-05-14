@@ -1,0 +1,5 @@
+.dropdown-item {
+  &:active {
+    background: theme-color(primary);
+  }
+}

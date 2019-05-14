@@ -1,0 +1,19 @@
+.accordion {
+  .card {
+    margin-bottom: 15px;
+    box-shadow: none;
+    .card-header {
+      background-color: color(gray-lightest);
+      border: 1px solid $border-color;
+      a {
+        color: theme-color(dark);
+        text-decoration: none;
+        font-size: 1rem;
+      }
+    }
+    .collapsing,
+    .collapse {
+      border: 1px solid $border-color;
+    }
+  }
+}

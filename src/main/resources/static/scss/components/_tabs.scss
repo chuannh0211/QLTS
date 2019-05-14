@@ -1,0 +1,51 @@
+.pws_tabs_container{
+	ul.pws_tabs_controll{
+		li{
+			a{
+				border-bottom: none;
+				background: #fff;
+				color: color(black);
+				padding: .6em 1em;
+				border-radius: 2px;
+				&:hover{
+					background: transparent;
+				}
+				&.pws_tab_active{
+					background: theme-color("primary");
+					color: #fff;
+				}
+				@media (max-width: 991px) {
+					font-size: 0.9rem;
+    			padding: .6em .4em;
+				}
+			}
+		}
+	}
+
+	.demo-tabs{
+		overflow: hidden;
+		margin-bottom: 45px;
+		padding-top: 2rem;
+		.CodeMirror{
+			margin-bottom: 20px;
+		}
+	}
+}
+
+//Bootstrap tabs
+
+.nav-tabs {
+	.nav-link {
+		border: 0;
+		color: color(black);
+		font-family: 'source-sans-pro-semibold',sans-serif;
+		font-size: .875rem;
+		&.active {
+			border-bottom: 1px solid theme-color(primary);
+			color: color(black);
+		}
+	}
+	.nav-tabs {
+		@extend .text-muted;
+	}
+}

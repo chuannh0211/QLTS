@@ -1,0 +1,20 @@
+package com.aht.qlts;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
+
+@SpringBootApplication
+@EnableJpaRepositories(basePackages = "com.aht.repository")
+@EnableTransactionManagement
+@ComponentScan("com.aht")
+@EntityScan("com.aht.entities")
+public class QltsApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(QltsApplication.class, args);
+	}
+}

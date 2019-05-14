@@ -1,0 +1,8 @@
+.badge {
+  border-radius: 0.125rem;
+  padding: 0.5em 1em;
+  &.badge-success,
+  &.badge-warning {
+    color: color(white);
+  }
+}

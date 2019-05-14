@@ -1,0 +1,13 @@
+div.tagsinput {
+  padding: 15px 15px 40px;
+  border-color: $border-color;
+  span.tag {
+    background: theme-color(primary);
+    border-color: theme-color(primary);
+    color: color(white);
+    padding: 10px;
+    a {
+      color: color(white);
+    }
+  }
+}

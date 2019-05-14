@@ -1,0 +1,53 @@
+.br-theme-fontawesome-stars,
+.br-theme-css-stars {
+  .br-widget {
+    a.br-selected,
+    a.br-active {
+      &:after {
+        color: theme-color(primary);
+      }
+    }
+  }
+}
+
+.br-theme-bars-1to10,
+.br-theme-bars-movie,
+.br-theme-bars-pill,
+.br-theme-bars-reversed,
+.br-theme-bars-horizontal {
+  .br-widget {
+    a {
+      background-color: lighten(theme-color(primary), 60%);
+      color: theme-color(primary);
+      &.br-selected,
+      &.br-active {
+        background-color: theme-color(primary);
+      }
+    }
+  }
+}
+
+.br-theme-bars-square {
+  .br-widget {
+    a {
+      border-color: lighten(theme-color(primary), 60%);
+      color: lighten(theme-color(primary), 60%);
+      &.br-selected,
+      &.br-active {
+        border-color: theme-color(primary);
+        color: theme-color(primary);
+      }
+    }
+  }
+}
+
+.br-theme-bars-movie,
+.br-theme-bars-reversed,
+.br-theme-bars-1to10,
+.br-theme-bars-horizontal {
+  .br-widget {
+    .br-current-rating {
+      color: theme-color(primary);
+    }
+  }
+}

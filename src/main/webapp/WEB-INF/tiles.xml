@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+	<definition name="templatePage"
+		template="/WEB-INF/views/classic.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="header"
+			value="/WEB-INF/views/tiles/header.jsp" />
+		<put-attribute name="menu"
+			value="/WEB-INF/views/tiles/menu.jsp" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer"
+			value="/WEB-INF/views/tiles/footer.jsp" />
+	</definition>
+	<!-- Home Page -->
+	<definition name="homePage" extends="templatePage">
+		<put-attribute name="title" value="Trang chủ" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/tiles/body.jsp" />
+	</definition>
+
+	<!-- List Categories Page -->
+	<definition name="listcategories" extends="templatePage">
+		<put-attribute name="title" value="Danh sách danh mục" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/categories/listCategories.jsp" />
+	</definition>
+
+	<!-- List Group Page -->
+	<definition name="listgroups" extends="templatePage">
+		<put-attribute name="title" value="Danh sách nhóm" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/groups/listGroups.jsp"></put-attribute>
+	</definition>
+
+	<!-- List Suppliers -->
+	<definition name="listsuppliers" extends="templatePage">
+		<put-attribute name="title"
+			value="Danh sách nhà cung cấp" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/suppliers/listSuppliers.jsp"></put-attribute>
+	</definition>
+
+	<!-- List Assets -->
+	<definition name="listasset" extends="templatePage">
+		<put-attribute name="title" value="Danh sách tài sản" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/taisan/listTaiSan.jsp"></put-attribute>
+	</definition>
+
+	<!-- List Users -->
+	<definition name="listuser" extends="templatePage">
+		<put-attribute name="title" value="Danh sách tài khoản"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/views/users/listUsers.jsp"></put-attribute>
+	</definition>
+
+	<!-- Edit categories -->
+	<definition name="editdsdm" extends="templatePage">
+		<put-attribute name="title" value="Sửa danh mục"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/views/categories/editCategory.jsp"></put-attribute>
+	</definition>
+
+	<!-- Edit groups -->
+	<definition name="editdsn" extends="templatePage">
+		<put-attribute name="title" value="Sửa nhóm"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/views/groups/editGroup.jsp"></put-attribute>
+	</definition>
+	<!-- Edit suppliers -->
+	<definition name="editdsncc" extends="templatePage">
+		<put-attribute name="title" value="Sửa nhà cung cấp"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/views/suppliers/editSuppliers.jsp"></put-attribute>
+	</definition>
+
+	<!-- Edit taisan -->
+	<definition name="editdsts" extends="templatePage">
+		<put-attribute name="title" value="Sửa tài sản"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/views/taisan/editTaiSan.jsp"></put-attribute>
+	</definition>
+
+	<!-- Edit user -->
+	<definition name="editdstk" extends="templatePage">
+		<put-attribute name="title" value="Sửa tài sản"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/views/users/editUser.jsp"></put-attribute>
+	</definition>
+
+	<!-- Chi tiết danh mục -->
+	<definition name="listCategorieDetails"
+		extends="templatePage">
+		<put-attribute name="title" value="Danh sách tài sản"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/views/categories/listCategoryDetails.jsp"></put-attribute>
+	</definition>
+
+	<!-- Điều chuyển tài sản -->
+	<definition name="dieuchuyentaisan" extends="templatePage">
+		<put-attribute name="title" value="Điều chuyển tài sản"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/views/taisan/dieuchuyentaisan.jsp"></put-attribute>
+	</definition>
+</tiles-definitions>

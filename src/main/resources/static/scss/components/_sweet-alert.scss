@@ -1,0 +1,6 @@
+.swal2-container {
+  &.swal2-shown {
+    -webkit-animation: showSweetAlert 1s !important;
+    animation: showSweetAlert 1s !important;
+  }
+}

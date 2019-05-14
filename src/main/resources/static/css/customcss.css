@@ -1,0 +1,85 @@
+.modal {
+	display: none; /* Hidden by default */
+	position: fixed; /* Stay in place */
+	z-index: 1; /* Sit on top */
+	padding-top: 100px; /* Location of the box */
+	left: 0;
+	top: 0;
+	width: 100%; /* Full width */
+	height: 100%; /* Full height */
+	overflow: scroll; /* Enable scroll if needed */
+	background-color: rgb(0, 0, 0); /* Fallback color */
+	background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+	background-color: #fefefe;
+	margin: auto;
+	padding: 20px;
+	border: 1px solid #888;
+	width: 40%;
+}
+
+/* The Close Button */
+.modal-content>div {
+	text-align: right;
+	width: 100%;
+}
+
+.closee {
+	color: #aaaaaa;
+	font-size: 28px;
+	font-weight: bold;
+}
+
+.closee:hover, .closee:focus {
+	color: #000;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.btn-view {
+	color: #fff;
+	background-color: #fece10;
+	border-color: #f8ef5f;
+}
+
+.btn-view:hover {
+	color: #fff;
+	background-color: #e6db0d;
+}
+
+.btn-add {
+	margin: 2px;
+	float: right;
+	background-color: #4CAF50;
+	border: none;
+	color: white;
+	text-align: center;
+	font-size: 16px;
+	cursor: pointer;
+}
+
+.btn-add:hover {
+	color: #fff;
+	background-color: #5af965;
+}
+
+.table tbody tr td:last-child {
+	text-align: right;
+}
+
+.label-signup {
+	cursor: pointer;
+}
+
+.form-group select,textarea {
+	width: 100%;
+	padding: 5px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+	margin: 0 5px;
+	resize: vertical;
+}

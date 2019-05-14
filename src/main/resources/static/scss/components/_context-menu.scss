@@ -1,0 +1,10 @@
+.context-menu-icon {
+  &:before {
+    color: theme-color(primary);
+  }
+}
+.context-menu-item {
+  &.context-menu-hover {
+    background: theme-color(primary);
+  }
+}

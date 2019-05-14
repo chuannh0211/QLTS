@@ -1,0 +1,32 @@
+.table {
+  &.dataTable {
+    .btn {
+      padding: 0.1rem 1rem;
+      vertical-align: top;
+    }
+    thead {
+      .sorting,
+      .sorting_asc,
+      .sorting_desc,
+      .sorting_asc_disabled,
+      .sorting_desc_disabled {
+        &:before,
+        &:after {
+          line-height: 20px;
+          font-family: Material Design Icons;
+        }
+        &:before {
+          content: "\F05D";
+          right: .8em;
+        }
+        &:after {
+          content: "\F045";
+          right: 0;
+        }
+      }
+    }
+  }
+  .dataTables_paginate {
+    margin-top: 20px;
+  }
+}
