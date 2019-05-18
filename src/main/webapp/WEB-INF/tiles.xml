@@ -127,10 +127,17 @@
 			value="/WEB-INF/views/taisan/tsDetails.jsp"></put-attribute>
 	</definition>
 
-	<!-- Điều chuyển tài sản -->
+	<!-- Form Điều chuyển tài sản -->
 	<definition name="form-dcts" extends="templatePage">
 		<put-attribute name="title" value="Điều chuyển tài sản"></put-attribute>
 		<put-attribute name="body"
-			value="/WEB-INF/views/taisan/dieuchuyentaisan.jsp"></put-attribute>
+			value="/WEB-INF/views/dieuchuyentaisan/formDcts.jsp"></put-attribute>
+	</definition>
+	
+	<!-- Form biến động tài sản -->
+	<definition name="form-bdts" extends="templatePage">
+		<put-attribute name="title" value="Biến động tài sản"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/views/biendongtaisan/formBdts.jsp"></put-attribute>
 	</definition>
 </tiles-definitions>

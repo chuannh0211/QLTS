@@ -54,11 +54,14 @@ public class DctsController {
 		return "redirect:/view-details/{id}";
 	}
 
-	@RequestMapping(value = { "view-details/xoa-dcts/{id}" })
-	public String deleteDcts(@PathVariable("id") int id) {
-		System.out.println("00");
+	@RequestMapping(value = { "view-details/xoa-dcts" })
+	public String deleteDcts(@RequestParam(value="id") int id,@RequestParam(value="idts") int idts) {
 		dctsService.deleteDCTS(id);
-		return "redirect:/view-details/{id}";
+		
+//đâu id của tài sản đâu
+		// hiện tại là e đang lấy theo id của ts
+		
+		return "redirect:/view-details/"+idts;
 	}
 
 	/* redirect */
@@ -82,7 +85,8 @@ public class DctsController {
 		DieuChuyenTaiSan newDcts = dctsService.getDCTSById(id);
 		model.addAttribute("newN", newDcts.getNhom().getId());
 		model.addAttribute("dcts", dctsService.getDCTSById(id));
-		model.addAttribute("id_ts", id);
+		newDcts.getIdTaiSan(id);
+		model.addAttribute("id_ts", newDcts.getIdTaiSan(id));
 		return "editChitietdieuchuyenPopup";
 	}
 
@@ -95,9 +99,9 @@ public class DctsController {
 		System.out.println(dcts.getNhom());
 
 		System.out.println("XXX: ");
-		
+
 		dctsService.updateDCTS(dcts);
 		return "redirect:/view-details/{id}";
 	}
-	
+
 }

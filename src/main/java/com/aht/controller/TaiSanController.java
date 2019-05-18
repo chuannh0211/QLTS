@@ -1,6 +1,5 @@
 package com.aht.controller;
 
-import java.time.LocalDate;
 import java.util.List;
 import java.util.Set;
 
@@ -18,7 +17,6 @@ import com.aht.entities.DieuChuyenTaiSan;
 import com.aht.entities.NhaCungCap;
 import com.aht.entities.TaiSan;
 import com.aht.serviceImpl.DanhMucServiceImpl;
-import com.aht.serviceImpl.DieuChuyenTaiSanServiceImpl;
 import com.aht.serviceImpl.SuppliersServiceImpl;
 import com.aht.serviceImpl.TaiSanServiceImpl;
 
@@ -30,8 +28,6 @@ public class TaiSanController {
 	private DanhMucServiceImpl dmService;
 	@Autowired
 	private SuppliersServiceImpl sService;
-	@Autowired
-	private DieuChuyenTaiSanServiceImpl dctsService;
 
 	@RequestMapping(value = { "/dsts" }, method = RequestMethod.GET)
 	public String getAllAsset(Model model) {

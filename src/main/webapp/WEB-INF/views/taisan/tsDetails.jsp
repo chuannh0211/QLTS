@@ -55,15 +55,15 @@
 						<td>${ltsDcts.getGruopAsset() }</td>
 						<td>${ltsDcts.ghichu }</td>
 						<td><a class="btn btn-primary btn-sm open-modal" id-dcts="${ltsDcts.id}" href="#">Sửa</a> &nbsp;
-							<a class="btn btn-primary btn-sm" href="<c:url value='sua-dcts/${ltsDcts.id}'/>">Sửa</a> &nbsp;
-							<a class="btn btn-danger btn-sm" href="<c:url value='xoa-dcts/${ltsDcts.id}'/>">Xóa</a>&nbsp; 
+							 <%-- <a class="btn btn-primary btn-sm" href="<c:url value='sua-dcts/${ltsDcts.id}'/>">Sửa</a> &nbsp; --%>
+							<a class="btn btn-danger btn-sm" href="<c:url value='xoa-dcts?id=${ltsDcts.id}&idts=${ts.id}'/>">Xóa</a>&nbsp; 
 							</td>
 					</tr>
-					
 			  	 </c:forEach>    
-
 			</table>
 			<h1 class="card-title">Biến động tài sản</h1>
+			 <a class="btn btn-add btn-sm"
+				href="/form-bdts/${ts.id}">Biến động tài sản</a> 
 			<table class="table center-aligned-table">
 				<tr>
 					<th>Ngày biến động</th>

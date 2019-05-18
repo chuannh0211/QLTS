@@ -13,14 +13,14 @@
 			<h4 class="modal-title">Sửa thông tin điều chuyển</h4>
 			<form:form action="/view-details/sua-dctsX/${id_ts }"
 				class="forms-sample" modelAttribute="dcts" method="POST">
-				<form:hidden path="id"/>
+				<form:hidden path="id" />
 				<div class="form-group">
 					<label>Ngày điều chuyển: </label>
 					<form:input path="ngaydieuchuyen"
 						class="form-control p-input disable" />
 				</div>
 				<div class="form-group">
-					<label>Quản lý: </label>
+					<label>Người ghi: </label>
 					<form:input path="nguoiquanly" class="form-control p-input" />
 				</div>
 				<div class="form-group">
