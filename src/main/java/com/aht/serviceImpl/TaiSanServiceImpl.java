@@ -30,17 +30,17 @@ public class TaiSanServiceImpl implements TaiSanService {
 		newTs.setTrangthai(ts.getTrangthai());
 		newTs.setGiatrithuc(ts.getGiatrithuc());
 		newTs.setDanhmuc(ts.getDanhmuc());
-		newTs.setNhacungcap(ts.getNhacungcap());
+		//newTs.setNhacungcap(ts.getNhacungcap());
 		return repository.save(newTs);
 	}
 
 	@Override
 	public boolean deleteTaiSan(long id) {
-			System.out.println("-" + id);
-			System.out.println("--" + repository.findById(id).get());
-			repository.delete(repository.findById(id).get());
-			return true;
-		
+		System.out.println("-" + id);
+		System.out.println("--" + repository.findById(id).get());
+		repository.delete(repository.findById(id).get());
+		return true;
+
 	}
 
 	@Override
@@ -57,5 +57,21 @@ public class TaiSanServiceImpl implements TaiSanService {
 		// TODO Auto-generated method stub
 		return repository.findAll();
 	}
-	
+
+	@Override
+	public TaiSan findByTentaisan(String tentaisan) {
+		// TODO Auto-generated method stub
+
+		return repository.findByTentaisan(tentaisan);
+	}
+
+
+
+//	@Override
+//	public List<TaiSan> findByTrangThai() {
+		// TODO Auto-generated method stub
+//		TaiSan newTs = new TaiSan();
+//		return null; //repository.findAll(Sort.Direction.fromOptionalString(newTs.getTrangthai()));
+//	}
+
 }

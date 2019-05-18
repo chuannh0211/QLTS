@@ -14,5 +14,8 @@ public interface TaiSanService {
 	public TaiSan getTaiSanById(long id);
 
 	public List<TaiSan> getAllTaiSan();
+
+	public TaiSan findByTentaisan(String tentaisan);
 	
+//	public List<TaiSan> findByTrangThai();
 }

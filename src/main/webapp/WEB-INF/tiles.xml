@@ -14,6 +14,12 @@
 		<put-attribute name="footer"
 			value="/WEB-INF/views/tiles/footer.jsp" />
 	</definition>
+	<!-- template for popup-edit -->
+	<definition name="templateBlank"
+		template="/WEB-INF/views/cclassic.jsp">
+		<put-attribute name="body" value="" />
+	</definition>
+	
 	<!-- Home Page -->
 	<definition name="homePage" extends="templatePage">
 		<put-attribute name="title" value="Trang chủ" />
@@ -86,9 +92,24 @@
 
 	<!-- Edit user -->
 	<definition name="editdstk" extends="templatePage">
-		<put-attribute name="title" value="Sửa tài sản"></put-attribute>
+		<put-attribute name="title" value="Sửa tài khoản"></put-attribute>
 		<put-attribute name="body"
 			value="/WEB-INF/views/users/editUser.jsp"></put-attribute>
+	</definition>
+	
+	<!-- Edit chi tiết điều chuyển -->
+	<definition name="editChitietdieuchuyen" extends="templatePage">
+		<put-attribute name="title" value="Sửa thông tin điều chuyển"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/views/dieuchuyentaisan/editDcts.jsp"></put-attribute>
+	</definition>
+	
+	<!-- Edit chi tiết điều chuyển -->
+	<!-- 1 -->
+	<definition name="editChitietdieuchuyenPopup" extends="templateBlank">
+		<put-attribute name="title" value="Sửa thông tin điều chuyển"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/views/dieuchuyentaisan/editDcts-popup.jsp"></put-attribute>
 	</definition>
 
 	<!-- Chi tiết danh mục -->
@@ -98,9 +119,16 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/categories/listCategoryDetails.jsp"></put-attribute>
 	</definition>
+	<!-- Chi tiết tài sản -->
+	<definition name="listAssetsDetails"
+		extends="templatePage">
+		<put-attribute name="title" value="Danh sách tài sản"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/views/taisan/tsDetails.jsp"></put-attribute>
+	</definition>
 
 	<!-- Điều chuyển tài sản -->
-	<definition name="dieuchuyentaisan" extends="templatePage">
+	<definition name="form-dcts" extends="templatePage">
 		<put-attribute name="title" value="Điều chuyển tài sản"></put-attribute>
 		<put-attribute name="body"
 			value="/WEB-INF/views/taisan/dieuchuyentaisan.jsp"></put-attribute>

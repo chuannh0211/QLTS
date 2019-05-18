@@ -1,5 +1,5 @@
 jQuery(document).ready(function() {
-	console.log("123");
+	
 	
 	//Open modal danh sach danh muc
 	if (jQuery('#myModal').length > 0){
@@ -32,5 +32,11 @@ jQuery(document).ready(function() {
 				jQuery('#myModal').hide();
 			}
 		}
+		
+		//show modal for class
+		jQuery('.open-modal').click(function(){
+			jQuery('#myModal').show();
+		});
+
 	}
 });

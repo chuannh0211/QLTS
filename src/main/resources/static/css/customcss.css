@@ -19,12 +19,14 @@
 	padding: 20px;
 	border: 1px solid #888;
 	width: 40%;
+	position: relative;
 }
 
 /* The Close Button */
-.modal-content>div {
-	text-align: right;
-	width: 100%;
+.modal-content span.closee {
+	position: absolute;
+	top: 10px;
+	right: 10px;
 }
 
 .closee {
@@ -74,7 +76,7 @@
 	cursor: pointer;
 }
 
-.form-group select,textarea {
+.form-group select, textarea {
 	width: 100%;
 	padding: 5px;
 	border: 1px solid #ccc;
@@ -82,4 +84,9 @@
 	box-sizing: border-box;
 	margin: 0 5px;
 	resize: vertical;
+}
+
+.disable {
+	pointer-events: none;
+	background-color: #80808080;
 }

@@ -1,9 +1,19 @@
 package com.aht.entities;
 
+import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "taisan")
@@ -20,7 +30,7 @@ public class TaiSan {
 	@Column(name = "giatrithuc")
 	private String giatrithuc;
 //	private long maDM;
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "taisan")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "taisan")
 	private Set<DieuChuyenTaiSan> listDieuchuyentaisan = new HashSet<>();
 	@ManyToOne
 	@JoinColumn(name = "madanhmuc", nullable = false)
@@ -30,6 +40,25 @@ public class TaiSan {
 	private NhaCungCap nhacungcap;
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "taisan")
 	private Set<BienDongTaiSan> listBiendongtaisan = new HashSet<>();
+
+	public TaiSan() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public TaiSan(long id, String tentaisan, String dacdiem, String trangthai, String giatrithuc,
+			Set<DieuChuyenTaiSan> listDieuchuyentaisan, DanhMuc danhmuc, NhaCungCap nhacungcap,
+			Set<BienDongTaiSan> listBiendongtaisan) {
+		this.id = id;
+		this.tentaisan = tentaisan;
+		this.dacdiem = dacdiem;
+		this.trangthai = trangthai;
+		
+		this.giatrithuc = giatrithuc;
+		this.listDieuchuyentaisan = listDieuchuyentaisan;
+		this.danhmuc = danhmuc;
+		this.nhacungcap = nhacungcap;
+		this.listBiendongtaisan = listBiendongtaisan;
+	}
 
 	public long getId() {
 		return id;
@@ -104,9 +133,10 @@ public class TaiSan {
 		this.nhacungcap = nhacungcap;
 	}
 
-//	public long getMaDM() {
-//		return maDM = danhmuc.getId();
-//	}
+	public LocalDate getDate() {
+		LocalDate localDate = LocalDate.now();
+		return localDate;
+	}
 
 	public Set<BienDongTaiSan> getListBiendongtaisan() {
 		return listBiendongtaisan;

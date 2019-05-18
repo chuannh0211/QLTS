@@ -49,9 +49,6 @@
 						<div>
 							<button type="submit" class="btn btn-add btn-sm">Thêm</button>
 						</div>
-
-
-
 					</form>
 				</div>
 			</div>

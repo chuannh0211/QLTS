@@ -10,5 +10,5 @@ import com.aht.entities.DieuChuyenTaiSan;
 @Repository
 @Transactional
 public interface DieuChuyenTaiSanRepository extends JpaRepository<DieuChuyenTaiSan, Long> {
-
+//	DieuChuyenTaiSan findByTenTaiSan(String dcts); 
 }

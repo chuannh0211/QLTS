@@ -11,6 +11,9 @@
  <link rel="stylesheet" type="text/css" href="/node_modules/font-awesome/css/font-awesome.min.css">
  <link rel="stylesheet" type="text/css" href="/css/style.css">
  <link rel="stylesheet" type="text/css" href="/css/customcss.css">
+ 
+ <script type="text/javascript" src="/webjars/jquery/3.3.1/jquery.min.js/"></script>
+ <script type="text/javascript" src="/webjars/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 </head>
 <body class="navbar-primary">
 	<div class="container-scroller">
@@ -23,8 +26,8 @@
 	</div>
 		<tiles:insertAttribute name="footer" />
 	</div>
-	<script type="text/javascript" src="/webjars/jquery/3.3.1/jquery.min.js/"></script>
-    <script type="text/javascript" src="/webjars/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+	
+    
     <script type="text/javascript" src="/node_modules/popper.js/dist/umd/popper.min.js"></script> 
     <script type="text/javascript" src="/node_modules/perfect-scrollbar/dist/js/perfect-scrollbar.jquery.min.js"></script>
 
@@ -32,7 +35,9 @@
     <script type="text/javascript" src="/js/hoverable-collapse.js"></script>
     <script type="text/javascript" src="/js/misc.js"></script> 
     
+    
     <!--	Custom js  -->
     <script type="text/javascript" src="/js/myJs/customjs.js"></script> 
+
 </body>
 </html>

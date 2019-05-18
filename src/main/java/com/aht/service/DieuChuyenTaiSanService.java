@@ -9,9 +9,11 @@ public interface DieuChuyenTaiSanService {
 
 	public DieuChuyenTaiSan updateDCTS(DieuChuyenTaiSan dcts);
 
-	public boolean deleteDCTS(Long id);
+	public boolean deleteDCTS(long id);
 
-	public DieuChuyenTaiSan getDCTSById(Long id);
+	public DieuChuyenTaiSan getDCTSById(long id);
 
 	public List<DieuChuyenTaiSan> getAllDCTS();
+	
+	//public DieuChuyenTaiSan findByTentaisan(String tentaisan);
 }

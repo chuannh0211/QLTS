@@ -11,9 +11,6 @@
 		<div class="card-body">
 			<h1 class="card-title">Danh sách tài sản</h1>
 			<button id="myBtn" class="btn btn-add btn-sm">Thêm tài sản</button>
-			<a class="btn btn-add btn-sm"
-				href="${pageContext.request.contextPath }/dcts">Điều chuyển tài
-				sản</a>
 			<table class="table center-aligned-table">
 				<tr>
 					<th>ID</th>
@@ -24,21 +21,21 @@
 					<th>Danh mục</th>
 					<th>Nhà cung cấp</th>
 				</tr>
-				<c:forEach var="ls" items="${lsTs }">
+				<c:forEach var="lsTs" items="${lsTs }">
 					<tr>
-						<td>${ls.getId() }</td>
-						<td>${ls.tentaisan }</td>
-						<td>${ls.dacdiem }</td>
-						<td>${ls.trangthai }</td>
-						<td>${ls.giatrithuc }</td>
-						<td>${ls.getNameDm() }</td>
-						<td>${ls.getNameNcc() }</td>
+						<td>${lsTs.getId() }</td>
+						<td>${lsTs.tentaisan }</td>
+						<td>${lsTs.dacdiem }</td>
+						<td>${lsTs.trangthai }</td>
+						<td>${lsTs.giatrithuc }</td>
+						<td>${lsTs.getNameDm() }</td>
+						<td>${lsTs.getNameNcc() }</td>
 						<td><a class="btn btn-primary btn-sm"
-							href="<c:url value='edit-ts/${ls.id}'/>">Sửa</a> &nbsp; <a
+							href="<c:url value='edit-ts/${lsTs.id}'/>">Sửa</a> &nbsp; <a
 							class="btn btn-danger btn-sm"
-							href="<c:url value='delete-ts/${ls.id}'/>">Xóa</a> &nbsp; <a
+							href="<c:url value='delete-ts/${lsTs.id}'/>">Xóa</a> &nbsp; <a
 							class="btn btn-view btn-sm"
-							href="<c:url value='view-taisan-details/${id}'/>">Xem</a></td>
+							href="<c:url value='view-details/${lsTs.getId() }'/>">Xem</a></td>
 					</tr>
 				</c:forEach>
 			</table>
@@ -68,6 +65,11 @@
 								value="Hỏng">Hỏng <input type="radio" name="trangthai"
 								value="Thanh Lý">Thanh Lý
 						</div>
+						<div>
+							<label><b>Giá trị thực:</b></label> <input
+								class="form-control p-input" type="text"
+								placeholder="Giá trị thực" name="giatrithuc" required="required">
+						</div>
 						<!-- <div>
 								<label><b>Trạng thái</b></label> <select name="trangthai">
 									<option value="Tốt">Tốt</option>
@@ -93,7 +95,7 @@
 									<option value="${ltsNcc.getId()}">${ltsNcc.getTencongty()}</option>
 								</c:forEach>
 							</select>
-						</div>
+						</div> 
 						<!-- <div>
 							<label><b>Nhà cung cấp</b></label> <input
 								class="form-control p-input" type="text"

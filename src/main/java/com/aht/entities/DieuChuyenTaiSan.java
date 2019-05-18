@@ -1,8 +1,13 @@
 package com.aht.entities;
 
-import java.util.Date;
-
 import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "dieuchuyentaisan")
@@ -11,13 +16,12 @@ public class DieuChuyenTaiSan {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	@Column(name = "ngaydieuchuyen")
-	private Date ngaydieuchuyen;
-	@Column(name = "tentaisan")
-	private String tentaisan;
+	private String ngaydieuchuyen;
 	@Column(name = "nguoiquanly")
 	private String nguoiquanly;
 	@Column(name = "ghichu")
 	private String ghichu;
+	//private String tentaisan;
 	@ManyToOne
 	@JoinColumn(name = "manhom", nullable = false)
 	private Nhom nhom;
@@ -33,20 +37,12 @@ public class DieuChuyenTaiSan {
 		this.id = id;
 	}
 
-	public Date getNgaydieuchuyen() {
+	public String getNgaydieuchuyen() {
 		return ngaydieuchuyen;
 	}
 
-	public void setNgaydieuchuyen(Date ngaydieuchuyen) {
+	public void setNgaydieuchuyen(String ngaydieuchuyen) {
 		this.ngaydieuchuyen = ngaydieuchuyen;
-	}
-
-	public String getTentaisan() {
-		return tentaisan;
-	}
-
-	public void setTentaisan(String tentaisan) {
-		this.tentaisan = tentaisan;
 	}
 
 	public String getNguoiquanly() {
@@ -81,4 +77,15 @@ public class DieuChuyenTaiSan {
 		this.taisan = taisan;
 	}
 
+	public long getIdTaiSan(long id) {
+		return taisan.getId();
+	}
+	public String getNameAsset() {
+		
+		return taisan.getTentaisan();
+	}
+	public String getGruopAsset() {
+		
+		return nhom.getName();
+	}
 }

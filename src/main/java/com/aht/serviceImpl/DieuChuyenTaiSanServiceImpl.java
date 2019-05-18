@@ -26,21 +26,21 @@ public class DieuChuyenTaiSanServiceImpl implements DieuChuyenTaiSanService {
 		// TODO Auto-generated method stub
 		DieuChuyenTaiSan newDCTS = repository.findById(dcts.getId()).get();
 		newDCTS.setNgaydieuchuyen(dcts.getNgaydieuchuyen());
-		newDCTS.setTentaisan(dcts.getTentaisan());
 		newDCTS.setNguoiquanly(dcts.getNguoiquanly());
+		newDCTS.setNhom(dcts.getNhom());
 		newDCTS.setGhichu(dcts.getGhichu());
 		return repository.save(newDCTS);
 	}
 
 	@Override
-	public boolean deleteDCTS(Long id) {
+	public boolean deleteDCTS(long id) {
 		// TODO Auto-generated method stub
 		repository.delete(repository.findById(id).get());
 		return true;
 	}
 
 	@Override
-	public DieuChuyenTaiSan getDCTSById(Long id) {
+	public DieuChuyenTaiSan getDCTSById(long id) {
 		// TODO Auto-generated method stub
 		Optional<DieuChuyenTaiSan> dcts = repository.findById(id);
 		if (dcts.isPresent()) {
@@ -55,5 +55,12 @@ public class DieuChuyenTaiSanServiceImpl implements DieuChuyenTaiSanService {
 
 		return repository.findAll();
 	}
+
+//	@Override
+//	public DieuChuyenTaiSan findByTentaisan(String tentaisan) {
+//		// TODO Auto-generated method stub
+//
+//		return repository.findByTenTaiSan(tentaisan);
+//	}
 
 }
