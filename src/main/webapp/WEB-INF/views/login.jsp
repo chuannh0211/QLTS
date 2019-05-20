@@ -69,17 +69,17 @@
 									<div class="form-group">
 										<label><b>Tài khoản:</b></label> <input
 											class="form-control p_input" type="text"
-											placeholder="Username" name="username" required="required">
+											placeholder="Nhập tài khoản" name="username" required="required">
 									</div>
 									<div class="form-group">
 										<label><b>Mật khẩu:</b></label> <input
 											class="form-control p_input" type="password"
-											placeholder="Password" name="password" required="required">
+											placeholder="Nhập mật khẩu" name="password" required="required">
 									</div>
 									<div class="form-group">
 										<label><b>Nhập lại mật khẩu:</b></label> <input
 											class="form-control p_input" type="password"
-											placeholder="Password Confirm" name="passwordConfirm"
+											placeholder="Xác nhận mật khẩu" name="passwordConfirm"
 											required="required">
 									</div>
 									<div class="text-center">

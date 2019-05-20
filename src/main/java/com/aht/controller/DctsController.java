@@ -36,7 +36,7 @@ public class DctsController {
 		List<Nhom> listN = nService.getAllNhom();
 		model.addAttribute("lsN", listN);
 		TaiSan newTs = tsService.getTaiSanById(id);
-		model.addAttribute("ts", newTs);
+		model.addAttribute("tsDcts", newTs);
 		return "form-dcts";
 	}
 

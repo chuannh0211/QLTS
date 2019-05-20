@@ -30,7 +30,7 @@ public class TaiSanServiceImpl implements TaiSanService {
 		newTs.setTrangthai(ts.getTrangthai());
 		newTs.setGiatrithuc(ts.getGiatrithuc());
 		newTs.setDanhmuc(ts.getDanhmuc());
-		//newTs.setNhacungcap(ts.getNhacungcap());
+		newTs.setNhacungcap(ts.getNhacungcap());
 		return repository.save(newTs);
 	}
 

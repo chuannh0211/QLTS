@@ -18,7 +18,6 @@ public class BienDongTaiSanServiceImpl implements BienDongTaiSanService {
 	@Override
 	public BienDongTaiSan createBDTS(BienDongTaiSan bdts) {
 		// TODO Auto-generated method stub
-
 		return repository.save(bdts);
 	}
 
@@ -26,11 +25,9 @@ public class BienDongTaiSanServiceImpl implements BienDongTaiSanService {
 	public BienDongTaiSan updateBDTS(BienDongTaiSan bdts) {
 		// TODO Auto-generated method stub
 		BienDongTaiSan newBdts = repository.findById(bdts.getId()).get();
-//		if (bdts == null)
-//			return null;
 		newBdts.setNgaybiendong(bdts.getNgaybiendong());
 		newBdts.setNguoighi(bdts.getNguoighi());
-		newBdts.setTaisanchinh(bdts.getTaisanchinh());
+		newBdts.setTaisan(bdts.getTaisan());
 		newBdts.setTaisanbiendong(bdts.getTaisanbiendong());
 		newBdts.setTrangthai(bdts.getTrangthai());
 		newBdts.setGiatribiendong(bdts.getGiatribiendong());

@@ -90,3 +90,11 @@
 	pointer-events: none;
 	background-color: #80808080;
 }
+
+.card-sub-title {
+	display: -webkit-flex;
+	display: flex;
+	align-items: center;
+	color: #000;
+	font-family: 'open-sans-semibold', sans-serif;
+}

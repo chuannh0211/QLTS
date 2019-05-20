@@ -58,13 +58,20 @@
 								class="form-control p-input" type="text"
 								placeholder="Điền đặc điểm" name="dacdiem" required="required">
 						</div>
-						<div class="form-group">
+						 <div class="form-group">
 							<label><b>Trạng thái</b></label> <br /> <input
 								style="padding: 0 10px;" type="radio" name="trangthai"
 								value="Tốt">Tốt <input type="radio" name="trangthai"
 								value="Hỏng">Hỏng <input type="radio" name="trangthai"
 								value="Thanh Lý">Thanh Lý
-						</div>
+						</div> 
+						<%-- <div class="form-group">
+							<label><b>Trạng thái</b></label> <select name="trangthai">
+								<option value="${value.trangthaiT}">Tốt</option>
+								<option value="${value.trangthaiH}">Hỏng</option>
+								<option value="${value.trangthaiTL}">Thanh lý</option>
+							</select>
+						</div> --%>
 						<div>
 							<label><b>Giá trị thực:</b></label> <input
 								class="form-control p-input" type="text"

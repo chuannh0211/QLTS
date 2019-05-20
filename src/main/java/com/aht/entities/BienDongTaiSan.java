@@ -2,6 +2,8 @@ package com.aht.entities;
 
 import javax.persistence.*;
 
+import org.springframework.beans.factory.annotation.Value;
+
 @Entity
 @Table(name = "biendongtaisan")
 public class BienDongTaiSan {
@@ -12,10 +14,11 @@ public class BienDongTaiSan {
 	private String ngaybiendong;
 	@Column(name = "nguoighi")
 	private String nguoighi;
-	@Column(name = "taisanchinh")
-	private String taisanchinh;
+//	@Column(name = "taisanchinh")
+//	private String taisanchinh;
 	@Column(name = "taisanbiendong")
 	private String taisanbiendong;
+	@Value("${value.trangthaiM},${value.trangthaiSc},${value.trangthaiTtb},${value.trangthaiBtb,${value.trangthaiTL}")
 	@Column(name = "trangthai")
 	private String trangthai;
 	@Column(name = "giatribiendong")
@@ -28,7 +31,8 @@ public class BienDongTaiSan {
 	private String sohoadon;
 	@Column(name = "ghichu")
 	private String ghichu;
-	@ManyToOne
+	
+	@ManyToOne()
 	@JoinColumn(name = "mataisan", nullable = false)
 	private TaiSan taisan;
 
@@ -56,13 +60,13 @@ public class BienDongTaiSan {
 		this.nguoighi = nguoighi;
 	}
 
-	public String getTaisanchinh() {
-		return taisanchinh;
-	}
-
-	public void setTaisanchinh(String taisanchinh) {
-		this.taisanchinh = taisanchinh;
-	}
+//	public String getTaisanchinh() {
+//		return taisanchinh;
+//	}
+//
+//	public void setTaisanchinh(String taisanchinh) {
+//		this.taisanchinh = taisanchinh;
+//	}
 
 	public String getTaisanbiendong() {
 		return taisanbiendong;
@@ -128,4 +132,10 @@ public class BienDongTaiSan {
 		this.taisan = taisan;
 	}
 
+	public String getNcc() {
+		return taisan.getNameNcc();
+	}
+	public String getTentaisan() {
+		return taisan.getTentaisan();
+	}
 }

@@ -11,33 +11,27 @@
 	<div class="card">
 		<div class="card-body">
 			<h1 class="card-title">Điều chuyển tài sản</h1>
-			<form class="forms-sample" action="/add-dcts/${ts.id}" method="post">
+			<form class="forms-sample" action="/add-dcts/${tsDcts.id}" method="post">
 				 <div class="form-group">
 					<label><b>Ngày điều chuyển:</b></label>
-				<%-- 	<p class="form-control">${ts.getDate() }</p> --%>
 					<input type="text" class="form-control" name="ngaydieuchuyen"
-						value="${ts.getDate() }" readonly>
+						value="${tsDcts.getDate() }" readonly>
 				</div> 
-				<!-- <div class="form-group">
-					<label><b>Ngày điều chuyển:</b></label> <input type="text"
-						name="ngaydieuchuyen">
-				</div> -->
-				<%--  <div class="form-group">
+				<%-- <div class="form-group">
 					<label><b>Tài sản:</b></label>
-					<p class="form-control">${ts.getTentaisan()}</p>
 					<input type="text" class="form-control" name="tentaisan"
-						value="${ts.getTentaisan()}" disabled="disabled" >
-				</div>  --%>
-				<div class="form-group">
-					<label><b>Tài sản:</b></label> <select name="tentaisan">
-
-						<option value="${ts.getId()}">${ts.getTentaisan()}</option>
-
+						value="${tsDcts.getTentaisan()}" readonly >
+				</div> --%>  
+				 <div class="form-group">
+					<label><b>Tài sản:</b></label> <select name="tentaisan" >
+						<option value="${tsDcts.getId()}" >${tsDcts.getTentaisan()}</option>
 					</select>
-				</div>
+				</div> 
 				<div class="form-group">
 					<label><b>Người ghi:</b></label> <input class="form-control"
-						type="text" name="nguoiquanly" required="required">
+						type="text" name="nguoiquanly" required="required"
+						value ="${pageContext.request.userPrincipal.name}" readonly	
+						>
 				</div>
 				<div class="form-group">
 					<label><b>Nhóm:</b></label> <select name="nhom">

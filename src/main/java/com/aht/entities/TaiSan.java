@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -15,6 +16,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.springframework.beans.factory.annotation.Value;
+
 @Entity
 @Table(name = "taisan")
 public class TaiSan {
@@ -25,11 +28,11 @@ public class TaiSan {
 	private String tentaisan;
 	@Column(name = "dacdiem")
 	private String dacdiem;
+	@Value("${value.trangthaiT},${value.trangthaiH},${value.trangthaiTL}")
 	@Column(name = "trangthai")
 	private String trangthai;
 	@Column(name = "giatrithuc")
 	private String giatrithuc;
-//	private long maDM;
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "taisan")
 	private Set<DieuChuyenTaiSan> listDieuchuyentaisan = new HashSet<>();
 	@ManyToOne
@@ -38,7 +41,7 @@ public class TaiSan {
 	@ManyToOne
 	@JoinColumn(name = "manhacungcap", nullable = false)
 	private NhaCungCap nhacungcap;
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "taisan")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "taisan",cascade=CascadeType.ALL)
 	private Set<BienDongTaiSan> listBiendongtaisan = new HashSet<>();
 
 	public TaiSan() {
@@ -52,7 +55,6 @@ public class TaiSan {
 		this.tentaisan = tentaisan;
 		this.dacdiem = dacdiem;
 		this.trangthai = trangthai;
-		
 		this.giatrithuc = giatrithuc;
 		this.listDieuchuyentaisan = listDieuchuyentaisan;
 		this.danhmuc = danhmuc;

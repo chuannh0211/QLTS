@@ -13,7 +13,7 @@
 			<h1 class="card-title">Chi tiết tài sản</h1>
 			<table class="table center-aligned-table">
 				<tr>
-					<th>Id</th>
+					<th>STT</th>
 					<th>Tên tài sản</th>
 					<th>Đặc điểm</th>
 					<th>Trạng thái</th>
@@ -32,13 +32,13 @@
 					<td></td>
 				</tr>
 			</table>
-			<h1 class="card-title">Chi tiết điều chuyển</h1>
+			<h2 class="card-sub-title">Chi tiết điều chuyển</h2>
 			<a class="btn btn-add btn-sm"
 				href="/form-dcts/${ts.id}">Điều
 				chuyển tài sản</a>
 			<table class="table center-aligned-table">
 				<tr>
-					<th>Id</th>
+					<th>STT</th>
 					<th>Ngày điều chuyển</th>
 					<th>Tên tài sản</th>
 					<th>Người ghi</th>
@@ -61,11 +61,12 @@
 					</tr>
 			  	 </c:forEach>    
 			</table>
-			<h1 class="card-title">Biến động tài sản</h1>
+			<h2 class="card-sub-title">Biến động tài sản</h2>
 			 <a class="btn btn-add btn-sm"
 				href="/form-bdts/${ts.id}">Biến động tài sản</a> 
 			<table class="table center-aligned-table">
 				<tr>
+					<th>STT</th>
 					<th>Ngày biến động</th>
 					<th>Người ghi</th>
 					<th>Tài sản chính</th>
@@ -77,18 +78,31 @@
 					<th>Hóa đơn</th>
 					<th>Ghi chú</th>
 				</tr>
+			 <c:forEach var="ltsBdts" items="${ltsBdts }"> 
 				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
+					<td>
+						<%-- <c:set var="count" value="0">
+							<c:forEach begin="1" end="5" var="count">
+								
+							</c:forEach>
+						</c:set> --%>
+					</td>
+					<td>${ltsBdts.getNgaybiendong() }</td>
+					<td>${ltsBdts.getNguoighi() }</td>
+					<td>${ltsBdts.getTentaisan() }</td>
+					<td>${ltsBdts.getTaisanbiendong() }</td>
+					<td>${ltsBdts.getTrangthai() }</td>
+					<td>${ltsBdts.getGiatribiendong()}</td>
+					<td>${ltsBdts.getThoigianbaohanh() }</td>
+					<td>${ts.getNameNcc() }</td>
+					<td>${ltsBdts.getSohoadon()}</td>
+					<td>${ltsBdts.getGhichu()}</td>
+					<td><a class="btn btn-primary btn-sm open-modal" id-dcts="${ltsBdts.id}" href="#">Sửa</a> &nbsp;
+							 <%-- <a class="btn btn-primary btn-sm" href="<c:url value='sua-dcts/${ltsDcts.id}'/>">Sửa</a> &nbsp; --%>
+							<a class="btn btn-danger btn-sm" href="<c:url value='xoa-bdts?id=${ltsBdts.id}&idts=${ts.id}'/>">Xóa</a>&nbsp; 
+							</td>
 				</tr>
+			</c:forEach>
 			</table>
 		</div>
 	</div>
@@ -104,7 +118,6 @@
 	</div>
 	<script type="text/javascript">
 	jQuery(document).ready(function(){
-		
 		//Sửa 
 		jQuery(".open-modal").click(function(){
 			var id_dcts = jQuery(this).attr("id-dcts");
