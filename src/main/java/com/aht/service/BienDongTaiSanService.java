@@ -9,9 +9,9 @@ public interface BienDongTaiSanService {
 
 	public BienDongTaiSan updateBDTS(BienDongTaiSan bdts);
 
-	public boolean deleteBDTS(Long id);
+	public boolean deleteBDTS(long id);
 
-	public BienDongTaiSan getBDTSById(Long id);
+	public BienDongTaiSan getBDTSById(long id);
 
 	public List<BienDongTaiSan> getAllBienDongTaiSan();
 }

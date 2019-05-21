@@ -41,7 +41,7 @@ public class TaiSan {
 	@ManyToOne
 	@JoinColumn(name = "manhacungcap", nullable = false)
 	private NhaCungCap nhacungcap;
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "taisan",cascade=CascadeType.ALL)
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "taisan", cascade = CascadeType.REMOVE)
 	private Set<BienDongTaiSan> listBiendongtaisan = new HashSet<>();
 
 	public TaiSan() {

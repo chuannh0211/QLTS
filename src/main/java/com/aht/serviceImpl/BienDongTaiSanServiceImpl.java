@@ -39,14 +39,14 @@ public class BienDongTaiSanServiceImpl implements BienDongTaiSanService {
 	}
 
 	@Override
-	public boolean deleteBDTS(Long id) {
+	public boolean deleteBDTS(long id) {
 		// TODO Auto-generated method stub
 		repository.delete(repository.findById(id).get());
 		return true;
 	}
 
 	@Override
-	public BienDongTaiSan getBDTSById(Long id) {
+	public BienDongTaiSan getBDTSById(long id) {
 		// TODO Auto-generated method stub
 		Optional<BienDongTaiSan> listBDTS = repository.findById(id);
 		if (listBDTS.isPresent()) {

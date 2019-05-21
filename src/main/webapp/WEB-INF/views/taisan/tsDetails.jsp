@@ -99,7 +99,7 @@
 					<td>${ltsBdts.getGhichu()}</td>
 					<td><a class="btn btn-primary btn-sm open-modal" id-dcts="${ltsBdts.id}" href="#">Sửa</a> &nbsp;
 							 <%-- <a class="btn btn-primary btn-sm" href="<c:url value='sua-dcts/${ltsDcts.id}'/>">Sửa</a> &nbsp; --%>
-							<a class="btn btn-danger btn-sm" href="<c:url value='xoa-bdts?id=${ltsBdts.id}&idts=${ts.id}'/>">Xóa</a>&nbsp; 
+							<a class="btn btn-danger btn-sm" href="<c:url value='xoa-bdts?id=${ltsBdts.id}&idts=${ts.id}'/>">Xóa</a>&nbsp;
 							</td>
 				</tr>
 			</c:forEach>
@@ -118,13 +118,12 @@
 	</div>
 	<script type="text/javascript">
 	jQuery(document).ready(function(){
-		//Sửa 
-		jQuery(".open-modal").click(function(){
+		jQuery(".open-modal").click(function() {
 			var id_dcts = jQuery(this).attr("id-dcts");
-			//console.log(id_dcts);
+			// console.log(id_dcts);
 			jQuery.ajax({
-				url: 'sua-dctsX/'+id_dcts,//1
-				success: function(data){
+				url : 'sua-dctsX/' + id_dcts,// 1
+				success : function(data) {
 					jQuery("#content_modal").html(data);
 				}
 			});

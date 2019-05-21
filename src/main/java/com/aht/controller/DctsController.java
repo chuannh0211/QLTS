@@ -55,13 +55,9 @@ public class DctsController {
 	}
 
 	@RequestMapping(value = { "view-details/xoa-dcts" })
-	public String deleteDcts(@RequestParam(value="id") int id,@RequestParam(value="idts") int idts) {
+	public String deleteDcts(@RequestParam(value = "id") int id, @RequestParam(value = "idts") int idts) {
 		dctsService.deleteDCTS(id);
-		
-//đâu id của tài sản đâu
-		// hiện tại là e đang lấy theo id của ts
-		
-		return "redirect:/view-details/"+idts;
+		return "redirect:/view-details/" + idts;
 	}
 
 	/* redirect */
@@ -97,9 +93,6 @@ public class DctsController {
 		System.out.println(dcts.getNguoiquanly());
 		System.out.println(dcts.getGhichu());
 		System.out.println(dcts.getNhom());
-
-		System.out.println("XXX: ");
-
 		dctsService.updateDCTS(dcts);
 		return "redirect:/view-details/{id}";
 	}

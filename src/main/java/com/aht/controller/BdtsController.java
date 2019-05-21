@@ -41,8 +41,8 @@ public class BdtsController {
 			@RequestParam("taisanbiendong") String taisanbiendong, @RequestParam("trangthai") String trangthai,
 			@RequestParam("giatribiendong") String giatribiendong, @RequestParam("baohanh") String baohanh,
 			@RequestParam("nhacungcap") String nhacungcap, @RequestParam("hoadon") String hoadon,
-			@RequestParam("ghichu") String ghichu,BienDongTaiSan newBdts) {
-		System.out.println("??");
+			@RequestParam("ghichu") String ghichu) {
+		BienDongTaiSan newBdts = new BienDongTaiSan();
 		newBdts.setNgaybiendong(ngaybiendong);
 		newBdts.setNguoighi(nguoighi);
 		newBdts.setNhacungcap(nhacungcap);
@@ -54,7 +54,11 @@ public class BdtsController {
 		newBdts.setSohoadon(hoadon);
 		newBdts.setGhichu(ghichu);
 		bdtsService.createBDTS(newBdts);
-		System.out.println(newBdts + "-------");
 		return "redirect:/view-details/{id}";
+	}
+	@RequestMapping(value = { "view-details/xoa-bdts" })
+	public String deleteDcts(@RequestParam(value = "id") int id, @RequestParam(value = "idts") int idts) {
+		bdtsService.deleteBDTS(id);
+		return "redirect:/view-details/" + idts;
 	}
 }

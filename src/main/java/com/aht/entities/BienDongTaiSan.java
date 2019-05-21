@@ -31,7 +31,6 @@ public class BienDongTaiSan {
 	private String sohoadon;
 	@Column(name = "ghichu")
 	private String ghichu;
-	
 	@ManyToOne()
 	@JoinColumn(name = "mataisan", nullable = false)
 	private TaiSan taisan;
