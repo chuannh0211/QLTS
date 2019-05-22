@@ -23,23 +23,21 @@
 					<label><b>Đặc điểm</b></label>
 					<form:input path="dacdiem" class="form-control p-input"/>
 				</div>
-				<div class="form-group">
+				 <div class="form-group">
 					<label><b>Trạng thái</b></label>
 					<form:radiobutton path="trangthai" value="Tốt" label="Tốt" />
 					<form:radiobutton path="trangthai" value="Hỏng" label="Hỏng" />
-					<form:radiobutton path="trangthai" value="Thanh lý"
-						label="Thanh lý" />
-				</div>
-				<!-- <tr>
-					<td><label><b>Trạng thái</b></label></td>
-					<td>
-						<select name="trangthai" >
-        					<option value="Tốt">Tốt</option>
-         					<option value="Hỏng" >Hỏng</option>
-        					<option value="Thanh lý">Thanh lý</option>
-        				</select>
-					</td>
-				</tr> -->
+					<form:radiobutton path="trangthai" value="Thanh lý" label="Thanh lý" />
+				</div>  
+			<%-- 	<div class="form-group">
+					<label><b>Trạng thái</b></label>
+					<form:select path="trangthai" >
+        				<form:option value="${status1}" label="Tốt"/>
+						<form:option value="${status2}" label="Hỏng"/>
+						<form:option value="${status3}" label="Thanh lý"/>
+        			</form:select>
+				</div>   --%>
+
 				<div class="form-group">
 					<label><b>Danh mục</b></label> <select name="danhmuc">
 						<c:forEach var="ltsDm" items="${lsDm }">

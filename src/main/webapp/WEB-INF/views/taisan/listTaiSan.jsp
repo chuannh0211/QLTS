@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,7 +36,8 @@
 							class="btn btn-danger btn-sm"
 							href="<c:url value='delete-ts/${lsTs.id}'/>">Xóa</a> &nbsp; <a
 							class="btn btn-view btn-sm"
-							href="<c:url value='view-details/${lsTs.getId() }'/>">Xem</a></td>
+							href="<c:url value='view-details/${lsTs.getId() }'/>">Xem</a>
+						</td>
 					</tr>
 				</c:forEach>
 			</table>
@@ -58,37 +60,26 @@
 								class="form-control p-input" type="text"
 								placeholder="Điền đặc điểm" name="dacdiem" required="required">
 						</div>
-						 <div class="form-group">
-							<label><b>Trạng thái</b></label> <br /> <input
-								style="padding: 0 10px;" type="radio" name="trangthai"
-								value="Tốt">Tốt <input type="radio" name="trangthai"
-								value="Hỏng">Hỏng <input type="radio" name="trangthai"
-								value="Thanh Lý">Thanh Lý
+						<div class="form-group">
+							<label><b>Trạng thái</b></label> <br />
+							<input type="radio" name="trangthai" value="Tốt">Tốt 
+							<input type="radio" name="trangthai" value="Hỏng">Hỏng 
+							<input type="radio" name="trangthai" value="Thanh Lý">Thanh Lý
 						</div> 
-						<%-- <div class="form-group">
-							<label><b>Trạng thái</b></label> <select name="trangthai">
-								<option value="${value.trangthaiT}">Tốt</option>
-								<option value="${value.trangthaiH}">Hỏng</option>
-								<option value="${value.trangthaiTL}">Thanh lý</option>
+						<%--   <div class="form-group">
+							<label><b>Trạng thái</b></label>
+							<select name="trangthai">
+								<option value="${status1}">Tốt</option>
+								<option value="${status2}">Hỏng</option>
+								<option value="${status3}">Thanh lý</option>
 							</select>
-						</div> --%>
+						</div>  --%>
+						
 						<div>
 							<label><b>Giá trị thực:</b></label> <input
 								class="form-control p-input" type="text"
 								placeholder="Giá trị thực" name="giatrithuc" required="required">
 						</div>
-						<!-- <div>
-								<label><b>Trạng thái</b></label> <select name="trangthai">
-									<option value="Tốt">Tốt</option>
-									<option value="Hỏng" selected="selected">Hỏng</option>
-									<option value="Thanh lý">Thanh lý</option>
-								</select>
-							</div> -->
-						<!-- <div>
-							<label><b>Danh mục</b></label> <input
-								class="form-control p-input" type="text"
-								placeholder="Điền danh mục" name="danhmuc" required="required">
-						</div> -->
 						<div class="form-group">
 							<label><b>Danh mục</b></label> <select name="danhmuc">
 								<c:forEach var="ltsDm" items="${lsDm }">
@@ -102,17 +93,10 @@
 									<option value="${ltsNcc.getId()}">${ltsNcc.getTencongty()}</option>
 								</c:forEach>
 							</select>
-						</div> 
-						<!-- <div>
-							<label><b>Nhà cung cấp</b></label> <input
-								class="form-control p-input" type="text"
-								placeholder="Điền nhà cung cấp" name="nhacungcap"
-								required="required">
-						</div> -->
+						</div>
 						<div>
 							<button type="submit" class="btn btn-add btn-sm">Thêm</button>
 						</div>
-
 					</form>
 				</div>
 			</div>

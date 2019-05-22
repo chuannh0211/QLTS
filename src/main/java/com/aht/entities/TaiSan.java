@@ -33,7 +33,7 @@ public class TaiSan {
 	private String trangthai;
 	@Column(name = "giatrithuc")
 	private String giatrithuc;
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "taisan")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "taisan", cascade = CascadeType.REMOVE)
 	private Set<DieuChuyenTaiSan> listDieuchuyentaisan = new HashSet<>();
 	@ManyToOne
 	@JoinColumn(name = "madanhmuc", nullable = false)
@@ -41,7 +41,7 @@ public class TaiSan {
 	@ManyToOne
 	@JoinColumn(name = "manhacungcap", nullable = false)
 	private NhaCungCap nhacungcap;
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "taisan", cascade = CascadeType.REMOVE)
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "taisan", cascade = { CascadeType.REMOVE})
 	private Set<BienDongTaiSan> listBiendongtaisan = new HashSet<>();
 
 	public TaiSan() {

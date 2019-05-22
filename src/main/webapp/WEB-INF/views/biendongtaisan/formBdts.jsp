@@ -43,11 +43,12 @@
 				</div> 
 				<div class="form-group row">
 					<label><b>Trạng thái</b></label> <select name="trangthai">
-						<option value="${value.trangthaiM}">Mua</option>
-						<option value="${value.trangthaiSc}">Sửa chữa</option>
-						<option value="${value.trangthaiTtb}">Thêm thiết bị</option>
-						<option value="${value.trangthaiBtb}">Bỏ thiết bị</option>
-						<option value="${value.trangthaiTL}">Thanh lý</option>
+						<option value="${status1}">Mua</option>
+						<option value="${status2}">Sửa chữa</option>
+						<option value="${status3}">Thêm thiết bị</option>
+						<option value="${status4}">Bỏ thiết bị</option>
+						<option value="${status5}">Thanh lý</option>
+
 					</select>
 				</div>
 				<div class="form-group row">

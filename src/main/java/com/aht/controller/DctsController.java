@@ -64,11 +64,11 @@ public class DctsController {
 	@RequestMapping(value = { "/view-details/sua-dcts/{id}" }, method = RequestMethod.GET)
 	public String editDcts(@PathVariable("id") int id, Model model) {
 		System.out.println("Redirect----------");
-		model.addAttribute("listNhom", nService.getAllNhom());
 		DieuChuyenTaiSan newDcts = dctsService.getDCTSById(id);
+		model.addAttribute("listNhom", nService.getAllNhom());
 		model.addAttribute("newN", newDcts.getNhom().getId());
 		model.addAttribute("dcts", dctsService.getDCTSById(id));
-		newDcts.getIdTaiSan(id);
+		//newDcts.getIdTaiSan(id);
 		model.addAttribute("id_ts", newDcts.getIdTaiSan(id));
 		return "editChitietdieuchuyen";
 	}
@@ -77,22 +77,18 @@ public class DctsController {
 	@RequestMapping(value = { "view-details/sua-dctsX/{id}" }, method = RequestMethod.GET)
 	public String editDctsX(@PathVariable("id") int id, Model model) {
 		System.out.println("Popup--------");
-		model.addAttribute("listNhom", nService.getAllNhom());
 		DieuChuyenTaiSan newDcts = dctsService.getDCTSById(id);
+		model.addAttribute("listNhom", nService.getAllNhom());
 		model.addAttribute("newN", newDcts.getNhom().getId());
 		model.addAttribute("dcts", dctsService.getDCTSById(id));
-		newDcts.getIdTaiSan(id);
-		model.addAttribute("id_ts", newDcts.getIdTaiSan(id));
+		model.addAttribute("id_ts", newDcts.getTaisan().getId());
+		System.out.println("??" +newDcts.getTaisan().getId());
 		return "editChitietdieuchuyenPopup";
 	}
 
 	@RequestMapping(value = { "/view-details/sua-dctsX/{id}" }, method = RequestMethod.POST)
 	public String editDctsX(@ModelAttribute("dcts") DieuChuyenTaiSan dcts) {
-		System.out.println(dcts.getId());
-		System.out.println(dcts.getNgaydieuchuyen());
-		System.out.println(dcts.getNguoiquanly());
-		System.out.println(dcts.getGhichu());
-		System.out.println(dcts.getNhom());
+		//System.out.println("check id" + id);
 		dctsService.updateDCTS(dcts);
 		return "redirect:/view-details/{id}";
 	}

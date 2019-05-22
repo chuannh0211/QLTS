@@ -55,7 +55,7 @@
 						<td>${ltsDcts.getGruopAsset() }</td>
 						<td>${ltsDcts.ghichu }</td>
 						<td><a class="btn btn-primary btn-sm open-modal" id-dcts="${ltsDcts.id}" href="#">Sửa</a> &nbsp;
-							 <%-- <a class="btn btn-primary btn-sm" href="<c:url value='sua-dcts/${ltsDcts.id}'/>">Sửa</a> &nbsp; --%>
+							  <a class="btn btn-primary btn-sm" href="<c:url value='sua-dcts/${ltsDcts.id}'/>">Sửa</a> &nbsp; 
 							<a class="btn btn-danger btn-sm" href="<c:url value='xoa-dcts?id=${ltsDcts.id}&idts=${ts.id}'/>">Xóa</a>&nbsp; 
 							</td>
 					</tr>
@@ -81,12 +81,12 @@
 			 <c:forEach var="ltsBdts" items="${ltsBdts }"> 
 				<tr>
 					<td>
-						<%-- <c:set var="count" value="0">
-							<c:forEach begin="1" end="5" var="count">
-								
+							<c:set var="count" value="1"/>
+							<c:forEach var="countt" items="${count }" >
+							<c:out value="${countt}" />	
 							</c:forEach>
-						</c:set> --%>
-					</td>
+							
+					</td> 
 					<td>${ltsBdts.getNgaybiendong() }</td>
 					<td>${ltsBdts.getNguoighi() }</td>
 					<td>${ltsBdts.getTentaisan() }</td>
@@ -97,8 +97,8 @@
 					<td>${ts.getNameNcc() }</td>
 					<td>${ltsBdts.getSohoadon()}</td>
 					<td>${ltsBdts.getGhichu()}</td>
-					<td><a class="btn btn-primary btn-sm open-modal" id-dcts="${ltsBdts.id}" href="#">Sửa</a> &nbsp;
-							 <%-- <a class="btn btn-primary btn-sm" href="<c:url value='sua-dcts/${ltsDcts.id}'/>">Sửa</a> &nbsp; --%>
+					<td><%-- <a class="btn btn-primary btn-sm open-modal" id-dcts="${ltsBdts.id}" href="#">Sửa</a> &nbsp; --%>
+							<a class="btn btn-primary btn-sm" href="<c:url value='form-sua-bdts/${ltsBdts.id}'/>">Sửa</a> &nbsp;
 							<a class="btn btn-danger btn-sm" href="<c:url value='xoa-bdts?id=${ltsBdts.id}&idts=${ts.id}'/>">Xóa</a>&nbsp;
 							</td>
 				</tr>

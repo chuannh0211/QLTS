@@ -1,9 +1,12 @@
 package com.aht.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -29,6 +32,9 @@ public class TaiSanController {
 	private DanhMucServiceImpl dmService;
 	@Autowired
 	private SuppliersServiceImpl sService;
+	@Autowired
+	private Environment env;
+	static String status1, status2, status3;
 
 	/* tạo list để lấy danh mục + nhà cung cấp cho phần add + edit */
 	@RequestMapping(value = { "/dsts" }, method = RequestMethod.GET)
@@ -39,6 +45,12 @@ public class TaiSanController {
 		model.addAttribute("lsTs", listTs);
 		model.addAttribute("lsDm", listDm);
 		model.addAttribute("lsNcc", listNcc);
+		status1 = env.getProperty("trangthaiT");
+		status2 = env.getProperty("trangthaiH");
+		status3 = env.getProperty("trangthaiTL");
+		model.addAttribute("status1", status1);
+		model.addAttribute("status2", status2);
+		model.addAttribute("status3", status3);
 		return "listasset";
 	}
 
@@ -94,4 +106,5 @@ public class TaiSanController {
 		model.addAttribute("ltsBdts", ltsBdts);
 		return "listAssetsDetails";
 	}
+	
 }

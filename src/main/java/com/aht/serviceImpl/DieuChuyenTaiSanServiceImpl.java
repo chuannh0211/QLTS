@@ -20,7 +20,6 @@ public class DieuChuyenTaiSanServiceImpl implements DieuChuyenTaiSanService {
 		// TODO Auto-generated method stub
 		return repository.save(dcts);
 	}
-//cái view l;ấy id đâu
 	@Override
 	public DieuChuyenTaiSan updateDCTS(DieuChuyenTaiSan dcts) {
 		// TODO Auto-generated method stub

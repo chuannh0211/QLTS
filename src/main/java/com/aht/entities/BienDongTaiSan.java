@@ -1,8 +1,13 @@
 package com.aht.entities;
 
-import javax.persistence.*;
-
-import org.springframework.beans.factory.annotation.Value;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "biendongtaisan")
@@ -18,7 +23,6 @@ public class BienDongTaiSan {
 //	private String taisanchinh;
 	@Column(name = "taisanbiendong")
 	private String taisanbiendong;
-	@Value("${value.trangthaiM},${value.trangthaiSc},${value.trangthaiTtb},${value.trangthaiBtb,${value.trangthaiTL}")
 	@Column(name = "trangthai")
 	private String trangthai;
 	@Column(name = "giatribiendong")
@@ -31,9 +35,10 @@ public class BienDongTaiSan {
 	private String sohoadon;
 	@Column(name = "ghichu")
 	private String ghichu;
-	@ManyToOne()
+	@ManyToOne
 	@JoinColumn(name = "mataisan", nullable = false)
 	private TaiSan taisan;
+
 
 	public long getId() {
 		return id;
@@ -134,7 +139,12 @@ public class BienDongTaiSan {
 	public String getNcc() {
 		return taisan.getNameNcc();
 	}
+
 	public String getTentaisan() {
 		return taisan.getTentaisan();
+	}
+
+	public long getIdTs(long id) {
+		return taisan.getId();
 	}
 }

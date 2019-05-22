@@ -115,14 +115,14 @@
 	<!-- Chi tiết danh mục -->
 	<definition name="listCategorieDetails"
 		extends="templatePage">
-		<put-attribute name="title" value="Danh sách tài sản"></put-attribute>
+		<put-attribute name="title" value="Chi tiết danh mục"></put-attribute>
 		<put-attribute name="body"
 			value="/WEB-INF/views/categories/listCategoryDetails.jsp"></put-attribute>
 	</definition>
 	<!-- Chi tiết tài sản -->
 	<definition name="listAssetsDetails"
 		extends="templatePage">
-		<put-attribute name="title" value="Danh sách tài sản"></put-attribute>
+		<put-attribute name="title" value="Chi tiết tài sản"></put-attribute>
 		<put-attribute name="body"
 			value="/WEB-INF/views/taisan/tsDetails.jsp"></put-attribute>
 	</definition>
@@ -139,5 +139,12 @@
 		<put-attribute name="title" value="Biến động tài sản"></put-attribute>
 		<put-attribute name="body"
 			value="/WEB-INF/views/biendongtaisan/formBdts.jsp"></put-attribute>
+	</definition>
+	
+	<!-- Edit biến động tài sản -->
+	<definition name="editBiendongtaisan" extends="templatePage">
+		<put-attribute name="title" value="Sửa thông tin biến động"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/views/biendongtaisan/editBdts.jsp"></put-attribute>
 	</definition>
 </tiles-definitions>

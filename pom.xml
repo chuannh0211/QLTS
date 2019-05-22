@@ -21,8 +21,7 @@
 	</properties>
 
 	<dependencies>
-
-
+	
 		<!-- bootstrap and jquery -->
 		<dependency>
 			<groupId>org.webjars</groupId>
