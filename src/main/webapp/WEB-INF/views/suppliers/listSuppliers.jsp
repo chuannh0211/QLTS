@@ -17,7 +17,7 @@
 				cấp</button>
 			<table class="table center-aligned-table">
 				<tr>
-					<th>ID</th>
+					<th>STT</th>
 					<th>Tên công ty</th>
 					<th>Mã công ty</th>
 					<th>Địa chỉ</th>
@@ -28,9 +28,10 @@
 					<th>Công ty/Cá nhân</th>
 					<th></th>
 				</tr>
+				<c:set var="count" value="1" />
 				<c:forEach var="ls" items="${list }">
 					<tr>
-						<td>${ls.id }</td>
+						<td><c:out value="${count }"></c:out></td>
 						<td>${ls.tencongty }</td>
 						<td>${ls.tentat }</td>
 						<td>${ls.diachi }</td>
@@ -39,13 +40,12 @@
 						<td>${ls.masothue }</td>
 						<td>${ls.nguoidaidien }</td>
 						<td>${ls.company }</td>
-						<td><a class="btn btn-primary btn-sm"
-							href="<c:url value='edit-ncc/${ls.id }'/>">Sửa</a> &nbsp; <a
-							class="btn btn-danger btn-sm"
-							href="<c:url value='delete-ncc/${ls.id}' />">Xóa</a> &nbsp; <a
-							class="btn btn-view btn-sm"
-							href="<c:url value='view-ncc-details/${ls.id}' />">Xem</a></td>
+						<td><a class="btn btn-view btn-sm open-modal-suppDetails" id-ncc=${ls.id } href="#">Xem</a>
+							<a class="btn btn-primary btn-sm open-modal-editSupp" id-ncc=${ls.id } href="#">Sửa</a> &nbsp;
+							<a class="btn btn-danger btn-sm" href="<c:url value='delete-ncc/${ls.id}' />">Xóa</a> &nbsp;
+						</td>
 					</tr>
+				<c:set var="count" value="${count + 1}"></c:set>
 				</c:forEach>
 			</table>
 			<div id="myModal" class="modal">
@@ -97,15 +97,32 @@
 						<div class="form-group">
 							<button type="submit" class="btn btn-add btn-sm">Thêm</button>
 						</div>
-
-
-
-
-
-					</form>
+				</form>
 				</div>
 			</div>
 		</div>
 	</div>
+	<!-- start popup -->
+	<div class="modal" id="modal-suppDetails">
+		<div class="modal-content">
+			<h2 class="modal-title">Chi tiết nhà cung cấp</h2>
+			<span class="closee">&times;</span>
+			<div id="content-suppliers">
+			
+			</div>
+		</div>
+	</div>
+	<!-- finish -->
+	<!-- start popup -->
+	<div class="modal" id="modal-editSupplier">
+		<div class="modal-content">
+			<h2 class="modal-title">Thay đổi thông tin tài sản</h2>
+			<span class="closee">&times;</span>
+			<div id="content-editSupplier">
+			
+			</div>
+		</div>
+	</div>
+	<!-- finish -->
 </body>
 </html>

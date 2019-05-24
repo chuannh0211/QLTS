@@ -43,6 +43,8 @@ public class CategoriesController {
 
 	@RequestMapping(value = { "/edit-dsdm/{id}" }, method = RequestMethod.GET)
 	public String editCategory(@PathVariable("id") int id, Model model) {
+		DanhMuc newDm =  dmService.getDanhMucById(id);
+		model.addAttribute("newDm", newDm);
 		model.addAttribute("dm", dmService.getDanhMucById(id));
 		return "editdsdm";
 	}
@@ -64,47 +66,6 @@ public class CategoriesController {
 		DanhMuc dmById = dmService.getDanhMucById(id);
 		Set<TaiSan> ltsTsById = dmById.getListTaiSan();
 		model.addAttribute("ltsTsById", ltsTsById);
-//		System.out.println(dmById);
-//		System.out.println(ltsTsById);
 		return "listCategorieDetails";
 	}
-
-//	@RequestMapping("list-categories")
-//	public String getAllCategories(Model model) {
-//		List<DanhMuc> ls = dmService.getAllDanhMuc();
-//		model.addAttribute("list", ls);
-//		return "/categories/listCategories";
-//	}
-
-//	@RequestMapping(value = { "/add-category" }, method = RequestMethod.GET)
-//	public String addCategory() {
-//
-//		return "/categories/addCategory";
-//	}
-//
-//	@RequestMapping(value = { "/add-category" }, method = RequestMethod.POST)
-//	public String addCategory(@RequestParam("name") String name) {
-//		DanhMuc dm = new DanhMuc();
-//		dm.setName(name);
-//		dmService.createDanhMuc(dm);
-//		return "redirect:/list-categories";
-//	}
-
-//	@RequestMapping(value = { "edit-category/{id}" }, method = RequestMethod.GET)
-//	public String editCategory(@PathVariable("id") int id, Model model) {
-//		model.addAttribute("dm", dmService.getDanhMucById(id));
-//		return "/categories/editCategory";
-//	}
-//
-//	@RequestMapping(value = "/edit-category", method = RequestMethod.POST)
-//	public String editCategory(@ModelAttribute("dm") DanhMuc dm) {
-//		dmService.updateDanhMuc(dm);
-//		return "redirect:/list-categories";
-//	}
-
-//	@RequestMapping(value = "delete-category/{id}")
-//	public String deleteCategory(@PathVariable("id") int id) {
-//		dmService.deleteDanhMuc(id);
-//		return "redirect:/list-categories";
-//	}
 }

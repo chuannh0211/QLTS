@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
@@ -33,18 +32,25 @@
 					<label><b>Xác nhận mật khẩu</b></label>
 					<form:input path="passwordConfirm" class="form-control p-input" />
 				</div>
+				
+				<div class="form-group">
+					<label><b>Họ tên</b></label>
+					<form:input path="fullname" class="form-control p-input" />
+				</div>
+				
+				<div class="form-group">
+					<label><b>Email</b></label>
+					<form:input path="email" class="form-control p-input" />
+				</div>
+				
+				<div class="form-group">
+					<label><b>Số điện thoại</b></label>
+					<form:input path="phone" class="form-control p-input" />
+				</div>
 
 				<div class="form-group">
 					<button type="submit" class="btn btn-add btn-sm">Sửa</button>
 				</div>
-				<%-- <tr>
-					<td><label><b>Danh mục</b></label></td>
-					<td><form:input path="danhmuc" /></td>
-				</tr>
-				<tr>
-					<td><label><b>Nhà cung cấp</b></label></td>
-					<td><form:input path="nhacungcap" /></td>
-				</tr> --%>
 			</form:form>
 		</div>
 	</div>

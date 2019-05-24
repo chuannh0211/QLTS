@@ -28,7 +28,6 @@ public class UserServiceImpl implements UsersService {
 		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
 		user.setPasswordConfirm(bCryptPasswordEncoder.encode(user.getPasswordConfirm()));
 		user.setRoles(new HashSet<Roles>(rRepository.findAll()));
-		
 		return uRepository.save(user);
 
 	}
@@ -37,14 +36,12 @@ public class UserServiceImpl implements UsersService {
 	public Users updateUser(Users user) {
 		// TODO Auto-generated method stub
 		Users newU = uRepository.findById(user.getId()).get();
-		// newU.setFullname(user.getFullname());
+		newU.setFullname(user.getFullname());
 		newU.setUsername(user.getUsername());
-//		newU.setPassword(user.getPassword());
-//		newU.setPasswordConfirm(user.getPasswordConfirm());
 		newU.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
 		newU.setPasswordConfirm(bCryptPasswordEncoder.encode(user.getPasswordConfirm()));
-		// newU.setEmail(user.getEmail());
-		// newU.setPhone(user.getPhone());
+		newU.setEmail(user.getEmail());
+		newU.setPhone(user.getPhone());
 		return uRepository.save(newU);
 	}
 

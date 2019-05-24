@@ -8,11 +8,11 @@
 	<form:input type="hidden" path="id" />
 	<div class="form-group">
 		<label>Ngày điều chuyển: </label>
-		<form:input path="ngaydieuchuyen" class="form-control p-input disable" />
+		<input type="text" value="${dcts.ngaydieuchuyen }" name="ngaydieuchuyen" class="form-control p-input disable">
 	</div>
 	<div class="form-group">
 		<label>Người ghi: </label>
-		<form:input path="nguoiquanly" class="form-control p-input" />
+		<input type="text" value="${dcts.nguoiquanly }" name="nguoiquanly" class="form-control p-input disable">
 	</div>
 	<div class="form-group">
 		<label>Nhóm: </label> <select name="nhom">

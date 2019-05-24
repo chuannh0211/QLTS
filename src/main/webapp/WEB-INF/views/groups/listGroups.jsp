@@ -15,23 +15,25 @@
 			<button id="myBtn" class="btn btn-add btn-sm">Thêm nhóm mới</button>
 			<table class="table center-aligned-table">
 				<tr>
-					<th>ID</th>
+					<th>STT</th>
 					<th>Tên nhóm</th>
 					<th>Tên PM</th>
 					<th></th>
 				</tr>
+				<c:set var="count" value="1" />
 				<c:forEach var="ls" items="${list }">
 					<tr>
-						<td>${ls.id }</td>
+						<td><c:out value="${count }"></c:out></td>
 						<td>${ls.getName() }</td>
 						<td>${ls.getPm() }</td>
-						<td><a class="btn btn-primary btn-sm"
-							href="<c:url value='edit-dsn/${ ls.getId()}'/>">Sửa</a> &nbsp; <a
+						<td><a class="btn btn-view btn-sm opan-modal-viewDetails"
+							id-nhom="${ls.id }" href="#">Xem</a> <a
+							class="btn btn-primary btn-sm opan-modal-editGroup"
+							id-nhom="${ls.id }" href="#">Sửa</a> &nbsp; <a
 							class="btn btn-danger btn-sm"
-							href="<c:url value='delete-dsn/${ls.id }'/>">Xóa</a> &nbsp; <a
-							class="btn btn-view btn-sm"
-							href="<c:url value='view-group-details/${ls.id }'/>">Xem</a></td>
+							href="<c:url value='delete-dsn/${ls.id }'/>">Xóa</a> &nbsp;</td>
 					</tr>
+				<c:set var="count" value="${count + 1}"></c:set>
 				</c:forEach>
 			</table>
 			<div id="myModal" class="modal">
@@ -54,6 +56,25 @@
 					</form>
 				</div>
 			</div>
+			<!-- finish -->
+			<!-- view -->
+			<div id="myModal-groupInfo" class="modal">
+				<div class="modal-content">
+					<h2 class="modal-title">Thông tin nhóm</h2>
+					<span class="closee">&times;</span>
+					<div id="content-groupDetails"></div>
+				</div>
+			</div>
+			<!-- finish -->
+			<!-- edit -->
+			<div id="myModal-editGroup" class="modal">
+				<div class="modal-content">
+					<h2 class="modal-title">Sửa thông tin nhóm</h2>
+					<span class="closee">&times;</span>
+					<div id="content-editGroup"></div>
+				</div>
+			</div>
+			<!-- finish -->
 		</div>
 	</div>
 </body>

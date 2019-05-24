@@ -1,8 +1,6 @@
 package com.aht.controller;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -73,16 +71,29 @@ public class TaiSanController {
 		return "redirect:/dsts";
 	}
 
+//	@RequestMapping(value = { "/edit-ts/{id}" }, method = RequestMethod.GET)
+//	public String editAsset(@PathVariable("id") int id, Model model) {
+//		model.addAttribute("lsDm", dmService.getAllDanhMuc());
+//		model.addAttribute("lsNcc", sService.getAllNcc());
+//		model.addAttribute("ts", tsService.getTaiSanById(id));
+//		TaiSan ls = tsService.getTaiSanById(id);
+//		model.addAttribute("newDm", ls.getDanhmuc().getId());
+//		model.addAttribute("newNcc", ls.getNhacungcap().getId());
+//		return "editdsts";
+//	}
+	
 	@RequestMapping(value = { "/edit-ts/{id}" }, method = RequestMethod.GET)
-	public String editAsset(@PathVariable("id") int id, Model model) {
+	public String editAssetPopup(@PathVariable("id") int id, Model model) {
 		model.addAttribute("lsDm", dmService.getAllDanhMuc());
 		model.addAttribute("lsNcc", sService.getAllNcc());
 		model.addAttribute("ts", tsService.getTaiSanById(id));
 		TaiSan ls = tsService.getTaiSanById(id);
 		model.addAttribute("newDm", ls.getDanhmuc().getId());
 		model.addAttribute("newNcc", ls.getNhacungcap().getId());
-		return "editdsts";
+		model.addAttribute("ts", ls);
+		return "editInfoAssetPopup";
 	}
+	
 
 	@RequestMapping(value = { "/edit-ts" }, method = RequestMethod.POST)
 	public String editAsset(@ModelAttribute("ts") TaiSan ts) {

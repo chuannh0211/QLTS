@@ -9,19 +9,19 @@ public class Users {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-//	@Column(name = "fullname")
-//	private String fullname;
+	@Column(name = "fullname")
+	private String fullname;
 	@Column(name = "username")
 	private String username;
 	@Column(name = "passwordd")
 	private String password;
 	@Column(name = "password_Confirm")
 	private String passwordConfirm;
-//	@Column(name = "email")
-//	private String email;
-//	@Column(name = "phone")
-//	private String phone;
-	@ManyToMany(fetch=FetchType.EAGER)
+	@Column(name = "email")
+	private String email;
+	@Column(name = "phone")
+	private String phone;
+	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "roleuser", joinColumns = @JoinColumn(name = "iduser"), inverseJoinColumns = @JoinColumn(name = "idrole"))
 	private Set<Roles> roles;
 
@@ -63,6 +63,30 @@ public class Users {
 
 	public void setRoles(Set<Roles> roles) {
 		this.roles = roles;
+	}
+
+	public String getFullname() {
+		return fullname;
+	}
+
+	public void setFullname(String fullname) {
+		this.fullname = fullname;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 
 }

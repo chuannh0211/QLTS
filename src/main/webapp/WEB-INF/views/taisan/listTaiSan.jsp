@@ -11,10 +11,10 @@
 	<div class="card">
 		<div class="card-body">
 			<h1 class="card-title">Danh sách tài sản</h1>
-			<button id="myBtn" class="btn btn-add btn-sm">Thêm tài sản</button>
+			<button class="btn btn-add btn-sm open-modal">Thêm tài sản</button>
 			<table class="table center-aligned-table">
 				<tr>
-					<th>ID</th>
+					<th>STT</th>
 					<th>Tên</th>
 					<th>Đặc điểm</th>
 					<th>Trạng thái</th>
@@ -22,23 +22,26 @@
 					<th>Danh mục</th>
 					<th>Nhà cung cấp</th>
 				</tr>
+				<c:set var="count" value="1" />
 				<c:forEach var="lsTs" items="${lsTs }">
 					<tr>
-						<td>${lsTs.getId() }</td>
+						<td><c:out value="${count }"></c:out></td>
 						<td>${lsTs.tentaisan }</td>
 						<td>${lsTs.dacdiem }</td>
 						<td>${lsTs.trangthai }</td>
 						<td>${lsTs.giatrithuc }</td>
 						<td>${lsTs.getNameDm() }</td>
 						<td>${lsTs.getNameNcc() }</td>
-						<td><a class="btn btn-primary btn-sm"
-							href="<c:url value='edit-ts/${lsTs.id}'/>">Sửa</a> &nbsp; <a
+						<td><a class="btn btn-view btn-sm" href="<c:url value='view-details/${lsTs.getId() }'/>">Xem</a>
+							<%-- <a class="btn btn-primary btn-sm"
+							href="<c:url value='edit-ts/${lsTs.id}'/>">Sửa</a> --%> 
+							<a class="btn btn-primary btn-sm open-modal-editAsset"
+							id-tss="${lsTs.id }" href="#">Sửa</a> &nbsp; <a
 							class="btn btn-danger btn-sm"
-							href="<c:url value='delete-ts/${lsTs.id}'/>">Xóa</a> &nbsp; <a
-							class="btn btn-view btn-sm"
-							href="<c:url value='view-details/${lsTs.getId() }'/>">Xem</a>
+							href="<c:url value='delete-ts/${lsTs.id}'/>">Xóa</a> &nbsp; 
 						</td>
 					</tr>
+					<c:set var="count" value="${count + 1}"></c:set>
 				</c:forEach>
 			</table>
 
@@ -47,10 +50,11 @@
 					<div>
 						<span class="closee">&times;</span>
 					</div>
-					<!-- 	<h4 class="modal-title">Thêm tài sản</h4> -->
+					<h4 class="modal-title sub-center">Thêm tài sản</h4>
 					<form action="/add-ts" method="post" class="forms-sample">
 						<div class="form-group">
-							<label><b>Tên tài sản</b></label> <input
+							<label><b>Tên tài sản</b></label> <input pattern=".{8,}"
+								title="Tên tài sản ít nhất phải có 8 kí tự!!!"
 								class="form-control p-input" type="text"
 								placeholder="Điền tên tài sản" name="tentaisan"
 								required="required">
@@ -61,11 +65,11 @@
 								placeholder="Điền đặc điểm" name="dacdiem" required="required">
 						</div>
 						<div class="form-group">
-							<label><b>Trạng thái</b></label> <br />
-							<input type="radio" name="trangthai" value="Tốt">Tốt 
-							<input type="radio" name="trangthai" value="Hỏng">Hỏng 
-							<input type="radio" name="trangthai" value="Thanh Lý">Thanh Lý
-						</div> 
+							<label><b>Trạng thái</b></label> <br /> <input type="radio"
+								name="trangthai" value="Tốt" checked="checked">Tốt <input
+								type="radio" name="trangthai" value="Hỏng">Hỏng <input
+								type="radio" name="trangthai" value="Thanh Lý">Thanh Lý
+						</div>
 						<%--   <div class="form-group">
 							<label><b>Trạng thái</b></label>
 							<select name="trangthai">
@@ -74,11 +78,12 @@
 								<option value="${status3}">Thanh lý</option>
 							</select>
 						</div>  --%>
-						
+
 						<div>
 							<label><b>Giá trị thực:</b></label> <input
-								class="form-control p-input" type="text"
-								placeholder="Giá trị thực" name="giatrithuc" required="required">
+								class="form-control p-input" type="text" pattern="[0-9]"
+								title="Không được nhập chữ!!!" placeholder="Giá trị thực"
+								name="giatrithuc" required="required">
 						</div>
 						<div class="form-group">
 							<label><b>Danh mục</b></label> <select name="danhmuc">
@@ -102,7 +107,13 @@
 			</div>
 		</div>
 	</div>
-
+	<div id="myModal-editTs" class="modal">
+		<div class="modal-content">
+			<h4 class="card-title">Sửa thông tin tài sản</h4>
+			<span class="closee">&times;</span>
+			<div id="content_editAsset"></div>
+		</div>
+	</div>
 
 </body>
 </html>

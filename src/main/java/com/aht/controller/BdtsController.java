@@ -58,7 +58,7 @@ public class BdtsController {
 			@RequestParam("taisanchinh") TaiSan taisanchinh, @RequestParam("taisanbiendong") String taisanbiendong,
 			@RequestParam("trangthai") String trangthai, @RequestParam("giatribiendong") String giatribiendong,
 			@RequestParam("baohanh") String baohanh, @RequestParam("nhacungcap") String nhacungcap,
-			@RequestParam("hoadon") String hoadon, @RequestParam("ghichu") String ghichu) {
+			@RequestParam("hoadon") String hoadon, @RequestParam("ghichu") String ghichu,@RequestParam(value = "id") int id,Model model) {
 		BienDongTaiSan newBdts = new BienDongTaiSan();
 		newBdts.setNgaybiendong(ngaybiendong);
 		newBdts.setNguoighi(nguoighi);
@@ -72,6 +72,8 @@ public class BdtsController {
 		newBdts.setGhichu(ghichu);
 		bdtsService.createBDTS(newBdts);
 		System.out.println("trang thai: " + trangthai);
+		BienDongTaiSan idBdts = bdtsService.getBDTSById(id);
+		model.addAttribute("idBdts", idBdts);
 		return "redirect:/view-details/{id}";
 	}
 
@@ -81,38 +83,55 @@ public class BdtsController {
 		return "redirect:/view-details/" + idts;
 	}
 
+//	@RequestMapping(value = "view-details/form-sua-bdts/{id}", method = RequestMethod.GET)
+//	public String editBdts(@PathVariable("id") int pathid, Model model) {
+//		BienDongTaiSan nBdts = bdtsService.getBDTSById(pathid);
+//		System.out.println("============");
+//		System.out.println("Check id url: "+ nBdts.getId());
+//		System.out.println("Check id mataisan: " + nBdts.getIdTs(pathid));
+//		System.out.println("============");
+//		model.addAttribute("nBdts", nBdts);
+//		/* giá trị của modelAttribute bên view */
+//		model.addAttribute("bdts", bdtsService.getBDTSById(pathid));
+//		model.addAttribute("id_ts", nBdts.getIdTs(pathid));
+//		
+//		System.out.println("id ts-get : " + nBdts.getIdTs(pathid) + " -- " + nBdts.getTaisan().getId());
+//
+//		return "editBiendongtaisan";
+//	}
+
 	@RequestMapping(value = "view-details/form-sua-bdts/{id}", method = RequestMethod.GET)
-	public String editBdts(@PathVariable("id") int pathid, Model model) {
+	public String editBdtsPopup(@PathVariable("id") int pathid, Model model) {
 		BienDongTaiSan nBdts = bdtsService.getBDTSById(pathid);
 		System.out.println("============");
-		System.out.println("Check id url: "+ nBdts.getId());
+		System.out.println("Check id url: " + nBdts.getId());
 		System.out.println("Check id mataisan: " + nBdts.getIdTs(pathid));
 		System.out.println("============");
-		
+		model.addAttribute("nBdts", nBdts);
 		/* giá trị của modelAttribute bên view */
 		model.addAttribute("bdts", bdtsService.getBDTSById(pathid));
 		model.addAttribute("id_ts", nBdts.getIdTs(pathid));
-		
+
 		System.out.println("id ts-get : " + nBdts.getIdTs(pathid) + " -- " + nBdts.getTaisan().getId());
 
-		return "editBiendongtaisan";
+		return "editBdtsPopup";
 	}
 
 	@RequestMapping(value = "/view-details/form-sua-bdts/{id}", method = RequestMethod.POST)
-	public String editBdts(@ModelAttribute("bdts") BienDongTaiSan bdts,@RequestParam("id_bdts") int idBdts) {
+	public String editBdts(@ModelAttribute("bdts") BienDongTaiSan bdts, @RequestParam("id_bdts") int idBdts) {
 		System.out.println("start update");
 		System.out.println("check id: " + idBdts);
 		BienDongTaiSan nBdts = bdtsService.getBDTSById(idBdts);
 		System.out.println("check newBdts:" + nBdts);
 		TaiSan nTs = new TaiSan();
 		System.out.println("check new Ts: " + nTs);
-		
+
 		nTs.setId(nBdts.getIdTs(idBdts));
 		System.out.println("check new Ts: " + nTs.getId());
 		bdts.setTaisan(nTs);
 		//
 		System.out.println("id-ts-post: " + nBdts.getIdTs(idBdts));
-		 bdtsService.updateBDTS(bdts);
+		bdtsService.updateBDTS(bdts);
 		return "redirect:/view-details/{id}";
 	}
 

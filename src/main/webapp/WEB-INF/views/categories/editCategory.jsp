@@ -5,17 +5,17 @@
 
 <div class="card">
 	<div class="card-body">
-		<h1 class="card-title">Thay đổi thông tin danh mục</h1>
 		<hr>
 		<form:form action="/edit-dsdm" method="POST" modelAttribute="dm"
 			class="forms-sample">
 			<form:hidden path="id" />
 			<div class="form-group">
-				<label for="name"><b>Name category</b></label>
-				<form:input path="name" class="form-control p-input" />
+				<label for="name"><b>Tên danh mục</b></label>
+				<%-- <form:input path="name" class="form-control p-input" /> --%>
+				<input type="text" value="${newDm.name }" name="name"
+					class="form-control p-input" pattern="[A-Za-z0-9].{3,30}"
+					title="Tên danh mục không ít hơn 3 kí tự " required>
 			</div>
-
-
 			<button type="submit" class="btn btn-add btn-sm">Sửa</button>
 		</form:form>
 	</div>

@@ -19,7 +19,7 @@
 		template="/WEB-INF/views/cclassic.jsp">
 		<put-attribute name="body" value="" />
 	</definition>
-	
+
 	<!-- Home Page -->
 	<definition name="homePage" extends="templatePage">
 		<put-attribute name="title" value="Trang chủ" />
@@ -64,7 +64,7 @@
 	</definition>
 
 	<!-- Edit categories -->
-	<definition name="editdsdm" extends="templatePage">
+	<definition name="editdsdm" extends="templateBlank">
 		<put-attribute name="title" value="Sửa danh mục"></put-attribute>
 		<put-attribute name="body"
 			value="/WEB-INF/views/categories/editCategory.jsp"></put-attribute>
@@ -96,32 +96,91 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/users/editUser.jsp"></put-attribute>
 	</definition>
-	
+
 	<!-- Edit chi tiết điều chuyển -->
-	<definition name="editChitietdieuchuyen" extends="templatePage">
-		<put-attribute name="title" value="Sửa thông tin điều chuyển"></put-attribute>
+	<definition name="editChitietdieuchuyen"
+		extends="templatePage">
+		<put-attribute name="title"
+			value="Sửa thông tin điều chuyển"></put-attribute>
 		<put-attribute name="body"
 			value="/WEB-INF/views/dieuchuyentaisan/editDcts.jsp"></put-attribute>
 	</definition>
-	
+
 	<!-- Edit chi tiết điều chuyển -->
 	<!-- 1 -->
-	<definition name="editChitietdieuchuyenPopup" extends="templateBlank">
-		<put-attribute name="title" value="Sửa thông tin điều chuyển"></put-attribute>
+	<definition name="editChitietdieuchuyenPopup"
+		extends="templateBlank">
+		<put-attribute name="title"
+			value="Sửa thông tin điều chuyển"></put-attribute>
 		<put-attribute name="body"
 			value="/WEB-INF/views/dieuchuyentaisan/editDcts-popup.jsp"></put-attribute>
 	</definition>
 
+	<!-- Edit biến động tài sản -->
+	<!-- 1 -->
+	<definition name="editBdtsPopup" extends="templateBlank">
+		<put-attribute name="title"
+			value="Sửa thông tin điều chuyển"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/views/biendongtaisan/editBdts-Popup.jsp"></put-attribute>
+	</definition>
+
+	<!-- Edit thông tin tài sản -->
+	<definition name="editInfoAssetPopup"
+		extends="templateBlank">
+		<put-attribute name="title"
+			value="Sửa thông tin tài sản"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/views/taisan/editTaiSan-Popup.jsp"></put-attribute>
+	</definition>
+
+	<!-- Edit thông tin user -->
+	<definition name="editUserPopup" extends="templateBlank">
+		<put-attribute name="title"
+			value="Sửa thông tin tài sản"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/views/users/editUser-Popup.jsp"></put-attribute>
+	</definition>
+
+	<!-- View chi tiết nhà cung cấp -->
+	<definition name="viewSuppDetails" extends="templateBlank">
+		<put-attribute name="title"
+			value="Thông tin nhà cung cấp"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/views/suppliers/viewDetails.jsp"></put-attribute>
+	</definition>
+
+	<!-- Sửa thông tin nhà cung cấp -->
+	<definition name="editSupplierPopup" extends="templateBlank">
+		<put-attribute name="title"
+			value="Sửa thông tin tài sản"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/views/suppliers/editSuppliers-Popup.jsp"></put-attribute>
+	</definition>
+
+	<!-- View chi tiết nhóm -->
+	<definition name="viewGroupDetails" extends="templateBlank">
+		<put-attribute name="title" value="Thông tin nhóm"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/views/groups/groupDetails.jsp"></put-attribute>
+	</definition>
+
+	<!-- Sửa thông tin nhóm -->
+	<definition name="editGroupPopup" extends="templateBlank">
+		<put-attribute name="title" value="Thông tin nhóm"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/views/groups/editGroupPopup.jsp"></put-attribute>
+	</definition>
+
 	<!-- Chi tiết danh mục -->
 	<definition name="listCategorieDetails"
-		extends="templatePage">
+		extends="templateBlank">
 		<put-attribute name="title" value="Chi tiết danh mục"></put-attribute>
 		<put-attribute name="body"
 			value="/WEB-INF/views/categories/listCategoryDetails.jsp"></put-attribute>
 	</definition>
 	<!-- Chi tiết tài sản -->
-	<definition name="listAssetsDetails"
-		extends="templatePage">
+	<definition name="listAssetsDetails" extends="templatePage">
 		<put-attribute name="title" value="Chi tiết tài sản"></put-attribute>
 		<put-attribute name="body"
 			value="/WEB-INF/views/taisan/tsDetails.jsp"></put-attribute>
@@ -133,18 +192,29 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/dieuchuyentaisan/formDcts.jsp"></put-attribute>
 	</definition>
-	
+
 	<!-- Form biến động tài sản -->
 	<definition name="form-bdts" extends="templatePage">
 		<put-attribute name="title" value="Biến động tài sản"></put-attribute>
 		<put-attribute name="body"
 			value="/WEB-INF/views/biendongtaisan/formBdts.jsp"></put-attribute>
 	</definition>
-	
+
 	<!-- Edit biến động tài sản -->
 	<definition name="editBiendongtaisan" extends="templatePage">
-		<put-attribute name="title" value="Sửa thông tin biến động"></put-attribute>
+		<put-attribute name="title"
+			value="Sửa thông tin biến động"></put-attribute>
 		<put-attribute name="body"
 			value="/WEB-INF/views/biendongtaisan/editBdts.jsp"></put-attribute>
 	</definition>
+
+	<!-- Xem thông tin người dùng -->
+	<!-- 1 -->
+	<definition name="viewInfoUser" extends="templateBlank">
+		<put-attribute name="title" value="Thông tin người dùng"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/views/users/userDetails-Popup.jsp"></put-attribute>
+	</definition>
+	
+	
 </tiles-definitions>

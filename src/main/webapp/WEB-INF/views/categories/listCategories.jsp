@@ -16,23 +16,27 @@
 			<button id="myBtn" class="btn btn-add btn-sm">Thêm danh mục</button>
 			<table class="table center-aligned-table ">
 				<tr>
-					<th>ID</th>
+					<th>STT</th>
 					<th>Tên danh mục</th>
 					<th></th>
 				</tr>
+				<c:set var="count" value="1" />
 				<c:forEach var="ls" items="${listDm}">
 					<tr>
-						<td>${ls.getId()}</td>
+						<td><c:out value="${count }"></c:out></td>
 						<td>${ls.getName()}</td>
 						<td></td>
-						<td><a class="btn btn-primary btn-sm"
-							href="<c:url value='edit-dsdm/${ls.getId() }'/>">Sửa</a> &nbsp; <a
+						<td>
+							<a class="btn btn-view btn-sm open-modal-categoryDetails" id_categpry="${ls.id }"
+							href="#">Xem</a>
+							<a class="btn btn-primary btn-sm open-modal-editCategory" id_categpry="${ls.id }"
+							href="#">Sửa</a> &nbsp; <a
 							class="btn btn-danger btn-sm"
 							href="<c:url value='delete-dsdm/${ls.getId() }'/>">Xóa</a> &nbsp;
-							<a class="btn btn-view btn-sm"
-							href="<c:url value='view-category-details/${ls.getId() }'/>">Xem</a>
+							
 						</td>
 					</tr>
+					<c:set var="count" value="${count + 1}"></c:set>
 				</c:forEach>
 			</table>
 			<div id="myModal" class="modal">
@@ -52,6 +56,24 @@
 					</form>
 				</div>
 			</div>
+			<!-- view -->
+			<div class="modal" id="modal-viewCategory">
+				<div class="modal-content">
+					<h2 class="modal-title">Chi tiết danh mục</h2>
+					<span class="closee">&times;</span>
+					<div id="content-categoryDetails"></div>
+				</div>
+			</div>
+			<!-- finish -->
+			<!-- edit -->
+			<div class="modal" id="modal-editCategory">
+				<div class="modal-content">
+					<h2 class="modal-title">Sửa danh mục</h2>
+					<span class="closee">&times;</span>
+					<div id="content-editCategory"></div>
+				</div>
+			</div>
+			<!-- finish -->
 		</div>
 	</div>
 </body>

@@ -15,7 +15,7 @@
 				class="forms-sample" modelAttribute="bdts" method="POST">
 				<form:hidden path="id" />
 				<input type="hidden" name="mataisan" value="${id_ts }">
-				<input type="hidden" name="id_bdts" value="${id }">
+				<input type="hidden" name="id_bdts" value="${id}">
 				<div class="form-group">
 					<label>Ngày biến động: </label>
 					<form:input path="ngaybiendong"
