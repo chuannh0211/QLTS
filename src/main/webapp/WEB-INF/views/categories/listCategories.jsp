@@ -14,7 +14,9 @@
 			<%-- <a href="${pageContext.request.contextPath}/add-category">Add
 			Category</a> --%>
 			<button id="myBtn" class="btn btn-add btn-sm">Thêm danh mục</button>
-			<table class="table center-aligned-table ">
+			<input type="text" class="form-control form-control-sm search-taisan"
+				id="mySearch" onkeyup="myFunction()" placeholder="Tìm kiếm">
+			<table class="table center-aligned-table " id="myTable">
 				<tr>
 					<th>STT</th>
 					<th>Tên danh mục</th>

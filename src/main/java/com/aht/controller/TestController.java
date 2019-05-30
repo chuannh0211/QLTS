@@ -20,7 +20,7 @@ import com.aht.serviceImpl.UserServiceImpl;
 public class TestController {
 	@Autowired
 	private UserServiceImpl uService;
-	
+
 	@RequestMapping(value = { "/" }, method = RequestMethod.GET)
 	public String index(Model model) {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -31,8 +31,9 @@ public class TestController {
 	}
 
 	@RequestMapping(value = { "/login" })
-	public String login() {
-	
+	public String login(Model model, String error, String logout) {
+		if (error != null)
+			model.addAttribute("error", "Your username and password is invalid.");
 		return "login";
 	}
 

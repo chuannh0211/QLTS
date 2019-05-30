@@ -38,6 +38,7 @@
     
     <!--	Custom js  -->
     <script type="text/javascript" src="/js/myJs/customjs.js"></script> 
+    <script type="text/javascript" src="/js/myJs/searchJs.js"></script> 
 
 </body>
 </html>

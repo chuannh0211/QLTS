@@ -34,7 +34,7 @@
 							<h3>${message}</h3>
 							<hr>
 
-							<form action="/login" method="post">
+							<form action="/login" method="post" >
 								<div class="form-group">
 									<label><b>Tài Khoản</b> </label> <input type="text"
 										name="uname" required="required" class="form-control p_input"
@@ -66,7 +66,7 @@
 								<div>
 									<span class="closee">&times;</span>
 								</div>
-								<form action="/register-form" method="post" onsubmit="return validateForm()">
+								<form action="/register-form" method="post" onsubmit="return validateForm()" name="formLogin">
 									<div class="form-group">
 										<label><b>Tài khoản:</b></label> <input pattern="^[a-z0-9._-]{3,15}$" 
           								    title="Tài khoản từ 3-15 kí tự"
@@ -79,6 +79,7 @@
 											title="Sai định dạng"
 											class="form-control p_input" type="password"
 											placeholder="Nhập mật khẩu" name="password"
+											id="pw"
 											required="required">
 									</div>
 									<div class="form-group">
@@ -86,12 +87,13 @@
 											title="Mật khẩu nhập lại phải giống mật khẩu"
 											class="form-control p_input" type="password"
 											placeholder="Xác nhận mật khẩu" name="passwordConfirm"
+											id="pwConfirm"
 											required="required">
+											<span id='message'></span>
 									</div>
 									<div class="form-group">
 										<label><b>Họ tên:</b></label> <input
-											class="form-control p_input" type="text" pattern="^[A-Za-z]{20,50}$" 
-											title="Sai định dạng"
+											class="form-control p_input" type="text" 
 											placeholder="Nhập họ tên" name="fullname" required="required">
 									</div>
 									<div class="form-group">
@@ -101,7 +103,8 @@
 											placeholder="Nhập email" name="email" required="required">
 									</div>
 									<div class="form-group">
-										<label><b>Số điện thoại:</b></label> <input  pattern="[0-9]{10}"
+										<label><b>Số điện thoại:</b></label> <input  pattern="[0-9]"
+											maxlength="10"
 											title="Số điện thoại phải là số và có 10 kí tự"
 											class="form-control p_input" type="text"
 											placeholder="Nhập số điện thoại" name="phone"
@@ -120,5 +123,6 @@
 		</div>
 	</div>
 	<script type="text/javascript" src="/js/myJs/customjs.js"></script>
+	<script type="text/javascript" src="/js/myJs/checkLogin.js"></script>
 </body>
 </html>

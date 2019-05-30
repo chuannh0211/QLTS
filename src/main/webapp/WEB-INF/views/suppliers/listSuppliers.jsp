@@ -15,7 +15,9 @@
 			Supplier</a> --%>
 			<button id="myBtn" class="btn btn-add btn-sm">Thêm nhà cung
 				cấp</button>
-			<table class="table center-aligned-table">
+			<input type="text" class="form-control form-control-sm search-taisan"
+				id="mySearch" onkeyup="myFunction()" placeholder="Tìm kiếm">
+			<table class="table center-aligned-table" id="myTable">
 				<tr>
 					<th>STT</th>
 					<th>Tên công ty</th>
@@ -40,12 +42,14 @@
 						<td>${ls.masothue }</td>
 						<td>${ls.nguoidaidien }</td>
 						<td>${ls.company }</td>
-						<td><a class="btn btn-view btn-sm open-modal-suppDetails" id-ncc=${ls.id } href="#">Xem</a>
-							<a class="btn btn-primary btn-sm open-modal-editSupp" id-ncc=${ls.id } href="#">Sửa</a> &nbsp;
-							<a class="btn btn-danger btn-sm" href="<c:url value='delete-ncc/${ls.id}' />">Xóa</a> &nbsp;
-						</td>
+						<td><a class="btn btn-view btn-sm open-modal-suppDetails"
+							id-ncc=${ls.id } href="#">Xem</a> <a
+							class="btn btn-primary btn-sm open-modal-editSupp"
+							id-ncc=${ls.id } href="#">Sửa</a> &nbsp; <a
+							class="btn btn-danger btn-sm"
+							href="<c:url value='delete-ncc/${ls.id}' />">Xóa</a> &nbsp;</td>
 					</tr>
-				<c:set var="count" value="${count + 1}"></c:set>
+					<c:set var="count" value="${count + 1}"></c:set>
 				</c:forEach>
 			</table>
 			<div id="myModal" class="modal">
@@ -97,7 +101,7 @@
 						<div class="form-group">
 							<button type="submit" class="btn btn-add btn-sm">Thêm</button>
 						</div>
-				</form>
+					</form>
 				</div>
 			</div>
 		</div>
@@ -107,9 +111,7 @@
 		<div class="modal-content">
 			<h2 class="modal-title">Chi tiết nhà cung cấp</h2>
 			<span class="closee">&times;</span>
-			<div id="content-suppliers">
-			
-			</div>
+			<div id="content-suppliers"></div>
 		</div>
 	</div>
 	<!-- finish -->
@@ -118,9 +120,7 @@
 		<div class="modal-content">
 			<h2 class="modal-title">Thay đổi thông tin tài sản</h2>
 			<span class="closee">&times;</span>
-			<div id="content-editSupplier">
-			
-			</div>
+			<div id="content-editSupplier"></div>
 		</div>
 	</div>
 	<!-- finish -->

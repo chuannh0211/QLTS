@@ -13,7 +13,9 @@
 			<%-- <a href="${pageContext.request.contextPath}/add-group">Add new
 			group here!!!</a> --%>
 			<button id="myBtn" class="btn btn-add btn-sm">Thêm nhóm mới</button>
-			<table class="table center-aligned-table">
+			<input type="text" class="form-control form-control-sm search-taisan"
+				id="mySearch" onkeyup="myFunction()" placeholder="Tìm kiếm">
+			<table class="table center-aligned-table" id="myTable">
 				<tr>
 					<th>STT</th>
 					<th>Tên nhóm</th>

@@ -19,7 +19,7 @@ public class GroupsController {
 	@Autowired
 	private NhomServiceImpl nService;
 
-	@RequestMapping(value = "/dsn")
+	@RequestMapping(value = "/dsnhom")
 	public String listGroup(Model model) {
 		List<Nhom> list = nService.getAllNhom();
 		model.addAttribute("list", list);

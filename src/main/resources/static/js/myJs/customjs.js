@@ -1,5 +1,4 @@
-jQuery(document).ready(
-		function() {
+jQuery(document).ready(function() {
 			// Open modal danh sach danh muc
 			if (jQuery('#myModal').length > 0) {
 				// show modal

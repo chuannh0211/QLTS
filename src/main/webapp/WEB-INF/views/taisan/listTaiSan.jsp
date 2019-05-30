@@ -12,7 +12,9 @@
 		<div class="card-body">
 			<h1 class="card-title">Danh sách tài sản</h1>
 			<button class="btn btn-add btn-sm open-modal">Thêm tài sản</button>
-			<table class="table center-aligned-table">
+			<input type="text" class="form-control form-control-sm search-taisan"
+				id="mySearch" onkeyup="myFunction()" placeholder="Tìm kiếm">
+			<table class="table center-aligned-table" id="myTable">
 				<tr>
 					<th>STT</th>
 					<th>Tên</th>
@@ -32,14 +34,13 @@
 						<td>${lsTs.giatrithuc }</td>
 						<td>${lsTs.getNameDm() }</td>
 						<td>${lsTs.getNameNcc() }</td>
-						<td><a class="btn btn-view btn-sm" href="<c:url value='view-details/${lsTs.getId() }'/>">Xem</a>
-							<%-- <a class="btn btn-primary btn-sm"
-							href="<c:url value='edit-ts/${lsTs.id}'/>">Sửa</a> --%> 
-							<a class="btn btn-primary btn-sm open-modal-editAsset"
+						<td><a class="btn btn-view btn-sm"
+							href="<c:url value='view-details/${lsTs.getId() }'/>">Xem</a> <%-- <a class="btn btn-primary btn-sm"
+							href="<c:url value='edit-ts/${lsTs.id}'/>">Sửa</a> --%> <a
+							class="btn btn-primary btn-sm open-modal-editAsset"
 							id-tss="${lsTs.id }" href="#">Sửa</a> &nbsp; <a
 							class="btn btn-danger btn-sm"
-							href="<c:url value='delete-ts/${lsTs.id}'/>">Xóa</a> &nbsp; 
-						</td>
+							href="<c:url value='delete-ts/${lsTs.id}'/>">Xóa</a> &nbsp;</td>
 					</tr>
 					<c:set var="count" value="${count + 1}"></c:set>
 				</c:forEach>
