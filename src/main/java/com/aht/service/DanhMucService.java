@@ -2,6 +2,9 @@ package com.aht.service;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
 import com.aht.entities.DanhMuc;
 
 public interface DanhMucService {
@@ -13,5 +16,10 @@ public interface DanhMucService {
 
 	public DanhMuc getDanhMucById(long id);
 
-	public List<DanhMuc> getAllDanhMuc();
+	//public List<DanhMuc> getAllDanhMuc();
+
+	List<DanhMuc> dmList();
+
+	Page<DanhMuc> findAll(Pageable pageable);
+
 }

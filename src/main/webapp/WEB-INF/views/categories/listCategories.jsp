@@ -20,7 +20,6 @@
 				<tr>
 					<th>STT</th>
 					<th>Tên danh mục</th>
-					<th></th>
 				</tr>
 				<c:set var="count" value="1" />
 				<c:forEach var="ls" items="${listDm}">
@@ -41,6 +40,7 @@
 					<c:set var="count" value="${count + 1}"></c:set>
 				</c:forEach>
 			</table>
+		
 			<div id="myModal" class="modal">
 				<div class="modal-content">
 					<div>

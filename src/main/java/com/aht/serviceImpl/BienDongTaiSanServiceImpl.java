@@ -61,4 +61,6 @@ public class BienDongTaiSanServiceImpl implements BienDongTaiSanService {
 		return repository.findAll();
 	}
 
+
+
 }

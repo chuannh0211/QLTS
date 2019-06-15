@@ -177,12 +177,12 @@ jQuery(document).ready(function() {
 					});
 				});
 
-			/*	// Popup biến động tài sản
-				jQuery(".open-modal-dcts").click(function() {
-					jQuery('#myModal-addBdts').show();
-					var id_bdtss = jQuery(this).attr("id-bdtss");
-					console.log(id_bdtss);
-				});*/
-
+				/*
+				 * // Popup biến động tài sản
+				 * jQuery(".open-modal-dcts").click(function() {
+				 * jQuery('#myModal-addBdts').show(); var id_bdtss =
+				 * jQuery(this).attr("id-bdtss"); console.log(id_bdtss); });
+				 */
+				
 			}
 		});

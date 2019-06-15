@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.aht.entities.DanhMuc;
@@ -46,9 +48,15 @@ public class DanhMucServiceImpl implements DanhMucService {
 	}
 
 	@Override
-	public List<DanhMuc> getAllDanhMuc() {
+	public List<DanhMuc> dmList() {
 		// TODO Auto-generated method stub
-		return dmRepository.findAll();
+		return dmRepository.dmList();
+	}
+
+	@Override
+	public Page<DanhMuc> findAll(Pageable pageable) {
+		// TODO Auto-generated method stub
+		return dmRepository.findAll(pageable);
 	}
 
 }

@@ -33,7 +33,7 @@ public class TestController {
 	@RequestMapping(value = { "/login" })
 	public String login(Model model, String error, String logout) {
 		if (error != null)
-			model.addAttribute("error", "Your username and password is invalid.");
+			model.addAttribute("error", "Tài khoản hoặc mật khẩu không đúng.");
 		return "login";
 	}
 

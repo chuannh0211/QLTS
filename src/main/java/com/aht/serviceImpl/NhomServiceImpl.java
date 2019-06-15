@@ -50,7 +50,6 @@ public class NhomServiceImpl implements NhomService {
 	@Override
 	public List<Nhom> getAllNhom() {
 		// TODO Auto-generated method stub
-
 		return repository.findAll();
 	}
 

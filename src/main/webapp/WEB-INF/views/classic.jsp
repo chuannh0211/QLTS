@@ -39,6 +39,7 @@
     <!--	Custom js  -->
     <script type="text/javascript" src="/js/myJs/customjs.js"></script> 
     <script type="text/javascript" src="/js/myJs/searchJs.js"></script> 
-
+	<script type="text/javascript" src="/js/myJs/pageination.js"></script> 
+	 
 </body>
 </html>

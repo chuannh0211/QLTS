@@ -8,5 +8,5 @@ import com.aht.entities.BienDongTaiSan;
 @Repository
 @Transactional
 public interface BienDongTaiSanRepository extends JpaRepository<BienDongTaiSan, Long> {
-
+	
 }

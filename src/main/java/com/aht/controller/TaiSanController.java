@@ -38,7 +38,7 @@ public class TaiSanController {
 	@RequestMapping(value = { "/dsts" }, method = RequestMethod.GET)
 	public String getAllAsset(Model model) {
 		List<TaiSan> listTs = tsService.getAllTaiSan();
-		List<DanhMuc> listDm = dmService.getAllDanhMuc();
+		List<DanhMuc> listDm = dmService.dmList();
 		List<NhaCungCap> listNcc = sService.getAllNcc();
 		model.addAttribute("lsTs", listTs);
 		model.addAttribute("lsDm", listDm);
@@ -84,7 +84,7 @@ public class TaiSanController {
 	
 	@RequestMapping(value = { "/edit-ts/{id}" }, method = RequestMethod.GET)
 	public String editAssetPopup(@PathVariable("id") int id, Model model) {
-		model.addAttribute("lsDm", dmService.getAllDanhMuc());
+		model.addAttribute("lsDm", dmService.dmList());
 		model.addAttribute("lsNcc", sService.getAllNcc());
 		model.addAttribute("ts", tsService.getTaiSanById(id));
 		TaiSan ls = tsService.getTaiSanById(id);

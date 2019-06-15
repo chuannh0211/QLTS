@@ -14,4 +14,5 @@ public interface BienDongTaiSanService {
 	public BienDongTaiSan getBDTSById(long id);
 
 	public List<BienDongTaiSan> getAllBienDongTaiSan();
+
 }

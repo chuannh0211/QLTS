@@ -30,8 +30,8 @@
 								<img src="/images/logo.jpg" alt="Default Spring Application"
 									width="35%;">
 							</div>
-							<h1 class="text-center text-uppercase">Đăng nhập</h1>
-							<h3>${message}</h3>
+							
+							<p>${error}</p>
 							<hr>
 
 							<form action="/login" method="post" >
