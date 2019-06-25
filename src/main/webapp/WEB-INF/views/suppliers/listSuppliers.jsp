@@ -43,9 +43,9 @@
 						<td>${ls.nguoidaidien }</td>
 						<td>${ls.company }</td>
 						<td><a class="btn btn-view btn-sm open-modal-suppDetails"
-							id-ncc=${ls.id } href="#">Xem</a> <a
+							id-ncc=${ls.id } href="javascript:void(0);">Xem</a> <a
 							class="btn btn-primary btn-sm open-modal-editSupp"
-							id-ncc=${ls.id } href="#">Sửa</a> &nbsp; <a
+							id-ncc=${ls.id } href="javascript:void(0);">Sửa</a> &nbsp; <a
 							class="btn btn-danger btn-sm"
 							href="<c:url value='delete-ncc/${ls.id}' />">Xóa</a> &nbsp;</td>
 					</tr>

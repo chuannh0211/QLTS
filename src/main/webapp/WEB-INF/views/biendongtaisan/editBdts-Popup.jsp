@@ -25,7 +25,7 @@
 			<div class="form-group">
 				<label>Nhà cung cấp: </label>
 				<%-- <form:input path="nhacungcap" class="form-control p-input disable" /> --%>
-				<input type="text" name=nhacungcap value="${nBdts.nguoighi }"
+				<input type="text" name=nhacungcap value="${nBdts.nhacungcap }"
 					required class="form-control p-input disable">
 			</div>
 			<div class="form-group">
@@ -49,14 +49,14 @@
 			<div class="form-group">
 				<label>Giá trị biến động: </label>
 				<%-- <form:input path="giatribiendong" class="form-control p-input " /> --%>
-				<input type="text" name="giatribiendong"
+				<input type="text" name="giatribiendong" class="form-control p-input"
 					value="${nBdts.giatribiendong }" required pattern="[0-9]"
 					title="Không được nhập kí tự chữ !!!">
 			</div>
 			<div class="form-group">
 				<label>Bảo hành: </label>
 				<%-- <form:input path="thoigianbaohanh" class="form-control p-input " /> --%>
-				<input type="text" name="thoigianbaohanh"
+				<input class="form-control p-input type="text" name="thoigianbaohanh"
 					value="${nBdts.thoigianbaohanh }" required
 					pattern="[0-9](+)[A-Za-z](+).{6,}"
 					title="Không được ít hơn 6 kí tự !!!">
@@ -64,7 +64,7 @@
 			<div class="form-group">
 				<label>Số hóa đơn: </label>
 				<%-- <form:input path="sohoadon" class="form-control p-input " /> --%>
-				<input type="text" name="sohoadon" value="${nBdts.sohoadon }"
+				<input class="form-control p-input type="text" name="sohoadon" value="${nBdts.sohoadon }"
 					required pattern="[A-Za-z0-9].{9,20}" title="Không được ít hơn 10 kí tự !!!">
 			</div>
 			<div class="form-group">

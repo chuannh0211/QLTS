@@ -54,7 +54,7 @@
 								</div>
 								<div class="forgot-pass">
 									<%-- <a id="myId" href="${contextPath }/register-form">Đăng Ký</a> --%>
-									<a class="label-signup open-modal" href="#">Đăng Ký</a>
+									<a class="label-signup open-modal" href="javascript:void(0);">Đăng Ký</a>
 								</div>
 								<button type="submit"
 									class="btn btn-primary btn-block enter-btn">Đăng nhập</button>

@@ -53,7 +53,8 @@
 						<td>${ltsDcts.getGruopAsset() }</td>
 						<td>${ltsDcts.ghichu }</td>
 						<td><a class="btn btn-primary btn-sm open-modal"
-							id-dcts="${ltsDcts.id}" href="#">Sửa</a> &nbsp; <%-- <a class="btn btn-primary btn-sm" href="<c:url value='sua-dcts/${ltsDcts.id}'/>">Sửa</a> &nbsp; --%>
+							id-dcts="${ltsDcts.id}" href="javascript:void(0);">Sửa</a> &nbsp; 
+							<%-- <a class="btn btn-primary btn-sm" href="<c:url value='sua-dcts/${ltsDcts.id}'/>">Sửa</a> &nbsp; --%>
 							<a class="btn btn-danger btn-sm"
 							href="<c:url value='xoa-dcts?id=${ltsDcts.id}&idts=${ts.id}'/>">Xóa</a>&nbsp;
 						</td>
@@ -95,7 +96,7 @@
 						<td>${ltsBdts.getSohoadon()}</td>
 						<td>${ltsBdts.getGhichu()}</td>
 						<td><a class="btn btn-primary btn-sm open-modal-editBdts"
-							id-bdts="${ltsBdts.id}" href="#">Sửa</a> &nbsp; <%-- <a class="btn btn-primary btn-sm" href="<c:url value='form-sua-bdts/${ltsBdts.id}'/>">Sửa</a> &nbsp; --%>
+							id-bdts="${ltsBdts.id}" href="javascript:void(0);">Sửa</a> &nbsp; <%-- <a class="btn btn-primary btn-sm" href="<c:url value='form-sua-bdts/${ltsBdts.id}'/>">Sửa</a> &nbsp; --%>
 							<a class="btn btn-danger btn-sm"
 							href="<c:url value='xoa-bdts?id=${ltsBdts.id}&idts=${ts.id}'/>">Xóa</a>&nbsp;
 						</td>

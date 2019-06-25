@@ -1,4 +1,5 @@
-jQuery(document).ready(function() {
+jQuery(document).ready(
+		function() {
 			// Open modal danh sach danh muc
 			if (jQuery('#myModal').length > 0) {
 				// show modal
@@ -63,6 +64,7 @@ jQuery(document).ready(function() {
 						url : 'view-category-details/' + id_category,
 						success : function(data) {
 							jQuery("#content-categoryDetails").html(data);
+							console.log(data);
 						}
 					});
 				});
@@ -183,6 +185,6 @@ jQuery(document).ready(function() {
 				 * jQuery('#myModal-addBdts').show(); var id_bdtss =
 				 * jQuery(this).attr("id-bdtss"); console.log(id_bdtss); });
 				 */
-				
 			}
+
 		});

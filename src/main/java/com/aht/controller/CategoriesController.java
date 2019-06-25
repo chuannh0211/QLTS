@@ -35,17 +35,12 @@ public class CategoriesController {
 		model.addAttribute("listDm", ltsDm);
 		return "listcategories";
 	}
+	
 
-	@RequestMapping(value = { "/dsdmPageable" }, method = RequestMethod.GET)
-	public String dsdmPageable(Model model, Pageable fPageable) {
-		// = PageRequest.of(0, 5, Sort.by("id"));
-//		Page<DanhMuc> pDm = dmService.pageAble(fPageable);		
-//		model.addAttribute("pDm", pDm.getContent());
-		
-//		model.addAttribute("totalPages", pDm.getTotalPages());
-//		model.addAttribute("totalElement", pDm.getTotalElements());
-//		System.out.println("totalPages: " + pDm.getTotalPages() );
-		
+	@RequestMapping(value = { "/danhmuc" }, method = RequestMethod.GET)
+	public String dsdmPageable(Model model, @RequestParam(name = "page", defaultValue = "0") int page,
+			@RequestParam(name = "size", defaultValue = "5") int size) {
+		Pageable fPageable = PageRequest.of(page, size, Sort.by("id"));
 		Page<DanhMuc> pages = dmService.findAll(fPageable);
 //		List<DanhMuc> listDm = dmService.dmList();
 //		model.addAttribute("listDm", listDm);
@@ -54,9 +49,9 @@ public class CategoriesController {
 		model.addAttribute("totalElement", pages.getTotalElements());
 		model.addAttribute("size", pages.getSize());
 		model.addAttribute("listDm", pages.getContent());
-		
+
 		int current = pages.getNumber() + 1;
-		int begin = Math.max(1, current  );
+		int begin = Math.max(1, current);
 		int end = pages.getTotalPages();
 		model.addAttribute("end", end);
 		model.addAttribute("begin", begin);

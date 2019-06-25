@@ -13,7 +13,7 @@
             </button>
             <div class="nav-profile">
                 <span>Xin chào, ${pageContext.request.userPrincipal.name}</span>
-                <img src="/images/faces/face6.jpg"/>
+                <img src="/images/faces/default.jpg"/>
             </div>
             
             <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">

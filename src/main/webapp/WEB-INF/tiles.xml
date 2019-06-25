@@ -19,6 +19,11 @@
 		template="/WEB-INF/views/cclassic.jsp">
 		<put-attribute name="body" value="" />
 	</definition>
+	<!-- template for pagination -->
+	<definition name="templateBlankPagination"
+		template="/WEB-INF/views/pageContent.jsp">
+		<put-attribute name="body" value="" />
+	</definition>
 
 	<!-- Home Page -->
 	<definition name="homePage" extends="templatePage">

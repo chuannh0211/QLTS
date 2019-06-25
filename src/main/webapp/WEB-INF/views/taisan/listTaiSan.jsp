@@ -38,7 +38,7 @@
 							href="<c:url value='view-details/${lsTs.getId() }'/>">Xem</a> <%-- <a class="btn btn-primary btn-sm"
 							href="<c:url value='edit-ts/${lsTs.id}'/>">Sửa</a> --%> <a
 							class="btn btn-primary btn-sm open-modal-editAsset"
-							id-tss="${lsTs.id }" href="#">Sửa</a> &nbsp; <a
+							id-tss="${lsTs.id }" href="javascript:void(0);">Sửa</a> &nbsp; <a
 							class="btn btn-danger btn-sm"
 							href="<c:url value='delete-ts/${lsTs.id}'/>">Xóa</a> &nbsp;</td>
 					</tr>
