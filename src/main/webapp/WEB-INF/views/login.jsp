@@ -30,10 +30,8 @@
 								<img src="/images/logo.jpg" alt="Default Spring Application"
 									width="35%;">
 							</div>
-							
 							<p>${error}</p>
 							<hr>
-
 							<form action="/login" method="post" >
 								<div class="form-group">
 									<label><b>Tài Khoản</b> </label> <input type="text"

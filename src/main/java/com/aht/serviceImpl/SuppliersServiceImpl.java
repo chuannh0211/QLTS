@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.aht.entities.NhaCungCap;
@@ -55,7 +57,13 @@ public class SuppliersServiceImpl implements NhaCungCapService {
 	@Override
 	public List<NhaCungCap> getAllNcc() {
 		// TODO Auto-generated method stub
-		return repository.findAll();
+		return repository.supList();
+	}
+
+	@Override
+	public Page<NhaCungCap> findAll(Pageable pageable) {
+		// TODO Auto-generated method stub
+		return repository.findAll(pageable);
 	}
 
 }

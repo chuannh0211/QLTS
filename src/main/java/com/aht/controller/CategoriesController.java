@@ -36,9 +36,8 @@ public class CategoriesController {
 		return "listcategories";
 	}
 	
-
-	@RequestMapping(value = { "/danhmuc" }, method = RequestMethod.GET)
-	public String dsdmPageable(Model model, @RequestParam(name = "page", defaultValue = "0") int page,
+	@RequestMapping(value = { "/listCategoris" }, method = RequestMethod.GET)
+	public String getAllCategories(Model model, @RequestParam(name = "page", defaultValue = "0") int page,
 			@RequestParam(name = "size", defaultValue = "5") int size) {
 		Pageable fPageable = PageRequest.of(page, size, Sort.by("id"));
 		Page<DanhMuc> pages = dmService.findAll(fPageable);
@@ -64,7 +63,7 @@ public class CategoriesController {
 		DanhMuc dm = new DanhMuc();
 		dm.setName(name);
 		dmService.createDanhMuc(dm);
-		return "redirect:/dsdm";
+		return "redirect:/listCategoris";
 	}
 
 	@RequestMapping(value = { "/edit-dsdm/{id}" }, method = RequestMethod.GET)
@@ -78,13 +77,13 @@ public class CategoriesController {
 	@RequestMapping(value = "/edit-dsdm", method = RequestMethod.POST)
 	public String editCategory(@ModelAttribute("dm") DanhMuc dm) {
 		dmService.updateDanhMuc(dm);
-		return "redirect:/dsdm";
+		return "redirect:/listCategoris";
 	}
 
 	@RequestMapping(value = "/delete-dsdm/{id}")
 	public String deleteCategory(@PathVariable("id") int id) {
 		dmService.deleteDanhMuc(id);
-		return "redirect:/dsdm";
+		return "redirect:/listCategoris";
 	}
 
 	@RequestMapping(value = "/view-category-details/{id}")

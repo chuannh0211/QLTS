@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -65,13 +67,19 @@ public class UserServiceImpl implements UsersService {
 	@Override
 	public List<Users> getAllUsers() {
 		// TODO Auto-generated method stub
-		return uRepository.findAll();
+		return uRepository.usersList();
 	}
 
 	@Override
 	public Users findByUsername(String username) {
 		// TODO Auto-generated method stub
 		return uRepository.findByUsername(username);
+	}
+
+	@Override
+	public Page<Users> findAll(Pageable pageable) {
+		// TODO Auto-generated method stub
+		return uRepository.findAll(pageable);
 	}
 
 }

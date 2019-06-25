@@ -40,16 +40,7 @@ public class BdtsController {
 		model.addAttribute("nTs", nTs);
 		List<NhaCungCap> ltsNcc = sService.getAllNcc();
 		model.addAttribute("ltsNcc", ltsNcc);
-		status1 = env.getProperty("trangthaiM");
-		status2 = env.getProperty("trangthaiSc");
-		status3 = env.getProperty("trangthaiTtb");
-		status4 = env.getProperty("trangthaiBtb");
-		status5 = env.getProperty("trangthaiTL");
-		model.addAttribute("status1", status1);
-		model.addAttribute("status2", status2);
-		model.addAttribute("status3", status3);
-		model.addAttribute("status4", status4);
-		model.addAttribute("status5", status5);
+		
 		return "form-bdts";
 	}
 

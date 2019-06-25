@@ -2,6 +2,9 @@ package com.aht.service;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
 import com.aht.entities.TaiSan;
 
 public interface TaiSanService {
@@ -17,5 +20,5 @@ public interface TaiSanService {
 
 	public TaiSan findByTentaisan(String tentaisan);
 	
-//	public List<TaiSan> findByTrangThai();
+	Page<TaiSan> findAll(Pageable pageable);
 }

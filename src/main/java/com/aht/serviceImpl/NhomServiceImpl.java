@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.aht.entities.Nhom;
@@ -50,7 +52,13 @@ public class NhomServiceImpl implements NhomService {
 	@Override
 	public List<Nhom> getAllNhom() {
 		// TODO Auto-generated method stub
-		return repository.findAll();
+		return repository.grList();
+	}
+
+	@Override
+	public Page<Nhom> findAll(Pageable pageable) {
+		// TODO Auto-generated method stub
+		return repository.findAll(pageable);
 	}
 
 }

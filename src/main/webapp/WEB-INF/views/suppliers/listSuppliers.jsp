@@ -19,9 +19,9 @@
 				id="mySearch" onkeyup="myFunction()" placeholder="Tìm kiếm">
 			<table class="table center-aligned-table" id="myTable">
 				<tr>
-					<th>STT</th>
-					<th>Tên công ty</th>
+					<th>STT</th>					
 					<th>Mã công ty</th>
+					<th>Tên công ty</th>
 					<th>Địa chỉ</th>
 					<th>Số điện thoại</th>
 					<th>Email</th>
@@ -33,9 +33,9 @@
 				<c:set var="count" value="1" />
 				<c:forEach var="ls" items="${list }">
 					<tr>
-						<td><c:out value="${count }"></c:out></td>
-						<td>${ls.tencongty }</td>
+						<td><c:out value="${count }"></c:out></td>						
 						<td>${ls.tentat }</td>
+						<td>${ls.tencongty }</td>
 						<td>${ls.diachi }</td>
 						<td>${ls.dienthoai }</td>
 						<td>${ls.email }</td>
@@ -52,6 +52,24 @@
 					<c:set var="count" value="${count + 1}"></c:set>
 				</c:forEach>
 			</table>
+			<!-- phân trang -->
+			<div class="row">
+				<div class="col-sm-12 col-md-5">
+					<div class="dataTables_info">Showing ${number + 1} to ${size }
+						of ${totalElement}</div>
+				</div>
+				<div class="col-sm-12 col-md-7">
+					<div class="dataTables_paginate paging_simple_numbers">
+						<ul class="pagination">
+							<c:forEach begin="0" end="${totalPages -1 }" var="page">
+								<li class="paginate_button page-item"><a class="page-link"
+									href="javascript:void(0);"
+									onclick="paginationSup(${page}, ${size})">${page + 1 }</a></li>
+							</c:forEach>
+						</ul>
+					</div>
+				</div>
+			</div>
 			<div id="myModal" class="modal">
 				<div class="modal-content">
 					<div>

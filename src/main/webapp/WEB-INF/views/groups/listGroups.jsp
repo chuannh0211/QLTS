@@ -38,6 +38,24 @@
 				<c:set var="count" value="${count + 1}"></c:set>
 				</c:forEach>
 			</table>
+			<!-- phân trang -->
+			<div class="row">
+				<div class="col-sm-12 col-md-5">
+					<div class="dataTables_info">Showing ${number + 1} to ${size }
+						of ${totalElement}</div>
+				</div>
+				<div class="col-sm-12 col-md-7">
+					<div class="dataTables_paginate paging_simple_numbers">
+						<ul class="pagination">
+							<c:forEach begin="0" end="${totalPages -1 }" var="page">
+								<li class="paginate_button page-item"><a class="page-link"
+									href="javascript:void(0);"
+									onclick="paginationGroup(${page}, ${size})">${page + 1 }</a></li>
+							</c:forEach>
+						</ul>
+					</div>
+				</div>
+			</div>
 			<div id="myModal" class="modal">
 				<div class="modal-content">
 					<div>

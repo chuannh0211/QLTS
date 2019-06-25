@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.aht.entities.TaiSan;
@@ -65,13 +67,11 @@ public class TaiSanServiceImpl implements TaiSanService {
 		return repository.findByTentaisan(tentaisan);
 	}
 
-
-
-//	@Override
-//	public List<TaiSan> findByTrangThai() {
+	@Override
+	public Page<TaiSan> findAll(Pageable pageable) {
 		// TODO Auto-generated method stub
-//		TaiSan newTs = new TaiSan();
-//		return null; //repository.findAll(Sort.Direction.fromOptionalString(newTs.getTrangthai()));
-//	}
+		return repository.findAll(pageable);
+	}
+
 
 }

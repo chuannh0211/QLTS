@@ -1,8 +1,10 @@
 package com.aht.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -19,10 +21,24 @@ public class GroupsController {
 	@Autowired
 	private NhomServiceImpl nService;
 
-	@RequestMapping(value = "/dsnhom")
-	public String listGroup(Model model) {
-		List<Nhom> list = nService.getAllNhom();
-		model.addAttribute("list", list);
+	@RequestMapping(value = "/listGroups")
+	public String listGroup(Model model, @RequestParam(name = "page", defaultValue = "0") int page,
+			@RequestParam(name = "size", defaultValue = "5") int size) {
+		Pageable pageable = PageRequest.of(page, size, Sort.by("id"));
+		Page<Nhom> pages = nService.findAll(pageable);
+		// List<Nhom> list = nService.getAllNhom();
+		model.addAttribute("list", pages.getContent());
+		model.addAttribute("number", pages.getNumber());
+		model.addAttribute("totalPages", pages.getTotalPages());
+		model.addAttribute("totalElement", pages.getTotalElements());
+		model.addAttribute("size", pages.getSize());
+
+		int current = pages.getNumber() + 1;
+		int begin = Math.max(1, current);
+		int end = pages.getTotalPages();
+		model.addAttribute("end", end);
+		model.addAttribute("begin", begin);
+		model.addAttribute("current", current);
 		return "listgroups";
 	}
 
@@ -32,7 +48,7 @@ public class GroupsController {
 		newN.setName(name);
 		newN.setPm(pm);
 		nService.createNhom(newN);
-		return "redirect:/dsn";
+		return "redirect:/listGroups";
 	}
 
 	@RequestMapping(value = "/group-details/{id}", method = RequestMethod.GET)
@@ -50,13 +66,13 @@ public class GroupsController {
 	@RequestMapping(value = "/edit-dsn", method = RequestMethod.POST)
 	public String editGroup(@ModelAttribute("gr") Nhom gr) {
 		nService.updateNhom(gr);
-		return "redirect:/dsn";
+		return "redirect:/listGroups";
 	}
 
 	@RequestMapping(value = "/delete-dsn/{id}")
 	public String deleteGroup(@PathVariable("id") int id) {
 		nService.deleteNhom(id);
-		return "redirect:/dsn";
+		return "redirect:/listGroups";
 	}
 
 }

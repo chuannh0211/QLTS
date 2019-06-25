@@ -5,6 +5,10 @@ import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -35,12 +39,16 @@ public class TaiSanController {
 	static String status1, status2, status3;
 
 	/* tạo list để lấy danh mục + nhà cung cấp cho phần add + edit */
-	@RequestMapping(value = { "/dsts" }, method = RequestMethod.GET)
-	public String getAllAsset(Model model) {
-		List<TaiSan> listTs = tsService.getAllTaiSan();
+	@RequestMapping(value = { "/listAsset" }, method = RequestMethod.GET)
+	public String getAllAsset(Model model, @RequestParam(name="page", defaultValue="0") int page,
+			@RequestParam(name="size", defaultValue = "5") int size) {
+		Pageable pageable = PageRequest.of(page, size, Sort.by("id"));
+		Page<TaiSan> pages = tsService.findAll(pageable);
+//		List<TaiSan> listTs = tsService.getAllTaiSan();
 		List<DanhMuc> listDm = dmService.dmList();
 		List<NhaCungCap> listNcc = sService.getAllNcc();
-		model.addAttribute("lsTs", listTs);
+//		model.addAttribute("lsTs", listTs); 
+		model.addAttribute("lsTs", pages.getContent());
 		model.addAttribute("lsDm", listDm);
 		model.addAttribute("lsNcc", listNcc);
 		status1 = env.getProperty("trangthaiT");
@@ -49,6 +57,18 @@ public class TaiSanController {
 		model.addAttribute("status1", status1);
 		model.addAttribute("status2", status2);
 		model.addAttribute("status3", status3);
+		
+		model.addAttribute("number", pages.getNumber());
+		model.addAttribute("totalPages", pages.getTotalPages());
+		model.addAttribute("totalElement", pages.getTotalElements());
+		model.addAttribute("size", pages.getSize());
+		
+		int current = pages.getNumber() + 1;
+		int begin = Math.max(1, current);
+		int end = pages.getTotalPages();
+		model.addAttribute("end", end);
+		model.addAttribute("begin", begin);
+		model.addAttribute("current", current);
 		return "listasset";
 	}
 
@@ -68,7 +88,7 @@ public class TaiSanController {
 		newTs.setDanhmuc(newDm);
 		newTs.setNhacungcap(newNcc);
 		tsService.createTaiSan(newTs);
-		return "redirect:/dsts";
+		return "redirect:/listAsset";
 	}
 
 //	@RequestMapping(value = { "/edit-ts/{id}" }, method = RequestMethod.GET)
@@ -81,7 +101,7 @@ public class TaiSanController {
 //		model.addAttribute("newNcc", ls.getNhacungcap().getId());
 //		return "editdsts";
 //	}
-	
+
 	@RequestMapping(value = { "/edit-ts/{id}" }, method = RequestMethod.GET)
 	public String editAssetPopup(@PathVariable("id") int id, Model model) {
 		model.addAttribute("lsDm", dmService.dmList());
@@ -93,18 +113,17 @@ public class TaiSanController {
 		model.addAttribute("ts", ls);
 		return "editInfoAssetPopup";
 	}
-	
 
 	@RequestMapping(value = { "/edit-ts" }, method = RequestMethod.POST)
 	public String editAsset(@ModelAttribute("ts") TaiSan ts) {
 		tsService.updateTaiSan(ts);
-		return "redirect:/dsts";
+		return "redirect:/listAsset";
 	}
 
 	@RequestMapping(value = "/delete-ts/{id}")
 	public String deleteAsset(@PathVariable("id") int id) {
 		tsService.deleteTaiSan(id);
-		return "redirect:/dsts";
+		return "redirect:/listAsset";
 	}
 
 	@RequestMapping(value = { "view-details/{id}" })
@@ -117,5 +136,5 @@ public class TaiSanController {
 		model.addAttribute("ltsBdts", ltsBdts);
 		return "listAssetsDetails";
 	}
-	
+
 }
