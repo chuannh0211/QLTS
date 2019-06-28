@@ -1,7 +1,6 @@
 package com.aht.controller;
 
 import java.util.Collection;
-import java.util.regex.Pattern;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -13,14 +12,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.aht.entities.Roles;
 import com.aht.entities.Users;
+import com.aht.serviceImpl.RolesServiceImpl;
 import com.aht.serviceImpl.UserServiceImpl;
 
 @Controller
 public class TestController {
 	@Autowired
 	private UserServiceImpl uService;
-
+	
+	@Autowired
+	private RolesServiceImpl rService;
+	
 	@RequestMapping(value = { "/" }, method = RequestMethod.GET)
 	public String index(Model model) {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -34,6 +38,8 @@ public class TestController {
 	public String login(Model model, String error, String logout) {
 		if (error != null)
 			model.addAttribute("error", "Tài khoản hoặc mật khẩu không đúng.");
+		if (logout != null)
+			model.addAttribute("message", "Đăng xuất thành công.");
 		return "login";
 	}
 
@@ -55,7 +61,7 @@ public class TestController {
 		user.setPhone(phone);
 		uService.createUser(user);
 
-		return "redirect:/dstk";
+		return "redirect:/listAccounts";
 	}
 
 	@RequestMapping("/user-index")

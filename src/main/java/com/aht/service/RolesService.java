@@ -1,6 +1,7 @@
 package com.aht.service;
 
 import java.util.List;
+import java.util.Set;
 
 import com.aht.entities.Roles;
 
@@ -15,5 +16,5 @@ public interface RolesService {
 
 	public List<Roles> getAllRoles();
 	
-	
+	public Set<Roles> findByName(String name);
 }

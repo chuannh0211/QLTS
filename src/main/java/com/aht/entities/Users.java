@@ -25,6 +25,16 @@ public class Users {
 	@JoinTable(name = "roleuser", joinColumns = @JoinColumn(name = "iduser"), inverseJoinColumns = @JoinColumn(name = "idrole"))
 	private Set<Roles> roles;
 
+	private transient long roleId;
+
+	public long getRoleId() {
+		return roleId;
+	}
+
+	public void setRoleId(long roleId) {
+		this.roleId = roleId;
+	}
+
 	public long getId() {
 		return id;
 	}

@@ -2,6 +2,7 @@ package com.aht.serviceImpl;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -49,5 +50,11 @@ public class RolesServiceImpl implements RolesService {
 	public List<Roles> getAllRoles() {
 		// TODO Auto-generated method stub
 		return repository.findAll();
+	}
+
+	@Override
+	public Set<Roles> findByName(String name) {
+		// TODO Auto-generated method stub
+		return repository.findByName(name);
 	}
 }

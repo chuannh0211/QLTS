@@ -29,7 +29,8 @@ public class UserServiceImpl implements UsersService {
 	public Users createUser(Users user) {
 		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
 		user.setPasswordConfirm(bCryptPasswordEncoder.encode(user.getPasswordConfirm()));
-		user.setRoles(new HashSet<Roles>(rRepository.findAll()));
+		//user.setRoles(new HashSet<Roles>(rRepository.findAll()));
+		user.setRoles(rRepository.findByName("USER"));
 		return uRepository.save(user);
 
 	}
@@ -51,7 +52,7 @@ public class UserServiceImpl implements UsersService {
 	public boolean deleteUser(long id) {
 		// TODO Auto-generated method stub
 		uRepository.delete(uRepository.findById(id).get());
-		//uRepository.delete(uRepository.findByUsername(username));
+		// uRepository.delete(uRepository.findByUsername(username));
 		return true;
 	}
 

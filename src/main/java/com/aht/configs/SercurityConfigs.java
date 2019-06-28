@@ -25,8 +25,6 @@ public class SercurityConfigs extends WebSecurityConfigurerAdapter {
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		// TODO Auto-generated method stub
 		auth.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder());
-//		auth.inMemoryAuthentication().withUser("admin").password("$2a$10$SL1Pow3jzOoSMuHSvVrvCetEbTpkQINIA5jAFxT.7ZfSfsQAfbEBC").roles("ADM")
-//		.and().withUser("user").password("$2a$10$PxeyK3LA2s6E7wyGlvZafu2Mu8W9p/Ot58Tcjfdixr0hnAM3sG5FS").roles("USER");
 	}
 
 	@Override

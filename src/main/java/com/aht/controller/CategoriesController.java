@@ -22,12 +22,11 @@ import com.aht.repository.DanhMucRepository;
 import com.aht.serviceImpl.DanhMucServiceImpl;
 
 @Controller
+//@RequestMapping(value = { "/qlts" })
 public class CategoriesController {
 
 	@Autowired
 	private DanhMucServiceImpl dmService;
-
-	private DanhMucRepository dmRepo;
 
 	@RequestMapping(value = { "/dsdm" }, method = RequestMethod.GET)
 	public String dsdm(Model model) {

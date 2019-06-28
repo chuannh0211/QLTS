@@ -37,6 +37,10 @@ public class TaiSanController {
 	@Autowired
 	private Environment env;
 	static String status1, status2, status3;
+	
+	private final int tot = 0;
+	private final int hong = 1;
+	private final int thanhly = 2;
 
 	/* tạo list để lấy danh mục + nhà cung cấp cho phần add + edit */
 	@RequestMapping(value = { "/listAsset" }, method = RequestMethod.GET)

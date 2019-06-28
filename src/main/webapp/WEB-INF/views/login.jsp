@@ -30,9 +30,11 @@
 								<img src="/images/logo.jpg" alt="Default Spring Application"
 									width="35%;">
 							</div>
-							<p>${error}</p>
 							<hr>
 							<form action="/login" method="post" >
+								<c:if test="${error != null}">
+									<strong>${error}</strong>
+								</c:if>
 								<div class="form-group">
 									<label><b>Tài Khoản</b> </label> <input type="text"
 										name="uname" required="required" class="form-control p_input"
@@ -101,7 +103,7 @@
 											placeholder="Nhập email" name="email" required="required">
 									</div>
 									<div class="form-group">
-										<label><b>Số điện thoại:</b></label> <input  pattern="[0-9]"
+										<label><b>Số điện thoại:</b></label> <input  pattern="^[0-9]{10}$"
 											maxlength="10"
 											title="Số điện thoại phải là số và có 10 kí tự"
 											class="form-control p_input" type="text"

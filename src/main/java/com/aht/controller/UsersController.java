@@ -80,4 +80,6 @@ public class UsersController {
 		uServiceImpl.deleteUser(id);
 		return "redirect:/listAccounts";
 	}
+	
+	
 }

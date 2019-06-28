@@ -22,7 +22,6 @@
 			<label><b>Password Confirm</b></label> <input type="password"
 				placeholder="Password Confirm" name="passwordConfirm"
 				required="required">
-
 			<button type="submit">Submit</button>
 		</form>
 	</div>
