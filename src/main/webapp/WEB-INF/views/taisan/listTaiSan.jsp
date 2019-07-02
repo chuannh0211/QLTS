@@ -40,7 +40,7 @@
 							class="btn btn-primary btn-sm open-modal-editAsset"
 							id-tss="${lsTs.id }" href="javascript:void(0);">Sửa</a> &nbsp; <a
 							class="btn btn-danger btn-sm"
-							href="<c:url value='delete-ts/${lsTs.id}'/>">Xóa</a> &nbsp;</td>
+							href="<c:url value='/asset/delete-asset/${lsTs.id}'/>">Xóa</a> &nbsp;</td>
 					</tr>
 					<c:set var="count" value="${count + 1}"></c:set>
 				</c:forEach>
@@ -54,7 +54,7 @@
 				<div class="col-sm-12 col-md-7">
 					<div class="dataTables_paginate paging_simple_numbers">
 						<ul class="pagination">
-							<c:forEach begin="0" end="${totalPages - 1}" var="page">
+							<c:forEach begin="0" end="${totalPages }" var="page">
 								<li class="paginate_button page-item"><a class="page-link"
 									href="javascript:void(0);"
 									onclick="paginationAsset(${page}, ${size})">${page + 1 }</a></li>
@@ -69,7 +69,7 @@
 						<span class="closee">&times;</span>
 					</div>
 					<h4 class="modal-title sub-center">Thêm tài sản</h4>
-					<form action="/add-ts" method="post" class="forms-sample">
+					<form action="/asset/add-asset" method="post" class="forms-sample">
 						<div class="form-group">
 							<label><b>Tên tài sản</b></label> <input pattern=".{8,}"
 								title="Tên tài sản ít nhất phải có 8 kí tự!!!"
@@ -99,7 +99,7 @@
 
 						<div>
 							<label><b>Giá trị thực:</b></label> <input
-								class="form-control p-input" type="text" pattern="[0-9]"
+								class="form-control p-input" type="text" pattern="^[0-9]+(\.[0-9]{1,2})?$"
 								title="Không được nhập chữ!!!" placeholder="Giá trị thực"
 								name="giatrithuc" required="required">
 						</div>

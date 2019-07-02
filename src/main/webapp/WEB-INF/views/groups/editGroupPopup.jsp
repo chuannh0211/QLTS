@@ -5,7 +5,7 @@
 <div class="card">
 	<div class="card-body">
 		<hr>
-		<form:form action="/edit-dsn" method="POST" modelAttribute="gr"
+		<form:form action="/group/edit-group" method="POST" modelAttribute="gr"
 			class="forms-sample">
 			<div>
 				<form:hidden path="id" />

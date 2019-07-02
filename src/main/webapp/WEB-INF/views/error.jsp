@@ -1,14 +1,17 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <title>Error Page</title>
 </head>
 <body>
-Error
-<br/>
-This error page!
+	<div>
+		<h1>Access denied</h1>
+		<p>
+			<a href="/">Quay lại trang chủ</a>
+		</p>
+	</div>
 </body>
 </html>

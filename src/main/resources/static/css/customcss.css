@@ -98,9 +98,20 @@
 	color: #000;
 	font-family: 'open-sans-semibold', sans-serif;
 }
-.sub-center{
+
+.sub-center {
 	text-align: center;
 }
-.search-taisan{
+
+.search-taisan {
 	width: 20%;
+	color: #ea1c45;
+}
+
+.back {
+	float: right;
+}
+
+.cc {
+	padding-top: 10px;
 }

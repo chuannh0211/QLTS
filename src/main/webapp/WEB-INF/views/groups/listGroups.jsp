@@ -33,7 +33,7 @@
 							class="btn btn-primary btn-sm opan-modal-editGroup"
 							id-nhom="${ls.id }" href="javascript:void(0);">Sửa</a> &nbsp; <a
 							class="btn btn-danger btn-sm"
-							href="<c:url value='delete-dsn/${ls.id }'/>">Xóa</a> &nbsp;</td>
+							href="<c:url value='delete-group/${ls.id }'/>">Xóa</a> &nbsp;</td>
 					</tr>
 				<c:set var="count" value="${count + 1}"></c:set>
 				</c:forEach>
@@ -61,7 +61,7 @@
 					<div>
 						<span class="closee">&times;</span>
 					</div>
-					<form action="/add-dsn" method="post" class="forms-sample">
+					<form action="/group/add-group" method="post" class="forms-sample">
 						<div class="form-group">
 							<label><b>Tên nhóm:</b></label> <input
 								class="form-control p-input" type="text" name="name"

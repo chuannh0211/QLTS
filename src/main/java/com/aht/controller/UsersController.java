@@ -17,6 +17,7 @@ import com.aht.entities.Users;
 import com.aht.serviceImpl.UserServiceImpl;
 
 @Controller
+@RequestMapping(value = "/user")
 public class UsersController {
 	@Autowired
 	private UserServiceImpl uServiceImpl;
@@ -63,23 +64,22 @@ public class UsersController {
 	 * }
 	 */
 
-	@RequestMapping(value = { "/edit-dstk/{id}" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/edit-users/{id}" }, method = RequestMethod.GET)
 	public String editUserPopup(@PathVariable("id") int id, Model model) {
 		model.addAttribute("user", uServiceImpl.getUserById(id));
 		return "editUserPopup";
 	}
 
-	@RequestMapping(value = "/edit-dstk", method = RequestMethod.POST)
+	@RequestMapping(value = "/edit-users", method = RequestMethod.POST)
 	public String editUser(@ModelAttribute("user") Users user) {
 		uServiceImpl.updateUser(user);
-		return "redirect:/listAccounts";
+		return "redirect:/user/listAccounts";
 	}
 
-	@RequestMapping(value = "/delete-dstk/{id}")
-	public String deleteCategory(@PathVariable("id") int id) {
+	@RequestMapping(value = "/delete-users/{id}")
+	public String deleteUser(@PathVariable("id") int id) {
 		uServiceImpl.deleteUser(id);
-		return "redirect:/listAccounts";
+		return "redirect:/user/listAccounts";
 	}
-	
-	
+
 }

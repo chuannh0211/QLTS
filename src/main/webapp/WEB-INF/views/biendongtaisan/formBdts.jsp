@@ -68,6 +68,7 @@
 					<textarea name="ghichu"></textarea>
 				</div>
 				<div>
+					<a class="btn btn-add btn-sm back" href="/asset/view-details/${nTs.id}">Hủy</a>
 					<button type="submit" class="btn btn-add btn-sm">Chuyển</button>
 				</div>
 			</form>

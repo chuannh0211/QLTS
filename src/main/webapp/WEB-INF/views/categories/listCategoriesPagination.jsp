@@ -30,7 +30,7 @@
 								class="btn btn-primary btn-sm open-modal-editCategory"
 								id_categpry="${listDm.id }" href="javascript:void(0);">Sửa</a>
 								&nbsp; <a class="btn btn-danger btn-sm"
-								href="<c:url value='delete-dsdm/${listDm.getId() }'/>">Xóa</a>
+								href="<c:url value='/category/delete-category/${listDm.getId() }'/>">Xóa</a>
 								&nbsp;</td>
 						</tr>
 						<c:set var="count" value="${count + 1}"></c:set>
@@ -62,7 +62,7 @@
 				<div>
 					<span class="closee">&times;</span>
 				</div>
-				<form action="/add-dsdm" method="post" class="forms-sample">
+				<form action="/category/add-category" method="post" class="forms-sample">
 					<div class="form-group">
 						<label for="name"><b>Tên danh mục</b></label> <input
 							class="form-control p-input" type="text"

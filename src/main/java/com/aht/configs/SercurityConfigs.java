@@ -40,7 +40,8 @@ public class SercurityConfigs extends WebSecurityConfigurerAdapter {
                         "/scss/**",
                         "/node_modules/**",
                         "/bower_components/**","/login","/register-form").permitAll()
-				.antMatchers("/admins/**").hasRole("ADM")
+				.antMatchers("/user/**", "/group/**").hasAnyRole("ADM", "MANAGER")
+				.antMatchers("/supplier/**").hasRole("ADM")
 				.antMatchers("/users/**").hasRole("USER")
 				.anyRequest()
 				.authenticated()

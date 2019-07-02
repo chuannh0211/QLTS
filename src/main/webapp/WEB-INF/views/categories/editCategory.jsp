@@ -6,7 +6,7 @@
 <div class="card">
 	<div class="card-body">
 		<hr>
-		<form:form action="/edit-dsdm" method="POST" modelAttribute="dm"
+		<form:form action="/category/edit-category" method="POST" modelAttribute="dm"
 			class="forms-sample">
 			<form:hidden path="id" />
 			<div class="form-group">

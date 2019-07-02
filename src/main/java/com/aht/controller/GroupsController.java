@@ -17,6 +17,7 @@ import com.aht.entities.Nhom;
 import com.aht.serviceImpl.NhomServiceImpl;
 
 @Controller
+@RequestMapping(value = "/group")
 public class GroupsController {
 	@Autowired
 	private NhomServiceImpl nService;
@@ -42,13 +43,13 @@ public class GroupsController {
 		return "listgroups";
 	}
 
-	@RequestMapping(value = "add-dsn")
+	@RequestMapping(value = "/add-group")
 	public String addGroup(@RequestParam("name") String name, @RequestParam("pm") String pm) {
 		Nhom newN = new Nhom();
 		newN.setName(name);
 		newN.setPm(pm);
 		nService.createNhom(newN);
-		return "redirect:/listGroups";
+		return "redirect:/group/listGroups";
 	}
 
 	@RequestMapping(value = "/group-details/{id}", method = RequestMethod.GET)
@@ -57,22 +58,22 @@ public class GroupsController {
 		return "viewGroupDetails";
 	}
 
-	@RequestMapping(value = "/edit-dsn/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/edit-group/{id}", method = RequestMethod.GET)
 	public String editGroup(@PathVariable("id") int id, Model model) {
 		model.addAttribute("gr", nService.getNhomById(id));
 		return "editGroupPopup";
 	}
 
-	@RequestMapping(value = "/edit-dsn", method = RequestMethod.POST)
+	@RequestMapping(value = "/edit-group", method = RequestMethod.POST)
 	public String editGroup(@ModelAttribute("gr") Nhom gr) {
 		nService.updateNhom(gr);
-		return "redirect:/listGroups";
+		return "redirect:/group/listGroups";
 	}
 
-	@RequestMapping(value = "/delete-dsn/{id}")
+	@RequestMapping(value = "/delete-group/{id}")
 	public String deleteGroup(@PathVariable("id") int id) {
 		nService.deleteNhom(id);
-		return "redirect:/listGroups";
+		return "redirect:/group/listGroups";
 	}
 
 }

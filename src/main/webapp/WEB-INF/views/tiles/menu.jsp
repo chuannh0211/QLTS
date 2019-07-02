@@ -14,22 +14,22 @@
 						<a class="nav-link" href="/">Trang chủ</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="/listAsset">Tài sản </a>
+						<a class="nav-link" href="/asset/listAsset">Tài sản </a>
 					</li>
 					<!-- <li class="nav-item">
 						<a class="nav-link" href="/dsdm">Danh sách danh mục </a>
 					</li> -->
 					<li class="nav-item">
-						<a class="nav-link" href="/listCategoris">Danh mục</a>
+						<a class="nav-link" href="/category/listCategories">Danh mục</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="/listSuppliers">Nhà cung cấp </a>
+						<a class="nav-link" href="/supplier/listSuppliers">Nhà cung cấp </a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="/listGroups">Nhóm </a>
+						<a class="nav-link" href="/group/listGroups">Nhóm </a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="/listAccounts">Tài khoản </a>
+						<a class="nav-link" href="/user/listAccounts">Tài khoản </a>
 					</li>
 				</ul>	
 			</div>

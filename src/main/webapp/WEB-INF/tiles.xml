@@ -31,7 +31,14 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/tiles/body.jsp" />
 	</definition>
-
+	
+	<!-- Error Page -->
+	<definition name="errorPage" extends="templatePage">
+		<put-attribute name="title" value="Error Page" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/error.jsp" />
+	</definition>
+	
 	<!-- List Categories Page -->
 	<definition name="listcategories" extends="templatePage">
 		<put-attribute name="title" value="Danh sách danh mục" />
@@ -39,7 +46,7 @@
 			value="/WEB-INF/views/categories/listCategories.jsp" />
 	</definition>
 	
-		<!-- List categoriesPageable Page -->
+	<!-- List categoriesPageable Page -->
 	<definition name="listcategoriesPageable" extends="templatePage">
 		<put-attribute name="title" value="Danh sách danh mục" />
 		<put-attribute name="body"

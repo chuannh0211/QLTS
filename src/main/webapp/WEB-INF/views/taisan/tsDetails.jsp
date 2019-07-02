@@ -11,6 +11,7 @@
 	<div class="card">
 		<div class="card-body">
 			<h1 class="card-title">Chi tiết tài sản</h1>
+			<a class="btn btn-add btn-sm" href="${pageContext.servletContext.contextPath}/asset/listAsset">Quay lại</a>
 			<table class="table center-aligned-table">
 				<tr>
 					<th>Tên tài sản</th>
@@ -31,7 +32,7 @@
 				</tr>
 			</table>
 			<h2 class="card-sub-title">Chi tiết điều chuyển</h2>
-			<a class="btn btn-add btn-sm" href="/form-dcts/${ts.id}">Điều
+			<a class="btn btn-add btn-sm cc" href="/form-dcts/${ts.id}">Điều
 				chuyển tài sản</a>
 			<table class="table center-aligned-table">
 				<tr>
@@ -63,7 +64,7 @@
 				</c:forEach>
 			</table>
 			<h2 class="card-sub-title">Biến động tài sản</h2>
-			<a class="btn btn-add btn-sm" href="/form-bdts/${ts.id}">Biến
+			<a class="btn btn-add btn-sm cc" href="/form-bdts/${ts.id}">Biến
 				động tài sản</a> 
 			<%-- <a id-bdtss ="${ltsBdts.id }" class="btn btn-add btn-sm open-modal-dcts"
 				 href="#">Biến động tài sản</a> --%>

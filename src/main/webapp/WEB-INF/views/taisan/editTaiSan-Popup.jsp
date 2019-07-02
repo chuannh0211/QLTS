@@ -4,7 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <div class="card">
 	<div class="card-body">
-		<form:form action="/edit-ts/${id_ts}" method="POST"
+		<form:form action="/asset/edit-asset/${id_ts}" method="POST"
 			modelAttribute="ts" class="form-sample">
 			<div class="form-group">
 				<form:hidden path="id" />
@@ -52,7 +52,7 @@
 			<div class="form-group">
 				<label><b>Giá trị thực</b></label> <input type="text"
 					value="${ts.giatrithuc }" class="form-control p-input"
-					name="giatrithuc" required pattern="[0-9]" title="Không được nhập chữ !!!">
+					name="giatrithuc" pattern="^[0-9]+(\.[0-9]{1,2})?$" title="Không được nhập chữ !!!" required="required">
 			</div>
 
 

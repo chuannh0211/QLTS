@@ -10,7 +10,7 @@
 <body>
 	<div class="card">
 		<div class="card-body">
-			<form:form action="/edit-ncc" method="POST" modelAttribute="ncc"
+			<form:form action="/supplier/edit-supplier" method="POST" modelAttribute="ncc"
 				class="forms-sample">
 				<div class="form-group">
 					<form:hidden path="id" />
@@ -40,7 +40,7 @@
 					<label><b>Điện thoại</b></label>
 					<%-- <form:input path="dienthoai" class="form-control p-input" /> --%>
 					<input name="dienthoai" class="form-control p-input"
-						value="${newNcc.dienthoai }" pattern="^[0-9].{10}$"
+						value="${newNcc.dienthoai }" pattern="[0-9].{10}"
 						title="Sai định dạng !!!" required>
 				</div>
 				<div class="form-group">
@@ -55,7 +55,7 @@
 					<label><b>Mã số thuế</b></label>
 					<%-- <form:input path="masothue" class="form-control p-input" /> --%>
 					<input name="masothue" class="form-control p-input"
-						value="${newNcc.masothue }" pattern="[A-Z0-9].{5,10}"
+						value="${newNcc.masothue }" pattern="[A-Za-z0-9].{5,10}"
 						title="Sai định dạng !!!" required>
 				</div>
 				<div class="form-group">

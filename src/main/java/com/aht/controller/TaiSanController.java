@@ -27,6 +27,7 @@ import com.aht.serviceImpl.SuppliersServiceImpl;
 import com.aht.serviceImpl.TaiSanServiceImpl;
 
 @Controller
+@RequestMapping(value = "/asset")
 public class TaiSanController {
 	@Autowired
 	private TaiSanServiceImpl tsService;
@@ -76,7 +77,7 @@ public class TaiSanController {
 		return "listasset";
 	}
 
-	@RequestMapping(value = "/add-ts")
+	@RequestMapping(value = "/add-asset")
 	public String addAsset(@RequestParam("tentaisan") String tentaisan, @RequestParam("dacdiem") String dacdiem,
 			@RequestParam("trangthai") String trangthai, @RequestParam("giatrithuc") String giatrithuc,
 			@RequestParam("danhmuc") long dm, @RequestParam("nhacungcap") long ncc) {
@@ -92,7 +93,7 @@ public class TaiSanController {
 		newTs.setDanhmuc(newDm);
 		newTs.setNhacungcap(newNcc);
 		tsService.createTaiSan(newTs);
-		return "redirect:/listAsset";
+		return "redirect:/asset/listAsset";
 	}
 
 //	@RequestMapping(value = { "/edit-ts/{id}" }, method = RequestMethod.GET)
@@ -106,7 +107,7 @@ public class TaiSanController {
 //		return "editdsts";
 //	}
 
-	@RequestMapping(value = { "/edit-ts/{id}" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/edit-asset/{id}" }, method = RequestMethod.GET)
 	public String editAssetPopup(@PathVariable("id") int id, Model model) {
 		model.addAttribute("lsDm", dmService.dmList());
 		model.addAttribute("lsNcc", sService.getAllNcc());
@@ -118,16 +119,16 @@ public class TaiSanController {
 		return "editInfoAssetPopup";
 	}
 
-	@RequestMapping(value = { "/edit-ts" }, method = RequestMethod.POST)
+	@RequestMapping(value = { "/edit-asset" }, method = RequestMethod.POST)
 	public String editAsset(@ModelAttribute("ts") TaiSan ts) {
 		tsService.updateTaiSan(ts);
-		return "redirect:/listAsset";
+		return "redirect:/asset/listAsset";
 	}
 
-	@RequestMapping(value = "/delete-ts/{id}")
+	@RequestMapping(value = "/delete-asset/{id}")
 	public String deleteAsset(@PathVariable("id") int id) {
 		tsService.deleteTaiSan(id);
-		return "redirect:/listAsset";
+		return "redirect:/asset/listAsset";
 	}
 
 	@RequestMapping(value = { "view-details/{id}" })

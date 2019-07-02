@@ -22,7 +22,7 @@ import com.aht.repository.DanhMucRepository;
 import com.aht.serviceImpl.DanhMucServiceImpl;
 
 @Controller
-//@RequestMapping(value = { "/qlts" })
+@RequestMapping(value = { "/category" })
 public class CategoriesController {
 
 	@Autowired
@@ -34,8 +34,8 @@ public class CategoriesController {
 		model.addAttribute("listDm", ltsDm);
 		return "listcategories";
 	}
-	
-	@RequestMapping(value = { "/listCategoris" }, method = RequestMethod.GET)
+
+	@RequestMapping(value = { "/listCategories" }, method = RequestMethod.GET)
 	public String getAllCategories(Model model, @RequestParam(name = "page", defaultValue = "0") int page,
 			@RequestParam(name = "size", defaultValue = "5") int size) {
 		Pageable fPageable = PageRequest.of(page, size, Sort.by("id"));
@@ -57,12 +57,12 @@ public class CategoriesController {
 		return "listcategoriesPageable";
 	}
 
-	@RequestMapping(value = { "/add-dsdm" }, method = RequestMethod.POST)
+	@RequestMapping(value = { "/add-category" }, method = RequestMethod.POST)
 	public String addCategory(@RequestParam("name") String name) {
 		DanhMuc dm = new DanhMuc();
 		dm.setName(name);
 		dmService.createDanhMuc(dm);
-		return "redirect:/listCategoris";
+		return "redirect:/category/listCategories";
 	}
 
 	@RequestMapping(value = { "/edit-dsdm/{id}" }, method = RequestMethod.GET)
@@ -73,16 +73,16 @@ public class CategoriesController {
 		return "editdsdm";
 	}
 
-	@RequestMapping(value = "/edit-dsdm", method = RequestMethod.POST)
+	@RequestMapping(value = "/edit-category", method = RequestMethod.POST)
 	public String editCategory(@ModelAttribute("dm") DanhMuc dm) {
 		dmService.updateDanhMuc(dm);
-		return "redirect:/listCategoris";
+		return "redirect:/category/listCategories";
 	}
 
-	@RequestMapping(value = "/delete-dsdm/{id}")
+	@RequestMapping(value = "/delete-category/{id}")
 	public String deleteCategory(@PathVariable("id") int id) {
 		dmService.deleteDanhMuc(id);
-		return "redirect:/listCategoris";
+		return "redirect:/category/listCategories";
 	}
 
 	@RequestMapping(value = "/view-category-details/{id}")

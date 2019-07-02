@@ -87,7 +87,7 @@ jQuery(document).ready(
 					var id_tss = jQuery(this).attr("id-tss");
 					// console.log(id_tss);
 					jQuery.ajax({
-						url : '/edit-ts/' + id_tss,
+						url : '/asset/edit-asset/' + id_tss,
 						success : function(data) {
 							jQuery("#content_editAsset").html(data);
 						}
@@ -123,7 +123,7 @@ jQuery(document).ready(
 					jQuery('#myModal-editUser').show();
 					var id = jQuery(this).attr("id-user");
 					jQuery.ajax({
-						url : 'edit-dstk/' + id,
+						url : '/user/edit-users/' + id,
 						success : function(data) {
 							jQuery("#content_editUser").html(data);
 						}
@@ -135,7 +135,7 @@ jQuery(document).ready(
 					jQuery('#modal-suppDetails').show();
 					var id_ncc = jQuery(this).attr("id-ncc");
 					jQuery.ajax({
-						url : 'nccDetails/' + id_ncc,
+						url : 'supplierDetails/' + id_ncc,
 						success : function(data) {
 							jQuery("#content-suppliers").html(data);
 						}
@@ -147,7 +147,7 @@ jQuery(document).ready(
 					jQuery("#modal-editSupplier").show();
 					var id_sup = jQuery(this).attr("id-ncc");
 					jQuery.ajax({
-						url : 'edit-ncc/' + id_sup,
+						url : '/supplier/edit-supplier/' + id_sup,
 						success : function(data) {
 							jQuery("#content-editSupplier").html(data);
 						}
@@ -172,7 +172,7 @@ jQuery(document).ready(
 					jQuery('#myModal-editGroup').show();
 					var id_nhom = jQuery(this).attr("id-nhom");
 					jQuery.ajax({
-						url : 'edit-dsn/' + id_nhom,
+						url : '/group/edit-group/' + id_nhom,
 						success : function(data) {
 							jQuery("#content-editGroup").html(data);
 						}

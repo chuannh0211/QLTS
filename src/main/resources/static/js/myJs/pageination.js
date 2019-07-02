@@ -5,7 +5,7 @@ function pagination(page, size) {
 function modifyData(suffix) {
 	jQuery.ajax({
 		type : "GET",
-		url : "/listCategoris" + suffix,
+		url : "/category/listCategories" + suffix,
 		success : function(data) {
 			jQuery(".navbar-primary").html(data);
 		}
@@ -18,7 +18,7 @@ function paginationAsset(page, size) {
 function modifyDataAsset(suffix) {
 	jQuery.ajax({
 		type : "GET",
-		url : "/listAsset" + suffix,
+		url : "/asset/listAsset" + suffix,
 		success : function(data) {
 			jQuery(".navbar-primary").html(data);
 		}
@@ -31,7 +31,7 @@ function paginationSup(page, size) {
 function modifyDataSup(suffix) {
 	jQuery.ajax({
 		type : "GET",
-		url : "/listSuppliers" + suffix,
+		url : "/supplier/listSuppliers" + suffix,
 		success : function(data) {
 			jQuery(".navbar-primary").html(data);
 		}
@@ -44,7 +44,7 @@ function paginationGroup(page, size) {
 function modifyDataGroup(suffix) {
 	jQuery.ajax({
 		type : "GET",
-		url : "/listGroups" + suffix,
+		url : "/group/listGroups" + suffix,
 		success : function(data) {
 			jQuery(".navbar-primary").html(data);
 		}
@@ -57,7 +57,7 @@ function paginationAcc(page, size) {
 function modifyDataAcc(suffix) {
 	jQuery.ajax({
 		type : "GET",
-		url : "/listAccounts" + suffix,
+		url : "/user/listAccounts" + suffix,
 		success : function(data) {
 			jQuery(".navbar-primary").html(data);
 		}

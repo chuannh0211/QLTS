@@ -27,7 +27,7 @@ public class NhaCungCap {
 	private String nguoidaidien;
 	@Column(name = "Company")
 	private String company;
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "nhacungcap",cascade=CascadeType.REMOVE)
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "nhacungcap",cascade=CascadeType.REMOVE)
 	private Set<TaiSan> listTaiSan = new HashSet<>();
 	public long getId() {
 		return id;

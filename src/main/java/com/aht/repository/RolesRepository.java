@@ -13,6 +13,6 @@ import com.aht.entities.Roles;
 @Repository
 @Transactional
 public interface RolesRepository extends JpaRepository<Roles, Long> {
-	@Query("SELECT r FROM Roles r WHERE r.name = 'USER'")
+	@Query("SELECT r FROM Roles r WHERE r.name = 'ROLE_USER'")
 	public Set<Roles> findByName(String name);
 }

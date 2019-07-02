@@ -47,7 +47,7 @@
 							class="btn btn-primary btn-sm open-modal-editSupp"
 							id-ncc=${ls.id } href="javascript:void(0);">Sửa</a> &nbsp; <a
 							class="btn btn-danger btn-sm"
-							href="<c:url value='delete-ncc/${ls.id}' />">Xóa</a> &nbsp;</td>
+							href="<c:url value='/supplier/delete-supplier/${ls.id}' />">Xóa</a> &nbsp;</td>
 					</tr>
 					<c:set var="count" value="${count + 1}"></c:set>
 				</c:forEach>
@@ -75,7 +75,7 @@
 					<div>
 						<span class="closee">&times;</span>
 					</div>
-					<form action="/add-ncc" method="POST" class="forms-sample">
+					<form action="/supplier/add-supplier" method="POST" class="forms-sample">
 						<div class="form-group">
 							<label><b>Tên công ty</b></label> <input type="text"
 								class="form-control p-input" placeholder="Tên công ty"
@@ -136,7 +136,7 @@
 	<!-- start popup -->
 	<div class="modal" id="modal-editSupplier">
 		<div class="modal-content">
-			<h2 class="modal-title">Thay đổi thông tin tài sản</h2>
+			<h2 class="modal-title">Thay đổi thông tin nhà cung cấp</h2>
 			<span class="closee">&times;</span>
 			<div id="content-editSupplier"></div>
 		</div>

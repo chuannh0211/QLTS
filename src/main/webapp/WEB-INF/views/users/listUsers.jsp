@@ -33,7 +33,7 @@
 						href="<c:url value='edit-dstk/${ls.id}'/>">Sửa</a> &nbsp; --%>
 						<a class="btn btn-view btn-sm open-modal-user-detail" id-user="${ls.id}" href="javascript:void(0);">Xem</a>
 						<a id-user="${ls.id}" class="btn btn-primary btn-sm open-modal-editUser" href="javascript:void(0);">Sửa</a>
-						<a class="btn btn-danger btn-sm" href="<c:url value='delete-dstk/${ls.id}'/>">Xóa</a> &nbsp; 
+						<a class="btn btn-danger btn-sm" href="<c:url value='/user/delete-users/${ls.id}'/>">Xóa</a> &nbsp; 
 						
 					</td>
 				</tr>

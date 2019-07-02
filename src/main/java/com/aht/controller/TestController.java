@@ -12,19 +12,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.aht.entities.Roles;
 import com.aht.entities.Users;
 import com.aht.serviceImpl.RolesServiceImpl;
 import com.aht.serviceImpl.UserServiceImpl;
 
 @Controller
+@RequestMapping(value = "")
 public class TestController {
 	@Autowired
 	private UserServiceImpl uService;
-	
+
 	@Autowired
 	private RolesServiceImpl rService;
-	
+
 	@RequestMapping(value = { "/" }, method = RequestMethod.GET)
 	public String index(Model model) {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -60,26 +60,13 @@ public class TestController {
 		user.setEmail(email);
 		user.setPhone(phone);
 		uService.createUser(user);
-
-		return "redirect:/listAccounts";
-	}
-
-	@RequestMapping("/user-index")
-	public String userIndex() {
-
-		return "users/index";
-	}
-
-	@RequestMapping("/admin-index")
-	public String adminIndex() {
-
-		return "admins/index";
+		return "redirect:/user/listAccounts";
 	}
 
 	@RequestMapping("access-denied")
 	public String accessDenied() {
 
-		return "error";
+		return "errorPage";
 	}
 
 	@RequestMapping("/logout")
