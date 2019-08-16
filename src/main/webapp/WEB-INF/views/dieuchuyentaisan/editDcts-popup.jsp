@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<form:form action="/view-details/sua-dctsX/${id_ts }" method="post"
+<form:form action="/dcts/view-details/sua-dctsX/${id_ts }" method="post"
 	class="forms-sample" modelAttribute="dcts">
 	<form:input type="hidden" path="id" />
 	<div class="form-group">

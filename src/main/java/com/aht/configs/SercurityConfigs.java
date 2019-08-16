@@ -1,6 +1,7 @@
 package com.aht.configs;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -40,15 +41,15 @@ public class SercurityConfigs extends WebSecurityConfigurerAdapter {
                         "/scss/**",
                         "/node_modules/**",
                         "/bower_components/**","/login","/register-form").permitAll()
-				.antMatchers("/user/**", "/group/**").hasAnyRole("ADM", "MANAGER")
+				.antMatchers("/user/**", "/group/**", "/dcts/**", "/bdts/**").hasAnyRole("ADM", "MANAGER")
 				.antMatchers("/supplier/**").hasRole("ADM")
-				.antMatchers("/users/**").hasRole("USER")
+//				.antMatchers("/users/**").hasRole("USER")
 				.anyRequest()
 				.authenticated()
 				.and().csrf().disable()
 				.formLogin()
 				.loginPage("/login")
-				.usernameParameter("uname").passwordParameter("pw")
+				.usernameParameter("username").passwordParameter("password")
 				.defaultSuccessUrl("/")
 				.failureUrl("/")
 				.and()

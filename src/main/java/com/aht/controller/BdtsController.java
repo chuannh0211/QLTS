@@ -23,6 +23,7 @@ import com.aht.serviceImpl.TaiSanServiceImpl;
 import javassist.expr.NewArray;
 
 @Controller
+@RequestMapping(value = "/bdts")
 public class BdtsController {
 	@Autowired
 	private TaiSanServiceImpl tsService;
@@ -30,8 +31,7 @@ public class BdtsController {
 	private SuppliersServiceImpl sService;
 	@Autowired
 	private BienDongTaiSanServiceImpl bdtsService;
-	@Autowired
-	private Environment env;
+
 	static String status1, status2, status3, status4, status5;
 
 	@RequestMapping(value = "/form-bdts/{idBdts}")
@@ -49,7 +49,7 @@ public class BdtsController {
 			@RequestParam("taisanchinh") TaiSan taisanchinh, @RequestParam("taisanbiendong") String taisanbiendong,
 			@RequestParam("trangthai") String trangthai, @RequestParam("giatribiendong") String giatribiendong,
 			@RequestParam("baohanh") String baohanh, @RequestParam("nhacungcap") String nhacungcap,
-			@RequestParam("hoadon") String hoadon, @RequestParam("ghichu") String ghichu,@RequestParam(value = "id") int id,Model model) {
+			@RequestParam("hoadon") String hoadon, @RequestParam("ghichu") String ghichu,Model model) {
 		BienDongTaiSan newBdts = new BienDongTaiSan();
 		newBdts.setNgaybiendong(ngaybiendong);
 		newBdts.setNguoighi(nguoighi);
@@ -63,15 +63,15 @@ public class BdtsController {
 		newBdts.setGhichu(ghichu);
 		bdtsService.createBDTS(newBdts);
 		System.out.println("trang thai: " + trangthai);
-		BienDongTaiSan idBdts = bdtsService.getBDTSById(id);
-		model.addAttribute("idBdts", idBdts);
-		return "redirect:/view-details/{id}";
+//		BienDongTaiSan idBdts = bdtsService.getBDTSById(id);
+//		model.addAttribute("idBdts", idBdts);
+		return "redirect:/asset/view-details/{id}";
 	}
 
 	@RequestMapping(value = { "view-details/xoa-bdts" })
 	public String deleteDcts(@RequestParam(value = "id") int id, @RequestParam(value = "idts") int idts) {
 		bdtsService.deleteBDTS(id);
-		return "redirect:/view-details/" + idts;
+		return "redirect:/asset/view-details/" + idts;
 	}
 
 //	@RequestMapping(value = "view-details/form-sua-bdts/{id}", method = RequestMethod.GET)
@@ -102,7 +102,6 @@ public class BdtsController {
 		/* giá trị của modelAttribute bên view */
 		model.addAttribute("bdts", bdtsService.getBDTSById(pathid));
 		model.addAttribute("id_ts", nBdts.getIdTs(pathid));
-
 		System.out.println("id ts-get : " + nBdts.getIdTs(pathid) + " -- " + nBdts.getTaisan().getId());
 
 		return "editBdtsPopup";
@@ -123,7 +122,7 @@ public class BdtsController {
 		//
 		System.out.println("id-ts-post: " + nBdts.getIdTs(idBdts));
 		bdtsService.updateBDTS(bdts);
-		return "redirect:/view-details/{id}";
+		return "redirect:/asset/view-details/{id}";
 	}
 
 }

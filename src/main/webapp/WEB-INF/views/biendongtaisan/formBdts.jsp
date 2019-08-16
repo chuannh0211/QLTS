@@ -12,7 +12,7 @@
 <div class="card">
 	<div class="card-body">
 	<h4 class="card-title">Biến động tài sản</h4>
-	<form class="forms-sample" action="/add-bdts/${nTs.id}" method="post">
+	<form class="forms-sample" action="/bdts/add-bdts/${nTs.id}" method="post">
 				
 				 <div class="form-group row">
 					<label><b>Ngày biến động:</b></label>

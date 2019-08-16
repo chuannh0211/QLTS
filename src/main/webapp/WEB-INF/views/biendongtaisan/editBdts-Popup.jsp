@@ -4,7 +4,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <div class="card">
 	<div class="card-body">
-		<form:form action="/view-details/form-sua-bdts/${id_ts }"
+		<form:form action="/bdts/view-details/form-sua-bdts/${id_ts }"
 			class="forms-sample" modelAttribute="bdts" method="POST">
 			<form:hidden path="id" />
 			<input type="hidden" name="mataisan" value="${id_ts }">
@@ -18,7 +18,7 @@
 				<label>Người ghi: </label>
 				<%-- <form:input path="nguoighi" class="form-control p-input" /> --%>
 				<input type="text" name="nguoighi" value="${nBdts.nguoighi }"
-					required pattern="[A-Za-z].{8,32}"
+					required pattern="[A-Za-z].{5,32}"
 					title="Tên người ghi phải có 8 kí tự trở lên !!!"
 					class="form-control p-input">
 			</div>

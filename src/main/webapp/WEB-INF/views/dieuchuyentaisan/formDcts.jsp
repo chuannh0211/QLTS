@@ -11,7 +11,7 @@
 	<div class="card">
 		<div class="card-body">
 			<h1 class="card-title">Điều chuyển tài sản</h1>
-			<form class="forms-sample" action="/add-dcts/${tsDcts.id}" method="post">
+			<form class="forms-sample" action="/dcts/add-dcts/${tsDcts.id}" method="post">
 				 <div class="form-group">
 					<label><b>Ngày điều chuyển:</b></label>
 					<input type="text" class="form-control" name="ngaydieuchuyen"

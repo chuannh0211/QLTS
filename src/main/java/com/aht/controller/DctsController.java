@@ -19,6 +19,7 @@ import com.aht.serviceImpl.NhomServiceImpl;
 import com.aht.serviceImpl.TaiSanServiceImpl;
 
 @Controller
+@RequestMapping(value = "/dcts")
 public class DctsController {
 	@Autowired
 	private TaiSanServiceImpl tsService;
@@ -47,13 +48,13 @@ public class DctsController {
 		newDcts.setNhom(nhom);
 		newDcts.setGhichu(ghichu);
 		dctsService.createDCTS(newDcts);
-		return "redirect:/view-details/{id}";
+		return "redirect:/asset/view-details/{id}";
 	}
 
 	@RequestMapping(value = { "view-details/xoa-dcts" })
 	public String deleteDcts(@RequestParam(value = "id") int id, @RequestParam(value = "idts") int idts) {
 		dctsService.deleteDCTS(id);
-		return "redirect:/view-details/" + idts;
+		return "redirect:/asset/view-details/" + idts;
 	}
 
 	/* redirect */
@@ -63,13 +64,13 @@ public class DctsController {
 		model.addAttribute("listNhom", nService.getAllNhom());
 		model.addAttribute("newN", newDcts.getNhom().getId());
 		model.addAttribute("dcts", dctsService.getDCTSById(id));
-		//newDcts.getIdTaiSan(id);
+		// newDcts.getIdTaiSan(id);
 		model.addAttribute("id_ts", newDcts.getIdTaiSan(id));
 		return "editChitietdieuchuyen";
 	}
 
 	/* popup */
-	@RequestMapping(value = { "view-details/sua-dctsX/{id}" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/view-details/sua-dctsX/{id}" }, method = RequestMethod.GET)
 	public String editDctsX(@PathVariable("id") int id, Model model) {
 		DieuChuyenTaiSan newDcts = dctsService.getDCTSById(id);
 		model.addAttribute("listNhom", nService.getAllNhom());
@@ -81,9 +82,9 @@ public class DctsController {
 
 	@RequestMapping(value = { "/view-details/sua-dctsX/{id}" }, method = RequestMethod.POST)
 	public String editDctsX(@ModelAttribute("dcts") DieuChuyenTaiSan dcts) {
-		//System.out.println("check id" + id);
+		// System.out.println("check id" + id);
 		dctsService.updateDCTS(dcts);
-		return "redirect:/view-details/{id}";
+		return "redirect:/asset/view-details/{id}";
 	}
 
 }

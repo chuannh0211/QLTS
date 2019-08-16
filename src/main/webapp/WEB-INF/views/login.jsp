@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,16 +33,13 @@
 							</div>
 							<hr>
 							<form action="/login" method="post" >
-								<c:if test="${error != null}">
-									<strong>${error}</strong>
-								</c:if>
 								<div class="form-group">
 									<label><b>Tài Khoản</b> </label> <input type="text"
-										name="uname" required="required" class="form-control p_input"
+										name="username" required="required" class="form-control p_input"
 										placeholder="Nhập tên tài khoản">
 								</div>
 								<div class="form-group">
-									<label><b>Mật Khẩu</b></label> <input type="password" name="pw"
+									<label><b>Mật Khẩu</b></label><input type="password" name="password"
 										required="required" class="form-control p_input"
 										placeholder="Nhập mật khẩu">
 								</div>
@@ -66,7 +64,7 @@
 								<div>
 									<span class="closee">&times;</span>
 								</div>
-								<form action="/register-form" method="post" onsubmit="return validateForm()" name="formLogin">
+								 <form action="/register-form" method="post">
 									<div class="form-group">
 										<label><b>Tài khoản:</b></label> <input pattern="^[a-z0-9._-]{3,15}$" 
           								    title="Tài khoản từ 3-15 kí tự"
@@ -79,17 +77,16 @@
 											title="Sai định dạng"
 											class="form-control p_input" type="password"
 											placeholder="Nhập mật khẩu" name="password"
-											id="pw"
+											id="password"
 											required="required">
 									</div>
 									<div class="form-group">
-										<label><b>Nhập lại mật khẩu:</b></label> <input pattern="^[a-z0-9]{3,15}$"
+										<label><b>Nhập lại mật khẩu:</b></label>  <input pattern="^[a-z0-9]{3,15}$"
 											title="Mật khẩu nhập lại phải giống mật khẩu"
 											class="form-control p_input" type="password"
-											placeholder="Xác nhận mật khẩu" name="passwordConfirm"
-											id="pwConfirm"
-											required="required">
-											<span id='message'></span>
+											placeholder="Xác nhận mật khẩu" name="confirmPassword"
+											id="confirmPassword"
+											required="required"> 
 									</div>
 									<div class="form-group">
 										<label><b>Họ tên:</b></label> <input
@@ -114,7 +111,10 @@
 										<button type="submit"
 											class="btn btn-primary btn-block enter-btn">Đăng ký</button>
 									</div>
-								</form>
+								</form>  
+								<%-- <form:form modelAttribute="registerForm" >
+								
+								</form:form> --%>
 							</div>
 						</div>
 					</div>

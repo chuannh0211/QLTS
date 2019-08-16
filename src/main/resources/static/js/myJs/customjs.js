@@ -99,7 +99,7 @@ jQuery(document).ready(
 					jQuery('#myModal-editBdts').show();
 					var id_bdts = jQuery(this).attr("id-bdts");
 					jQuery.ajax({
-						url : 'form-sua-bdts/' + id_bdts,
+						url : '/bdts/view-details/form-sua-bdts/' + id_bdts,
 						success : function(data) {
 							jQuery("#content_modal_bdts").html(data);
 						}
@@ -111,7 +111,7 @@ jQuery(document).ready(
 					var id_dcts = jQuery(this).attr("id-dcts");
 					// console.log(id_dcts);
 					jQuery.ajax({
-						url : 'sua-dctsX/' + id_dcts,// 1
+						url : '/dcts/view-details/sua-dctsX/' + id_dcts,// 1
 						success : function(data) {
 							jQuery("#content_modal_dcts").html(data);
 						}

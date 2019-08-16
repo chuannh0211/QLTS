@@ -1,3 +1,7 @@
+.error {
+	color: #ff0000;
+}
+
 .modal {
 	display: none; /* Hidden by default */
 	position: fixed; /* Stay in place */

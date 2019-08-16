@@ -7,6 +7,7 @@ import org.springframework.validation.Validator;
 import com.aht.entities.Users;
 import com.aht.serviceImpl.UserServiceImpl;
 
+
 public class UserValidator implements Validator {
 	@Autowired
 	private UserServiceImpl uService;
@@ -22,8 +23,15 @@ public class UserValidator implements Validator {
 		// TODO Auto-generated method stub
 		Users user = (Users) target;
 
-		if (!user.getPasswordConfirm().equals(user.getPassword())) {
-			errors.rejectValue("passwordConfirm", "Diff.userForm.passwordConfirm");
+		if (!(user.getPassword().equals(user.getPasswordConfirm()))) {
+			errors.rejectValue("confirmPassword", "Pw và pwCf không được trùng nhau!!!");
+		}
+		if (errors.hasFieldErrors("username")) {
+			Users u = uService.findByUsername(user.getUsername());
+			if (u != null) {
+				errors.rejectValue("username", "Tài khoản đã có người sử dụng!!!");
+				
+			}
 		}
 	}
 

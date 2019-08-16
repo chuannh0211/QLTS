@@ -32,7 +32,7 @@
 				</tr>
 			</table>
 			<h2 class="card-sub-title">Chi tiết điều chuyển</h2>
-			<a class="btn btn-add btn-sm cc" href="/form-dcts/${ts.id}">Điều
+			<a class="btn btn-add btn-sm cc" href="/dcts/form-dcts/${ts.id}">Điều
 				chuyển tài sản</a>
 			<table class="table center-aligned-table">
 				<tr>
@@ -57,14 +57,14 @@
 							id-dcts="${ltsDcts.id}" href="javascript:void(0);">Sửa</a> &nbsp; 
 							<%-- <a class="btn btn-primary btn-sm" href="<c:url value='sua-dcts/${ltsDcts.id}'/>">Sửa</a> &nbsp; --%>
 							<a class="btn btn-danger btn-sm"
-							href="<c:url value='xoa-dcts?id=${ltsDcts.id}&idts=${ts.id}'/>">Xóa</a>&nbsp;
+							href="<c:url value='/dcts/view-details/xoa-dcts?id=${ltsDcts.id}&idts=${ts.id}'/>">Xóa</a>&nbsp;
 						</td>
 					</tr>
 					<c:set var="count" value="${count + 1}"></c:set>
 				</c:forEach>
 			</table>
 			<h2 class="card-sub-title">Biến động tài sản</h2>
-			<a class="btn btn-add btn-sm cc" href="/form-bdts/${ts.id}">Biến
+			<a class="btn btn-add btn-sm cc" href="/bdts/form-bdts/${ts.id}">Biến
 				động tài sản</a> 
 			<%-- <a id-bdtss ="${ltsBdts.id }" class="btn btn-add btn-sm open-modal-dcts"
 				 href="#">Biến động tài sản</a> --%>
@@ -99,7 +99,7 @@
 						<td><a class="btn btn-primary btn-sm open-modal-editBdts"
 							id-bdts="${ltsBdts.id}" href="javascript:void(0);">Sửa</a> &nbsp; <%-- <a class="btn btn-primary btn-sm" href="<c:url value='form-sua-bdts/${ltsBdts.id}'/>">Sửa</a> &nbsp; --%>
 							<a class="btn btn-danger btn-sm"
-							href="<c:url value='xoa-bdts?id=${ltsBdts.id}&idts=${ts.id}'/>">Xóa</a>&nbsp;
+							href="<c:url value='/bdts/view-details/xoa-bdts?id=${ltsBdts.id}&idts=${ts.id}'/>">Xóa</a>&nbsp;
 						</td>
 					</tr>
 					<c:set var="count" value="${count + 1}"></c:set>

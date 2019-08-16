@@ -13,7 +13,7 @@ import com.aht.entities.Users;
 @Repository
 @Transactional
 public interface UsersRepository extends JpaRepository<Users, Long> {
-	@Query("")
+	@Query("SELECT u FROM Users u WHERE u.username = :username")
 	Users findByUsername(String username);
 
 	@Query("from Users")

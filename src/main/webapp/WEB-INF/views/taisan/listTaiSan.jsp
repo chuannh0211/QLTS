@@ -36,7 +36,8 @@
 						<td>${lsTs.getNameNcc() }</td>
 						<td><a class="btn btn-view btn-sm"
 							href="<c:url value='view-details/${lsTs.getId() }'/>">Xem</a> <%-- <a class="btn btn-primary btn-sm"
-							href="<c:url value='edit-ts/${lsTs.id}'/>">Sửa</a> --%> <a
+							href="<c:url value='edit-ts/${lsTs.id}'/>">Sửa</a> --%> 
+							<a
 							class="btn btn-primary btn-sm open-modal-editAsset"
 							id-tss="${lsTs.id }" href="javascript:void(0);">Sửa</a> &nbsp; <a
 							class="btn btn-danger btn-sm"

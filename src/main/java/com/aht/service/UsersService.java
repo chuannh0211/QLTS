@@ -21,4 +21,5 @@ public interface UsersService {
 	public Users findByUsername(String username);
 
 	Page<Users> findAll(Pageable pageable);
+
 }

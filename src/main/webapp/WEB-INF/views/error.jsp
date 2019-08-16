@@ -7,11 +7,13 @@
 <title>Error Page</title>
 </head>
 <body>
-	<div>
-		<h1>Access denied</h1>
-		<p>
-			<a href="/">Quay lại trang chủ</a>
-		</p>
+	<p>
+		<a href="/">Quay lại trang chủ</a>
+	</p>
+	<div align="left">
+		<div>${message}</div>
+
 	</div>
+
 </body>
 </html>
