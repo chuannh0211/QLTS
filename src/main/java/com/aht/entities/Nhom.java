@@ -17,6 +17,17 @@ public class Nhom {
 	private String pm;
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "nhom")
 	private Set<DieuChuyenTaiSan> listDieuchuyentaisan = new HashSet<>();
+	@OneToMany(mappedBy = "idNhom")
+	private Set<Users> listUsers = new HashSet<>();
+
+	
+	public Set<Users> getListUsers() {
+		return listUsers;
+	}
+
+	public void setListUsers(Set<Users> listUsers) {
+		this.listUsers = listUsers;
+	}
 
 	public long getId() {
 		return id;

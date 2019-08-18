@@ -23,6 +23,7 @@
 					<th>Giá trị thực</th>
 					<th>Danh mục</th>
 					<th>Nhà cung cấp</th>
+					<th>Sở hữu</th>
 				</tr>
 				<c:set var="count" value="1" />
 				<c:forEach var="lsTs" items="${lsTs }">
@@ -34,6 +35,7 @@
 						<td>${lsTs.giatrithuc }</td>
 						<td>${lsTs.getNameDm() }</td>
 						<td>${lsTs.getNameNcc() }</td>
+						<td></td>
 						<td><a class="btn btn-view btn-sm"
 							href="<c:url value='view-details/${lsTs.getId() }'/>">Xem</a> <%-- <a class="btn btn-primary btn-sm"
 							href="<c:url value='edit-ts/${lsTs.id}'/>">Sửa</a> --%> 

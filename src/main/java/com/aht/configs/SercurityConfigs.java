@@ -43,7 +43,6 @@ public class SercurityConfigs extends WebSecurityConfigurerAdapter {
                         "/bower_components/**","/login","/register-form").permitAll()
 				.antMatchers("/user/**", "/group/**", "/dcts/**", "/bdts/**").hasAnyRole("ADM", "MANAGER")
 				.antMatchers("/supplier/**").hasRole("ADM")
-//				.antMatchers("/users/**").hasRole("USER")
 				.anyRequest()
 				.authenticated()
 				.and().csrf().disable()

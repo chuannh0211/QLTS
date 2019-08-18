@@ -52,6 +52,7 @@ jQuery(document).ready(
 						url : 'edit-dsdm/' + id_category,
 						success : function(data) {
 							jQuery("#content-editCategory").html(data);
+							console.log();
 						}
 					});
 				});

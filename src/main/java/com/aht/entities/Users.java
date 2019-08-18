@@ -24,9 +24,20 @@ public class Users {
 	private String email;
 	@Column(name = "phone")
 	private String phone;
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinColumn(name = "id_nhom")
+	private Nhom idNhom;
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "roleuser", joinColumns = @JoinColumn(name = "iduser"), inverseJoinColumns = @JoinColumn(name = "idrole"))
 	private Set<Roles> roles;
+
+	public Nhom getIdNhom() {
+		return idNhom;
+	}
+
+	public void setIdNhom(Nhom idNhom) {
+		this.idNhom = idNhom;
+	}
 
 	public long getId() {
 		return id;

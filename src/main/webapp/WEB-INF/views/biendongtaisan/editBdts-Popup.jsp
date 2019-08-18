@@ -65,7 +65,7 @@
 				<label>Số hóa đơn: </label>
 				<%-- <form:input path="sohoadon" class="form-control p-input " /> --%>
 				<input class="form-control p-input type="text" name="sohoadon" value="${nBdts.sohoadon }"
-					required pattern="[A-Za-z0-9].{9,20}" title="Không được ít hơn 10 kí tự !!!">
+					required pattern="[A-Za-z0-9].{2,20}" title="Không được ít hơn 10 kí tự !!!">
 			</div>
 			<div class="form-group">
 				<label>Ghi chú: </label>
