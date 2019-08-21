@@ -90,6 +90,12 @@ public class CategoriesController {
 		DanhMuc dmById = dmService.getDanhMucById(id);
 		Set<TaiSan> ltsTsById = dmById.getListTaiSan();
 		model.addAttribute("ltsTsById", ltsTsById);
+		model.addAttribute("idDanhMuc", id);
 		return "listCategorieDetails";
+	}
+	@RequestMapping(value = "/view-category-details/ketxuat/{id}")
+	public void ketxuatCategories(@PathVariable("id") int id) {
+		dmService.writeFileCSV(id);
+		
 	}
 }

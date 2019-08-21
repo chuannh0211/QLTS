@@ -46,7 +46,7 @@
 							id-ncc=${ls.id } href="javascript:void(0);">Xem</a> <a
 							class="btn btn-primary btn-sm open-modal-editSupp"
 							id-ncc=${ls.id } href="javascript:void(0);">Sửa</a> &nbsp; <a
-							class="btn btn-danger btn-sm"
+							class="btn btn-danger btn-sm" onclick="return confirm('Chắc Chắn Muốn Xóa')"
 							href="<c:url value='/supplier/delete-supplier/${ls.id}' />">Xóa</a> &nbsp;</td>
 					</tr>
 					<c:set var="count" value="${count + 1}"></c:set>
