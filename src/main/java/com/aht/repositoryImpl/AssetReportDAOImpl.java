@@ -21,12 +21,12 @@ public class AssetReportDAOImpl implements AssetReportDAO {
 	@PersistenceContext
 	private EntityManager entityManager;
 
-	static Map<Object, Object> map = null;
-	static List<List<Map<Object, Object>>> list = new ArrayList<List<Map<Object, Object>>>();
-	static List<Map<Object, Object>> dataPoints = new ArrayList<Map<Object, Object>>();
-
 	@Override
 	public List<List<Map<Object, Object>>> getCanvasjsChartData() {
+
+		Map<Object, Object> map = null;
+		List<List<Map<Object, Object>>> list = new ArrayList<List<Map<Object, Object>>>();
+		List<Map<Object, Object>> dataPoints = new ArrayList<Map<Object, Object>>();
 
 		map = new HashMap<Object, Object>();
 		map.put("name", "Tốt");
