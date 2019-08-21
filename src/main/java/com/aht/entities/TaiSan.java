@@ -30,7 +30,7 @@ public class TaiSan {
 	private String dacdiem;
 	@Value("${value.trangthaiT},${value.trangthaiH},${value.trangthaiTL}")
 	@Column(name = "trangthai")
-	private String trangthai;
+	private Long trangthai;
 	@Column(name = "giatrithuc")
 	private String giatrithuc;
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "taisan", cascade = CascadeType.REMOVE)
@@ -48,7 +48,7 @@ public class TaiSan {
 		// TODO Auto-generated constructor stub
 	}
 
-	public TaiSan(long id, String tentaisan, String dacdiem, String trangthai, String giatrithuc,
+	public TaiSan(long id, String tentaisan, String dacdiem, Long trangthai, String giatrithuc,
 			Set<DieuChuyenTaiSan> listDieuchuyentaisan, DanhMuc danhmuc, NhaCungCap nhacungcap,
 			Set<BienDongTaiSan> listBiendongtaisan) {
 		this.id = id;
@@ -86,11 +86,11 @@ public class TaiSan {
 		this.dacdiem = dacdiem;
 	}
 
-	public String getTrangthai() {
+	public Long getTrangthai() {
 		return trangthai;
 	}
 
-	public void setTrangthai(String trangthai) {
+	public void setTrangthai(Long trangthai) {
 		this.trangthai = trangthai;
 	}
 

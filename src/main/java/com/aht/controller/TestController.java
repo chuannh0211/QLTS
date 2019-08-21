@@ -2,6 +2,8 @@ package com.aht.controller;
 
 import java.security.Principal;
 import java.util.Collection;
+import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -9,18 +11,22 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.aht.entities.Users;
+import com.aht.service.AssetReportService;
 import com.aht.serviceImpl.UserServiceImpl;
 
 @Controller
 public class TestController {
 	@Autowired
 	private UserServiceImpl uService;
+	@Autowired
+	private AssetReportService assetReportService;
+	@Autowired
+	public static AssetReportService assetReportServices;
 
 	@RequestMapping(value = { "/" }, method = RequestMethod.GET)
 	public String index(Model model, Principal principal) {
@@ -29,15 +35,19 @@ public class TestController {
 		Collection<? extends GrantedAuthority> role = auth.getAuthorities();
 		System.out.println(name + "," + role);
 		model.addAttribute("msgg", " " + principal.getName());
+		List<List<Map<Object, Object>>> canvasjsDataList = assetReportService.getCanvasjsChartData();
+		model.addAttribute("dataPointsList", canvasjsDataList);
+//		System.out.println("Tổng tài sản: " + assetReportService.sumTaisan());
+//		System.out.println("Tốt: " + assetReportService.countSttNew(0));
+//		System.out.println("Hỏng: " + assetReportService.countSttWrong(1));
+//		System.out.println("Thanh lý: " + assetReportService.countSttSale(2));
+
 		return "homePage";
 	}
 
 	@RequestMapping(value = { "/login" })
 	public String login(Model model, String error, String logout) {
-		if (error != null)
-			model.addAttribute("error", "Tài khoản hoặc mật khẩu không đúng.");
-		if (logout != null)
-			model.addAttribute("messagee", "Đăng xuất thành công.");
+		model.addAttribute("loginForm", new Users());
 		return "login";
 	}
 

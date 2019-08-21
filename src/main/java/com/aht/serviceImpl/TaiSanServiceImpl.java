@@ -73,5 +73,11 @@ public class TaiSanServiceImpl implements TaiSanService {
 		return repository.findAll(pageable);
 	}
 
+	@Override
+	public TaiSan sumTaiSan() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 }

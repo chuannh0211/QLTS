@@ -56,12 +56,6 @@ public class TaiSanController {
 		model.addAttribute("lsTs", pages.getContent());
 		model.addAttribute("lsDm", listDm);
 		model.addAttribute("lsNcc", listNcc);
-		status1 = env.getProperty("trangthaiT");
-		status2 = env.getProperty("trangthaiH");
-		status3 = env.getProperty("trangthaiTL");
-		model.addAttribute("status1", status1);
-		model.addAttribute("status2", status2);
-		model.addAttribute("status3", status3);
 		
 		model.addAttribute("number", pages.getNumber());
 		model.addAttribute("totalPages", pages.getTotalPages());
@@ -79,7 +73,7 @@ public class TaiSanController {
 
 	@RequestMapping(value = "/add-asset")
 	public String addAsset(@RequestParam("tentaisan") String tentaisan, @RequestParam("dacdiem") String dacdiem,
-			@RequestParam("trangthai") String trangthai, @RequestParam("giatrithuc") String giatrithuc,
+			@RequestParam("trangthai") Long trangthai, @RequestParam("giatrithuc") String giatrithuc,
 			@RequestParam("danhmuc") long dm, @RequestParam("nhacungcap") long ncc) {
 		TaiSan newTs = new TaiSan();
 		DanhMuc newDm = new DanhMuc();

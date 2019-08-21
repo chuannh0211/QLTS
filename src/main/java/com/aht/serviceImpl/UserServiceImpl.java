@@ -29,8 +29,8 @@ public class UserServiceImpl implements UsersService {
 	public Users createUser(Users user) {
 		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
 		user.setPasswordConfirm(bCryptPasswordEncoder.encode(user.getPasswordConfirm()));
-//		user.setRoles(new HashSet<Roles>(rRepository.findAll()));
-		user.setRoles(rRepository.findByName("USER"));
+		user.setRoles(new HashSet<Roles>(rRepository.findAll()));
+//		user.setRoles(rRepository.findByName("USER"));
 		return uRepository.save(user);
 
 	}

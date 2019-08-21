@@ -31,19 +31,26 @@
 						<td><c:out value="${count }"></c:out></td>
 						<td>${lsTs.tentaisan }</td>
 						<td>${lsTs.dacdiem }</td>
-						<td>${lsTs.trangthai }</td>
+						<td>
+							<c:choose>
+								<c:when test="${lsTs.trangthai == 0 }"><c:out value = "Tốt" /></c:when>
+								<c:when test="${lsTs.trangthai == 1 }"><c:out value = "Hỏng" /></c:when>
+								<c:when test="${lsTs.trangthai == 2 }"><c:out value = "Thanh lý" /></c:when>
+							</c:choose>
+						</td>
+
 						<td>${lsTs.giatrithuc }</td>
 						<td>${lsTs.getNameDm() }</td>
 						<td>${lsTs.getNameNcc() }</td>
 						<td></td>
 						<td><a class="btn btn-view btn-sm"
 							href="<c:url value='view-details/${lsTs.getId() }'/>">Xem</a> <%-- <a class="btn btn-primary btn-sm"
-							href="<c:url value='edit-ts/${lsTs.id}'/>">Sửa</a> --%> 
-							<a
+							href="<c:url value='edit-ts/${lsTs.id}'/>">Sửa</a> --%> <a
 							class="btn btn-primary btn-sm open-modal-editAsset"
 							id-tss="${lsTs.id }" href="javascript:void(0);">Sửa</a> &nbsp; <a
 							class="btn btn-danger btn-sm"
-							href="<c:url value='/asset/delete-asset/${lsTs.id}'/>">Xóa</a> &nbsp;</td>
+							href="<c:url value='/asset/delete-asset/${lsTs.id}'/>">Xóa</a>
+							&nbsp;</td>
 					</tr>
 					<c:set var="count" value="${count + 1}"></c:set>
 				</c:forEach>
@@ -85,26 +92,27 @@
 								class="form-control p-input" type="text"
 								placeholder="Điền đặc điểm" name="dacdiem" required="required">
 						</div>
-						<div class="form-group">
+						<!-- <div class="form-group">
 							<label><b>Trạng thái</b></label> <br /> <input type="radio"
 								name="trangthai" value="Tốt" checked="checked">Tốt <input
 								type="radio" name="trangthai" value="Hỏng">Hỏng <input
 								type="radio" name="trangthai" value="Thanh Lý">Thanh Lý
-						</div>
-						<%--   <div class="form-group">
-							<label><b>Trạng thái</b></label>
-							<select name="trangthai">
-								<option value="${status1}">Tốt</option>
-								<option value="${status2}">Hỏng</option>
-								<option value="${status3}">Thanh lý</option>
+						</div> -->
+						<div class="form-group">
+							<label> <b>Trạng thái</b></label> <select name="trangthai">
+
+								<option value="0"><c:out value="Tốt" /></option>
+								<option value="1"><c:out value="Hỏng" /></option>
+								<option value="2"><c:out value="Thanh lý" /></option>
+
 							</select>
-						</div>  --%>
+						</div>
 
 						<div>
 							<label><b>Giá trị thực:</b></label> <input
-								class="form-control p-input" type="text" pattern="^[0-9]+(\.[0-9]{1,2})?$"
-								title="Không được nhập chữ!!!" placeholder="Giá trị thực"
-								name="giatrithuc" required="required">
+								class="form-control p-input" type="text"
+								pattern="^[0-9]+(\.[0-9]{1,2})?$" title="Không được nhập chữ!!!"
+								placeholder="Giá trị thực" name="giatrithuc" required="required">
 						</div>
 						<div class="form-group">
 							<label><b>Danh mục</b></label> <select name="danhmuc">

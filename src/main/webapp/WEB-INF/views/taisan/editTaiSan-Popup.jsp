@@ -18,20 +18,20 @@
 				<label><b>Đặc điểm</b></label> <input type="text"
 					value="${ts.dacdiem }" class="form-control p-input" name="dacdiem" required>
 			</div>
-			<div class="form-group">
+			<%-- <div class="form-group">
 				<label><b>Trạng thái</b></label>
 				<form:radiobutton path="trangthai" value="Tốt" label="Tốt" />
 				<form:radiobutton path="trangthai" value="Hỏng" label="Hỏng" />
 				<form:radiobutton path="trangthai" value="Thanh lý" label="Thanh lý" />
-			</div>
-			<%-- 	<div class="form-group">
+			</div> --%>
+			 	<div class="form-group">
 					<label><b>Trạng thái</b></label>
 					<form:select path="trangthai" >
-        				<form:option value="${status1}" label="Tốt"/>
-						<form:option value="${status2}" label="Hỏng"/>
-						<form:option value="${status3}" label="Thanh lý"/>
+        				<form:option value="0" label="Tốt"/>
+						<form:option value="1" label="Hỏng"/>
+						<form:option value="2" label="Thanh lý"/>
         			</form:select>
-				</div>   --%>
+				</div>   
 
 			<div class="form-group">
 				<label><b>Danh mục</b></label> <select name="danhmuc">

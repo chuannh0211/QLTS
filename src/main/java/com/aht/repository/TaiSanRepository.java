@@ -12,9 +12,10 @@ import com.aht.entities.TaiSan;
 
 @Repository
 @Transactional
-public interface TaiSanRepository extends JpaRepository<TaiSan, Long>{
+public interface TaiSanRepository extends JpaRepository<TaiSan, Long> {
 	TaiSan findByTentaisan(String tentaisan);
-	
+
 	@Query("from TaiSan")
 	List<TaiSan> findAll();
+
 }
