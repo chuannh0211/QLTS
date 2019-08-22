@@ -22,7 +22,7 @@
 					<td>${ltsTs.tentaisan }</td>
 					<td>${ltsTs.dacdiem }</td>
 					<td>${ltsTs.trangthai }</td>
-					<td>${ltsTs.giatrithuc }</td>
+					<td>${ltsTs.giatrithuc } VNĐ</td>
 					<td></td>
 				</tr>
 			<c:set var="count" value="${count + 1}"></c:set>

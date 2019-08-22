@@ -18,8 +18,12 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.aht.entities.DanhMuc;
+import com.aht.entities.DieuChuyenTaiSan;
+import com.aht.entities.Nhom;
 import com.aht.entities.TaiSan;
 import com.aht.repository.DanhMucRepository;
+import com.aht.repository.DieuChuyenTaiSanRepository;
+import com.aht.repository.NhomRepository;
 import com.aht.service.DanhMucService;
 
 import org.apache.commons.csv.CSVFormat;
@@ -30,6 +34,12 @@ public class DanhMucServiceImpl implements DanhMucService {
 
 	@Autowired
 	private DanhMucRepository dmRepository;
+
+	@Autowired
+	private DieuChuyenTaiSanRepository chuyenTaiSanRepository;
+
+	@Autowired
+	private NhomRepository nhomRepository;
 
 	@Override
 	public DanhMuc createDanhMuc(DanhMuc dm) {
@@ -79,10 +89,21 @@ public class DanhMucServiceImpl implements DanhMucService {
 		Set<TaiSan> ltsTsById = dmById.getListTaiSan();
 		try (OutputStream csvFile = new FileOutputStream("D:\\\\convert/data.csv");
 				PrintWriter writer = new PrintWriter(new OutputStreamWriter(csvFile, "UTF-8"));
-				CSVPrinter csvPrinter = new CSVPrinter(writer, CSVFormat.DEFAULT.withHeader("STT", "Ten Tai San",
-						"Dac Diem", "Trang Thai", "Gia Tri Thuc"));) {
+				CSVPrinter csvPrinter = new CSVPrinter(writer,
+						CSVFormat.DEFAULT.withHeader("STT", "Ten Tai San", "Dac Diem", "Trang Thai", "Gia Tri Thuc",
+								"Nguoi Quan Ly", "Ngay Dieu Chuyen", "Ten Nhom", "PM"));) {
 
 			for (TaiSan ts : ltsTsById) {
+				DieuChuyenTaiSan dcts = chuyenTaiSanRepository.findChuyenTaiSanByTaisan(ts);
+				Optional<Nhom> nhom = null;
+				if(dcts !=null) {
+					 nhom = nhomRepository.findById(dcts.getNhom().getId());
+					System.out.println(dcts.getNguoiquanly());
+					System.out.println(dcts.getNgaydieuchuyen());
+					System.out.println(nhom.get().getName());
+					System.out.println( nhom.get().getPm());
+				}
+				
 				String tt = "";
 				if (ts.getTrangthai() == 0) {
 					tt = "Tot";
@@ -91,10 +112,17 @@ public class DanhMucServiceImpl implements DanhMucService {
 				} else if (ts.getTrangthai() == 2) {
 					tt = "Thanh Ly";
 				}
-				csvPrinter.printRecord("", ts.getTentaisan(), ts.getDacdiem(), tt, ts.getGiatrithuc());
+				System.out.println(ts.getTentaisan());
+				System.out.println(ts.getDacdiem());
+				System.out.println(tt);
+				System.out.println(ts.getGiatrithuc());
+				csvPrinter.printRecord("", ts.getTentaisan(), ts.getDacdiem(), tt, ts.getGiatrithuc()/*,
+						dcts.getNguoiquanly()+"", dcts.getNgaydieuchuyen()+"", nhom.get().getName()+"", nhom.get().getPm()+""*/
+				);
+
+				csvPrinter.flush();
 			}
 			;
-			csvPrinter.flush();
 			return true;
 		} catch (Exception e) {
 			return false;
