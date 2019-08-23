@@ -15,4 +15,7 @@ import com.aht.entities.DanhMuc;
 public interface DanhMucRepository extends PagingAndSortingRepository<DanhMuc, Long> {
 	@Query("from DanhMuc")
 	List<DanhMuc> dmList();
+
+//	@Query(" from danhmuc d where d.tendanhmuc =:tendanhmuc ")
+//	List<DanhMuc> findByProperty(String property, Object value);
 }

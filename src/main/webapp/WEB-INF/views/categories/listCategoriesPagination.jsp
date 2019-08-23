@@ -66,7 +66,7 @@
 					<div class="form-group">
 						<label for="name"><b>Tên danh mục</b></label> <input
 							class="form-control p-input" type="text"
-							placeholder="Tên danh mục" name="name" required>
+							placeholder="Tên danh mục" name="name">
 					</div>
 					<div>
 						<button type="submit" class="btn btn-add btn-sm">Thêm</button>

@@ -16,7 +16,7 @@ public interface DanhMucService {
 
 	public DanhMuc getDanhMucById(long id);
 
-	//public List<DanhMuc> getAllDanhMuc();
+	// public List<DanhMuc> getAllDanhMuc();
 
 	List<DanhMuc> dmList();
 
@@ -24,4 +24,5 @@ public interface DanhMucService {
 	
 	boolean writeFileCSV(int id);
 
+//	public List<DanhMuc> findDanhMuc(String property, Object value);
 }

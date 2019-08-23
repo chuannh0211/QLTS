@@ -56,8 +56,20 @@
 
 	}
 </script>
+<div class="card-body">
+	<div class="row">
+		<div class="col-12">
+			<div id="chartContainer" style="height: 370px; width: 100%;">
+			
+			</div>
+			22222222222222222
+		</div>
 
-<div id="chartContainer" style="height: 300; width: 100%;"></div>
+	</div>
+
+</div>
+
+
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 
 
