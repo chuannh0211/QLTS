@@ -1,6 +1,5 @@
 package com.aht.serviceImpl;
 
-import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 
@@ -10,7 +9,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.aht.entities.Roles;
 import com.aht.entities.Users;
 import com.aht.repository.RolesRepository;
 import com.aht.repository.UsersRepository;

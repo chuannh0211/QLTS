@@ -87,11 +87,10 @@ public class DanhMucServiceImpl implements DanhMucService {
 	public boolean writeFileCSV(int id) {
 		DanhMuc dmById = getDanhMucById(id);
 		Set<TaiSan> ltsTsById = dmById.getListTaiSan();
-		try (OutputStream csvFile = new FileOutputStream("D:\\\\convert/data.csv");
+		try (OutputStream csvFile = new FileOutputStream("D:\\\\fileCSV/data.csv");
 				PrintWriter writer = new PrintWriter(new OutputStreamWriter(csvFile, "UTF-8"));
 				CSVPrinter csvPrinter = new CSVPrinter(writer,
-						CSVFormat.DEFAULT.withHeader("STT", "Ten Tai San", "Dac Diem", "Trang Thai", "Gia Tri Thuc",
-								"Nguoi Quan Ly", "Ngay Dieu Chuyen", "Ten Nhom", "PM"));) {
+						CSVFormat.DEFAULT.withHeader("STT", "Ten Tai San", "Dac Diem", "Trang Thai", "Gia Tri Thuc"));) {
 
 			for (TaiSan ts : ltsTsById) {
 				DieuChuyenTaiSan dcts = chuyenTaiSanRepository.findChuyenTaiSanByTaisan(ts);
@@ -116,10 +115,8 @@ public class DanhMucServiceImpl implements DanhMucService {
 				System.out.println(ts.getDacdiem());
 				System.out.println(tt);
 				System.out.println(ts.getGiatrithuc());
-				csvPrinter.printRecord("", ts.getTentaisan(), ts.getDacdiem(), tt, ts.getGiatrithuc()/*,
-						dcts.getNguoiquanly()+"", dcts.getNgaydieuchuyen()+"", nhom.get().getName()+"", nhom.get().getPm()+""*/
+				csvPrinter.printRecord("", ts.getTentaisan(), ts.getDacdiem(), tt, ts.getGiatrithuc()
 				);
-
 				csvPrinter.flush();
 			}
 			;
