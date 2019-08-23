@@ -59,4 +59,10 @@ public class DanhMucServiceImpl implements DanhMucService {
 		return dmRepository.findAll(pageable);
 	}
 
+//	@Override
+//	public List<DanhMuc> findDanhMuc(String property, Object value) {
+//		// TODO Auto-generated method stub
+//		return dmRepository.findByProperty(property, value);
+//	}
+
 }

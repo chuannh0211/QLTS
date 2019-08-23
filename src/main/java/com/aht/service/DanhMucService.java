@@ -16,10 +16,11 @@ public interface DanhMucService {
 
 	public DanhMuc getDanhMucById(long id);
 
-	//public List<DanhMuc> getAllDanhMuc();
+	// public List<DanhMuc> getAllDanhMuc();
 
 	List<DanhMuc> dmList();
 
 	Page<DanhMuc> findAll(Pageable pageable);
 
+//	public List<DanhMuc> findDanhMuc(String property, Object value);
 }
