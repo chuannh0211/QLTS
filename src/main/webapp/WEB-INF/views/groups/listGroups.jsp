@@ -31,7 +31,7 @@
 						<td><a class="btn btn-view btn-sm opan-modal-viewDetails"
 							id-nhom="${ls.id }" href="javascript:void(0);">Xem</a> 
 							<a class="btn btn-primary btn-sm opan-modal-editGroup" id-nhom="${ls.id }" href="javascript:void(0);">Sửa</a> &nbsp; 
-							<a class="btn btn-danger btn-sm"  href="<c:url value='delete-group/${ls.id }'/>">Xóa</a> &nbsp;
+							<a class="btn btn-danger btn-sm"  onclick="return confirm('Chắc Chắn Muốn Xóa')" href="<c:url value='delete-group/${ls.id }'/>">Xóa</a> &nbsp;
 							</td>
 					</tr>
 					<c:set var="count" value="${count + 1}"></c:set>

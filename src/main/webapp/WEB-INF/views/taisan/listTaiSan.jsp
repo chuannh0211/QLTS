@@ -31,15 +31,19 @@
 						<td><c:out value="${count }"></c:out></td>
 						<td>${lsTs.tentaisan }</td>
 						<td>${lsTs.dacdiem }</td>
-						<td>
-							<c:choose>
-								<c:when test="${lsTs.trangthai == 0 }"><c:out value = "Tốt" /></c:when>
-								<c:when test="${lsTs.trangthai == 1 }"><c:out value = "Hỏng" /></c:when>
-								<c:when test="${lsTs.trangthai == 2 }"><c:out value = "Thanh lý" /></c:when>
-							</c:choose>
-						</td>
+						<td><c:choose>
+								<c:when test="${lsTs.trangthai == 0 }">
+									<c:out value="Tốt" />
+								</c:when>
+								<c:when test="${lsTs.trangthai == 1 }">
+									<c:out value="Hỏng" />
+								</c:when>
+								<c:when test="${lsTs.trangthai == 2 }">
+									<c:out value="Thanh lý" />
+								</c:when>
+							</c:choose></td>
 
-						<td>${lsTs.giatrithuc }</td>
+						<td>${lsTs.giatrithuc } VNĐ</td>
 						<td>${lsTs.getNameDm() }</td>
 						<td>${lsTs.getNameNcc() }</td>
 						<td></td>
@@ -47,9 +51,8 @@
 							href="<c:url value='view-details/${lsTs.getId() }'/>">Xem</a> <%-- <a class="btn btn-primary btn-sm"
 							href="<c:url value='edit-ts/${lsTs.id}'/>">Sửa</a> --%> <a
 							class="btn btn-primary btn-sm open-modal-editAsset"
-							id-tss="${lsTs.id }" href="javascript:void(0);">Sửa</a> &nbsp; <a
-							class="btn btn-danger btn-sm"
-							href="<c:url value='/asset/delete-asset/${lsTs.id}'/>">Xóa</a>
+							id-tss="${lsTs.id }" href="javascript:void(0);">Sửa</a> &nbsp; 
+							<a class="btn btn-danger btn-sm" onclick="return confirm('Chắc Chắn Muốn Xóa')" href="<c:url value='/asset/delete-asset/${lsTs.id}'/>">Xóa</a>
 							&nbsp;</td>
 					</tr>
 					<c:set var="count" value="${count + 1}"></c:set>

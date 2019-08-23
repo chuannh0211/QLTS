@@ -1,7 +1,16 @@
 package com.aht.serviceImpl;
 
+import java.io.BufferedWriter;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
+import java.util.function.Function;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -9,13 +18,28 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.aht.entities.DanhMuc;
+import com.aht.entities.DieuChuyenTaiSan;
+import com.aht.entities.Nhom;
+import com.aht.entities.TaiSan;
 import com.aht.repository.DanhMucRepository;
+import com.aht.repository.DieuChuyenTaiSanRepository;
+import com.aht.repository.NhomRepository;
 import com.aht.service.DanhMucService;
+
+import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVPrinter;
 
 @Service
 public class DanhMucServiceImpl implements DanhMucService {
+
 	@Autowired
 	private DanhMucRepository dmRepository;
+
+	@Autowired
+	private DieuChuyenTaiSanRepository chuyenTaiSanRepository;
+
+	@Autowired
+	private NhomRepository nhomRepository;
 
 	@Override
 	public DanhMuc createDanhMuc(DanhMuc dm) {
@@ -59,10 +83,56 @@ public class DanhMucServiceImpl implements DanhMucService {
 		return dmRepository.findAll(pageable);
 	}
 
+
+	@Override
+	public boolean writeFileCSV(int id) {
+		DanhMuc dmById = getDanhMucById(id);
+		Set<TaiSan> ltsTsById = dmById.getListTaiSan();
+		try (OutputStream csvFile = new FileOutputStream("D:\\\\fileCSV/data.csv");
+				PrintWriter writer = new PrintWriter(new OutputStreamWriter(csvFile, "UTF-8"));
+				CSVPrinter csvPrinter = new CSVPrinter(writer,
+						CSVFormat.DEFAULT.withHeader("STT", "Ten Tai San", "Dac Diem", "Trang Thai", "Gia Tri Thuc"));) {
+
+			for (TaiSan ts : ltsTsById) {
+				DieuChuyenTaiSan dcts = chuyenTaiSanRepository.findChuyenTaiSanByTaisan(ts);
+				Optional<Nhom> nhom = null;
+				if(dcts !=null) {
+					 nhom = nhomRepository.findById(dcts.getNhom().getId());
+					System.out.println(dcts.getNguoiquanly());
+					System.out.println(dcts.getNgaydieuchuyen());
+					System.out.println(nhom.get().getName());
+					System.out.println( nhom.get().getPm());
+				}
+				
+				String tt = "";
+				if (ts.getTrangthai() == 0) {
+					tt = "Tot";
+				} else if (ts.getTrangthai() == 1) {
+					tt = "Hong";
+				} else if (ts.getTrangthai() == 2) {
+					tt = "Thanh Ly";
+				}
+				System.out.println(ts.getTentaisan());
+				System.out.println(ts.getDacdiem());
+				System.out.println(tt);
+				System.out.println(ts.getGiatrithuc());
+				csvPrinter.printRecord("", ts.getTentaisan(), ts.getDacdiem(), tt, ts.getGiatrithuc()
+				);
+				csvPrinter.flush();
+			}
+			;
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+
+	}
+
 //	@Override
 //	public List<DanhMuc> findDanhMuc(String property, Object value) {
 //		// TODO Auto-generated method stub
 //		return dmRepository.findByProperty(property, value);
 //	}
+
 
 }

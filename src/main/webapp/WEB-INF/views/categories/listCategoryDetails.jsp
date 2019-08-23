@@ -5,7 +5,7 @@
 
 <div class="card">
 	<div class="card-body">
-		<button id="" class="btn btn-add btn-sm">Kết xuất</button>
+		<a  href="<c:url value='/category/view-category-details/ketxuat/${idDanhMuc}'/>" class="btn btn-success">Kết xuất</a>
 		<table class="table center-aligned-table">
 			<tr>
 				<th>STT</th>
@@ -22,7 +22,7 @@
 					<td>${ltsTs.tentaisan }</td>
 					<td>${ltsTs.dacdiem }</td>
 					<td>${ltsTs.trangthai }</td>
-					<td>${ltsTs.giatrithuc }</td>
+					<td>${ltsTs.giatrithuc } VNĐ</td>
 					<td></td>
 				</tr>
 			<c:set var="count" value="${count + 1}"></c:set>

@@ -84,12 +84,18 @@ public class CategoriesController {
 		dmService.deleteDanhMuc(id);
 		return "redirect:/category/listCategories";
 	}
-
+	
 	@RequestMapping(value = "/view-category-details/{id}")
 	public String viewCategories(@PathVariable("id") int id, Model model) {
 		DanhMuc dmById = dmService.getDanhMucById(id);
 		Set<TaiSan> ltsTsById = dmById.getListTaiSan();
 		model.addAttribute("ltsTsById", ltsTsById);
+		model.addAttribute("idDanhMuc", id);
 		return "listCategorieDetails";
+	}
+	@RequestMapping(value = "/view-category-details/ketxuat/{id}")
+	public String ketxuatCategories(@PathVariable("id") int id) {
+		dmService.writeFileCSV(id);
+		return "redirect:/category/listCategories";
 	}
 }

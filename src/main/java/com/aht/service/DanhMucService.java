@@ -21,6 +21,8 @@ public interface DanhMucService {
 	List<DanhMuc> dmList();
 
 	Page<DanhMuc> findAll(Pageable pageable);
+	
+	boolean writeFileCSV(int id);
 
 //	public List<DanhMuc> findDanhMuc(String property, Object value);
 }

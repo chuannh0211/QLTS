@@ -29,7 +29,7 @@
 								id_categpry="${listDm.id }" href="javascript:void(0);">Xem</a> <a
 								class="btn btn-primary btn-sm open-modal-editCategory"
 								id_categpry="${listDm.id }" href="javascript:void(0);">Sửa</a>
-								&nbsp; <a class="btn btn-danger btn-sm"
+								&nbsp; <a class="btn btn-danger btn-sm" onclick="return confirm('Chắc Chắn Muốn Xóa')"
 								href="<c:url value='/category/delete-category/${listDm.getId() }'/>">Xóa</a>
 								&nbsp;</td>
 						</tr>
